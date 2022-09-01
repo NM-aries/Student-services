@@ -34,7 +34,7 @@
                                                     <span class="small ">{{$newsItems->created_at->diffForHumans()}}</span>
                                                 </div>
                                                 <p class="lead fs-6">
-                                                    {!! Str::limit($newsItems->description, 150) !!}
+                                                    {!! Str::limit($newsItems->description, 120) !!}
                                                 </p>
                                                 <button class="btn btn-primary mb-2"> Read More</button>
                                             </div>
