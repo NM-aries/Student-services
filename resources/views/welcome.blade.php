@@ -69,7 +69,7 @@
                                 <div class="item"  style="width:100%">
                                     <a class="card p-0" id="news">
                                         <div class="card-header p-0 _thumbnail">
-                                            <div class="_thumb" style="background:url(upload/news/evsunista-awards-grand-fellowship-ascend-evsu-to-greater-heights-evsunistas-welcome-newly-designated-key-officials-gatsby-night-brings-out-glitz-and-glamour.1661923179.jpg)">
+                                            <div class="_thumb" style="background:url(upload/news/{{ $newsItems->coverimage }})">
                                             </div>
                                         </div>
                                         <div class="card-body p-0">
