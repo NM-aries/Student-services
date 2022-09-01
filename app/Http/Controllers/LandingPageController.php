@@ -15,7 +15,15 @@ class LandingPageController extends Controller
     {
         $banner = Banner::orderBy('created_at', 'desc')->take(5)->get();
         $other_news = News::where('status','1')->orderBy('created_at', 'desc')->take(10)->get();
-        return view('welcome', compact('other_news','banner'));
+        $other_announcements = Announcement::where('status','1')->orderBy('created_at', 'desc')->take(10)->get();
+        $other_services = Services::where('status','1')->orderBy('created_at', 'desc')->take(10)->get();
+        
+        return view('welcome', compact(
+            'other_news',
+            'other_announcements',
+            'other_services',
+            'banner'
+        ));
     }
 
     public function news()
