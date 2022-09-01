@@ -81,7 +81,7 @@ class LoginController extends Controller
             elseif(Auth::user()->status == 0 ){
                 Auth::logout();
                 return redirect('login')
-                ->with('error','Your account is not Activated!.....
+                ->with('error','Your account is not Activated! <br>
                 Please Contact the Administrator');
             }
             else

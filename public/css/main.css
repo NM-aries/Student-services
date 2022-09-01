@@ -22449,15 +22449,20 @@ textarea.form-control-lg {
 
 @media (max-width: 991.98px) {
     .navbar-collapse {
-        width: calc(100% - 30px);
         position: absolute;
         top: 0;
-        right: 15px;
         z-index: 1050;
-        overflow-y: auto;
-        height: calc(100vh - 30px) !important;
         opacity: 0;
+        height: auto !important;
+        width: 100% !important;
+        background: #f0bc74 !important;
+        right: 0;
+        left: 0;
+        border-radius: 0;
+        align-items: center;
+        /* transition: 0.5s; */
     }
+        
 
     .navbar-collapse .navbar-toggler {
         position: relative;
@@ -22494,18 +22499,17 @@ textarea.form-control-lg {
 
 @media (max-width: 991.98px) {
     .navbar-collapse.collapsing,
-.navbar-collapse.show {
-        padding: 1.5rem;
-        border-radius: 0.35rem;
-        background: #ffffff;
-        animation: show-navbar-collapse 0.2s ease forwards;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    .navbar-collapse.show {
+        /* animation: show-navbar-collapse 0s ease forwards; */
+        /* opacity:1; */
+        /* transition: 0.5s; */
     }
 }
 
 @media (max-width: 991.98px) {
-    .navbar-collapse.collapsing-out {
-        animation: hide-navbar-collapse 0.2s ease forwards;
+    .navbar-collapse.collapsing,
+    .navbar-collapse.intro{
+        animation: hide-navbar-collapse 0.9s ease forwards;
     }
 }
 
@@ -26514,8 +26518,8 @@ label {
 
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
-    color: #1F2937;
-    background-color: #f8f8f8;
+    color: #fff;
+    background-color: #1F2937;
     border-color: #1F2937;
 }
 

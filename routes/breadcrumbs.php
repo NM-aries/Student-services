@@ -97,18 +97,18 @@ Breadcrumbs::for('users', function ($trail) {
 });
 
 Breadcrumbs::for('user_create', function ($trail) {
-    $trail->parent('services');
-    $trail->push('Create User');
+    $trail->parent('users');
+    $trail->push('Register User');
 });
 
 Breadcrumbs::for('user_edit', function ($trail) {
-    $trail->parent('services');
+    $trail->parent('users');
     $trail->push('Edit User');
 });
 
-Breadcrumbs::for('user_show', function ($trail, $user) {
-    $trail->parent('services');
-    $trail->push( Str::limit($user->title, 40) );
+Breadcrumbs::for('user_show', function ($trail) {
+    $trail->parent('users');
+    $trail->push('Profile');
 });
 
 // Dashboard -> Activity Logs

@@ -16,85 +16,63 @@
 
 <div class="card border-0 shadow mb-4">
     <div class="card-body">
-        <form action="{{url('admin/announcement/update/'.$banner->id)}}" method="POST" role="form" enctype="multipart/form-data">
+        <form action="{{ url('admin/banner/update/'.$banner->id) }}" method="POST" role="form" enctype="multipart/form-data">
             @csrf
             @method('PUT')
-            <div class="row">
-                <div class="col-md-12 col-12">
-                    <div class="form-body">
-                        <div class="row">
-                            <input type="hidden" name="created_by" value="{{$banner->created_by}}">
-                            <input type="hidden" name="updated_by" value="{{ Auth::user()->name}}">
-                            <div class="col-12 mb-2">
-                                <div class="form-group">
-                                    <label for="title">Title</label>
-                                    <input type="text" id="title" class="form-control" name="title" value="{{$banner->title}}">
-                                </div>
-                            </div>
-                            <div class="col-12 mb-2">
-                                <div class="form-group">
-                                    <label for="slug">Slug</label>
-                                    <input type="text" id="slug" class="form-control" name="slug" value="{{$banner->slug}}">
-                                </div>
-                            </div>
-                            <div class="col-12 mb-4">
-                                <div class="form-group">
-                                    <label for="description">Description</label>
-                                    <textarea id="description" class="form-control" rows="8" name="description" >
-                                        {{$banner->description}}
-                                    </textarea>
-                                </div>
-                            </div>
+                <div class="row">
+                    @if($errors->any())
+                <div class="col-12">
+                    <div class=" bg-danger px-3 pt-3 pb-2 mb-3 text-white status fade show">
+                        <p><strong>Opps Something went wrong</strong></p>
+                        <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>
+                                {{$error}}
+                            </li>
+                            
+                        @endforeach
+                        </ul>
+                    </div>
+                </div>
+                @endif
+                    <div class="col-12 mb-2">
+                        <label for="formFile" class="form-label">
+                            Banner Image 
+                            {{-- <small class="text-warning"></small>   --}}
+                        </label>
+                        <div class="img_holder mb-2"></div>
+                        <input class="form-control" type="file" id="formFile" name="bannerimage" value="{{ $banner->coverimage }}">
+                    </div>
 
-                            <div class="col-12 mb-2">
-                                <label for="formFile" class="form-label">Cover Image</label>
-                                <div class="row mb-3">
-                                    <div class="col-md-5 ">
-                                        <label for="">
-                                            <small class="fs-6 text-danger">Current Cover</small>
-                                        </label>
-                                        <div>
-                                            <img class="cover_img" src="{{ asset('upload/announcement/'. $banner->coverimage) }}" alt="">    
-                                        </div>    
-                                    </div>
-                                    <div class="col-md-1 d-flex align-items-center p-0">
-                                         <div class="fs-2 w-100 text-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-arrow-right-square-fill" viewBox="0 0 16 16">
-                                                <path d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1z"/>
-                                              </svg>
-                                         </div>
-                                    </div>
-                                    <div class="col-md-5">
-                                        <label for="">
-                                            <small class="fs-6 text-danger">Replaced Cover</small>
-                                        </label>
-                                        <div class="">
-                                            <div class="img_holder"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <input class="form-control" type="file" id="formFile" name="coverimage" value="{{$banner->coverimage}}">
-                            </div>
-
-                            <div class="col-12 mb-2">
-                                <div class="form-group">
-                                    <label for="meta-keyword">Status</label>
-                                    <select name="status" class="select2 form-control">
-                                        <option value="1" {{ old('status') == $banner->status ? 'selected' : ''}}>Publish</option>
-                                        <option value="0" {{ old('status') == $banner->status ? 'selected' : ''}}>Draft</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="col-12 mt-4">
-                                <button type="submit" class="btn btn-block btn-success me-1 mb-1" id="submitBtn" >
-                                    <span class="loading-icon spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Loading...</span>
-                                    <span class="btn-txt">Update</span>
-                                </button>
-                                
-                            </div>
+                    <div class="col-12 mb-2">
+                        <div class="form-group">
+                            <label for="title">Title</label>
+                            <input type="text" id="title" class="form-control" name="title" value="{{ $banner->title }}">
+                            <input type="hidden" name="created_by" value="{{ $banner->created_by }}">
                         </div>
+                    </div>
+                    <div class="col-12 mb-2">
+                        <div class="form-group">
+                            <label for="link">
+                                Link 
+                                <small>(Optional)</small>
+                            </label>
+                            <input type="text" id="link" class="form-control" name="link" value="{{ $banner->link }}">
+                        </div>
+                    </div>
+                    <div class="col-12 mb-2">
+                        <div class="form-group" id="banner">
+                            <label for="description">Description</label>
+                            <textarea id="description" class="form-control" name="description" >
+                                {!! $banner->description !!}
+                            </textarea>
+                        </div>
+                    </div>
+                    <div class="col-12 mt-2">
+                        <button type="submit" class="btn btn-block btn-success me-1 mb-1" id="submitBtn" >
+                            <span class="loading-icon spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                            <span class="btn-txt">Update</span>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -119,12 +97,12 @@
         $('.select2').select2();
     });
 
-    $('input[type="file"][name="coverimage"]').val('');
-    $('input[type="file"][name="coverimage"]').on('change', function(){
+    $('input[type="file"][name="bannerimage"]').val('');
+    $('input[type="file"][name="bannerimage"]').on('change', function(){
         var img_path = $(this)[0].value;
         var img_holder = $('.img_holder');
         var extension = img_path.substring(img_path.lastIndexOf('.')+1).toLowerCase();
-        if(extension == 'jpeg' || extension == 'jpg' || extension == 'png' || extension == 'webp' ){
+        if(extension == 'jpeg' || extension == 'jpg' || extension == 'png' || extension == 'webp' || extension == 'gif' ){
             if(typeof(FileReader) != 'undefined'){
                 img_holder.empty();
                 var reader = new FileReader();

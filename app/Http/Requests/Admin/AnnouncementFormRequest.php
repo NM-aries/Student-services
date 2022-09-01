@@ -27,7 +27,7 @@ class AnnouncementFormRequest extends FormRequest
             'title' => [
                 'required',
                 'string',
-                'max:100',
+                'max:1000',
                 'min:5'
             ],
             'slug' => [

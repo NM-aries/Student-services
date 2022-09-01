@@ -17,6 +17,7 @@
             <table class="table table-centered table-hover mb-0 rounded" id="data">
                 <thead class="thead-light">
                     <tr>
+                        <th class="d-none">id</th>
                         <th class="border-0 rounded-start">Activity</th>
                         <th class="border-0">Description</th>
                         <th class="border-0">User</th>
@@ -26,12 +27,13 @@
                 <tbody class="border-0">
                     @foreach ($logs as $items)
                     <tr class="align-middle">
+                        <td class="d-none">{{  $items->id  }}</td>
                         <td style="width: 100px">
                             {!! $items->status !!}
                         </td>
-                        <td>{{ $items->action }}</td>
+                        <td>{!! Str::limit($items->action , 120) !!}</td>
                         <td>{{ $items->user }}</td>
-                        <td>{{ $items->created_at->format('M d, Y - h:i A') }}</td>
+                        <td>{{ $items->created_at->format('M d, Y - h:i A')}}</td>
                     </tr>
                     @endforeach
                 </tbody>
@@ -52,7 +54,7 @@
         $(document).ready(function () {
             $('#data').DataTable({
                 destroy: true,
-                "order": [[ 2, "asc" ]]
+                'order': [0, 'desc']
             });
         });
     </script>

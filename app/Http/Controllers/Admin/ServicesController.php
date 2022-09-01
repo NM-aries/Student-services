@@ -49,7 +49,7 @@ class ServicesController extends Controller
         $logs = new Logs();
         $logs->user = Auth::user()->name;
         $logs->status = '<span class="badge bg-success"> Created </span>: ';
-        $logs->action = 'services: '. $services->title;
+        $logs->action = '<a class="text-success">Services </a>: '. $services->title;
         $logs->save();
         
         session()->flash('message', 'Services Created Successfully');
@@ -81,8 +81,8 @@ class ServicesController extends Controller
 
         $logs = new Logs();
         $logs->user = Auth::user()->name;
-        $logs->status = '<span class="badge bg-info"> Updated </span>';
-        $logs->action = 'Services: '. $services->title;
+        $logs->status = '<span class="badge p-2 bg-info"> Updated </span>';
+        $logs->action = '<a class="text-info">Services </a>: '. $services->title;
         $logs->save();
 
         session()->flash('message', 'Services Updated Successfully');
@@ -114,7 +114,7 @@ class ServicesController extends Controller
         $logs = new Logs();
         $logs->user = Auth::user()->name;
         $logs->status = '<span class="badge bg-danger"> Removed </span>: ';
-        $logs->action = 'Services: '. $services->title;
+        $logs->action = '<a class="text-danger">Services </a>:'. $services->title;
         $logs->save();
 
         session()->flash('message', 'Service Successfully Deleted');

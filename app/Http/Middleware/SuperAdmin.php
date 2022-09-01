@@ -25,8 +25,7 @@ class SuperAdmin
             }
             else
             {
-                notify()->error("You don't have Admin Access", "Access Denied");
-                return redirect('admin/dashboard');
+                return redirect('admin/dashboard')->with("denied","You don't have Admin Access");
             }
         }else
         {

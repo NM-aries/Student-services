@@ -24,7 +24,7 @@
                 <li class="nav-item dropdown ms-lg-3">
                     <a class="nav-link dropdown-toggle pt-1 px-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <div class="media d-flex align-items-center">
-                            <img class="avatar rounded-circle" alt="Image placeholder" src="https://demo.themesberg.com/volt-pro/assets/img/team/profile-picture-3.jpg">
+                            <img class="avatar rounded-circle" alt="Image placeholder" src="{{ asset('images/user/'. Auth::user()->profile_img) }}">
                             <div class="media-body ms-2 text-dark align-items-center d-none d-lg-block">
                                 <span class="mb-0 font-small fw-bold text-gray-900">
                                     {{ Auth::user()->name }}
@@ -34,7 +34,7 @@
                     </a>
                     <div class="dropdown-menu rounded bg-primary p-2 dashboard-dropdown dropdown-menu-end mt-2">
                         
-                        <a class="dropdown-item rounded d-flex align-items-center" href="{{ url('admin/user/profile/'. auth::user()->id) }}">
+                        <a class="dropdown-item rounded d-flex align-items-center" href="{{ url('admin/users/view/'. auth::user()->id) }}">
                             <img src="{{ asset('images/icons/profile.png') }}" alt="" class="sidebar_icon"> 
                             Profile
                         </a>

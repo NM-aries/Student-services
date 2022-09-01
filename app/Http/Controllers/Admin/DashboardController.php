@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\News;
 use App\Models\User;
+use App\Models\Banner;
+use App\Models\Services;
+use App\Models\Announcement;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Announcement;
-use App\Models\News;
-use App\Models\Services;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class DashboardController extends Controller
@@ -18,6 +19,7 @@ class DashboardController extends Controller
         $announcement = Announcement::all()->count();
         $news = News::all()->count();
         $services = Services::all()->count();
+        $banner = Banner::orderBy('created_at', 'desc')->take(5)->get();
 
 
         return view('admin.index',compact(
@@ -25,6 +27,7 @@ class DashboardController extends Controller
             'announcement',
             'news',
             'services',
+            'banner'
         ));
     }
 

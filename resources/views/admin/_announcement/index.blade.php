@@ -41,7 +41,7 @@
                                 @if (!$items->updated_by)
                                     <span class="text-gray"> -- </span>
                                 @else
-                                    {{ $items->user->name }}
+                                    {{ $items->updated_by }}
                                 @endif
                                 
                             </td>
@@ -89,7 +89,6 @@
     </div>
 </div>
 
-@include('include/_alert')
 @endsection
 
 

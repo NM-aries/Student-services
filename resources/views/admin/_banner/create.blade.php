@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title' , 'Create Announcement')
+@section('title' , 'Create Banner')
 
 @section('styles')
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
@@ -15,22 +15,37 @@
 
 <div class="card border-0 shadow mb-4">
     <div class="card-body">
-        <form action="{{url('admin/banner/store')}}" method="POST" role="form" enctype="multipart/form-data">
+        <form action="{{ url('admin/banner/store') }}" method="POST" role="form" enctype="multipart/form-data">
             @csrf
                 <div class="row">
+                    @if($errors->any())
+                <div class="col-12">
+                    <div class=" bg-danger px-3 pt-3 pb-2 mb-3 text-white status fade show">
+                        <p><strong>Opps Something went wrong</strong></p>
+                        <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>
+                                {{$error}}
+                            </li>
+                            
+                        @endforeach
+                        </ul>
+                    </div>
+                </div>
+                @endif
                     <div class="col-12 mb-2">
                         <label for="formFile" class="form-label">
                             Banner Image <br>
-                            <small class="text-warning">* Upload only (1536x461 pixel) Resolution..</small>  
+                            <small class="text-warning"></small>  
                         </label>
                         <div class="img_holder mb-2"></div>
-                        <input class="form-control" type="file" id="formFile" name="bannerimage">
+                        <input class="form-control" type="file" id="formFile" name="bannerimage" value="{{ old('bannerimage') }}">
                     </div>
 
                     <div class="col-12 mb-2">
                         <div class="form-group">
                             <label for="title">Title</label>
-                            <input type="text" id="title" class="form-control" name="title">
+                            <input type="text" id="title" class="form-control" name="title" value="{{ old('title') }}">
                         </div>
                     </div>
                     <div class="col-12 mb-2">
@@ -39,13 +54,15 @@
                                 Link 
                                 <small>(Optional)</small>
                             </label>
-                            <input type="text" id="link" class="form-control" name="link">
+                            <input type="text" id="link" class="form-control" name="link" value="{{ old('link') }}">
                         </div>
                     </div>
                     <div class="col-12 mb-2">
                         <div class="form-group" id="banner">
                             <label for="description">Description</label>
-                            <textarea id="editor" class="form-control" name="description" ></textarea>
+                            <textarea id="editor" class="form-control" name="description" >
+                                {{ old('description') }}"
+                            </textarea>
                         </div>
                     </div>
                     <div class="col-12">

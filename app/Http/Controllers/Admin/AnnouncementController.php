@@ -52,11 +52,11 @@ class AnnouncementController extends Controller
 
         $logs = new Logs();
         $logs->user = Auth::user()->name;
-        $logs->status = '<span class="badge bg-success"> Created </span>: ';
-        $logs->action = 'Announcement: '. $announcement->title;
+        $logs->status = '<span class="badge p-2 bg-success"> Created </span> ';
+        $logs->action = '<a class="text-success">Announcement</a> : '. $announcement->title;
         $logs->save();
         
-        session()->flash('message', 'Announcement Created Successfully');
+        session()->flash('message', '<i>Announcement</i> Created Successfully');
         return redirect('admin/announcement');
     }
 
@@ -87,13 +87,13 @@ class AnnouncementController extends Controller
 
         
         $announcement->created_by = $request->input('created_by');
-        $announcement->updated_by = Auth::user()->id;
+        $announcement->updated_by = Auth::user()->name;
         $announcement->update();
 
         $logs = new Logs();
         $logs->user = Auth::user()->name;
-        $logs->status = '<span class="badge bg-info"> Updated </span>';
-        $logs->action = 'Announcement: '. $announcement->title;
+        $logs->status = '<span class="badge p-2 bg-info"> Updated </span>';
+        $logs->action = '<a class="text-info">Announcement</a> : '. $announcement->title;
         $logs->save();
 
         session()->flash('message', 'Announcement Updated Successfully');
@@ -114,8 +114,8 @@ class AnnouncementController extends Controller
 
         $logs = new Logs();
         $logs->user = Auth::user()->name;
-        $logs->status = '<span class="badge bg-danger"> Removed </span> ';
-        $logs->action = 'Announcement: '. $announcement->title;
+        $logs->status = '<span class="badge p-2 bg-danger"> Removed </span> ';
+        $logs->action = '<a class="text-danger">Announcement</a> : '. $announcement->title;
         $logs->save();
 
         session()->flash('message', 'Announcement Successfully Deleted');

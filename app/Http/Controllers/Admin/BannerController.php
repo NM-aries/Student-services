@@ -31,28 +31,23 @@ class BannerController extends Controller
 
     public function store(BannerFormRequest $request)
     {   
-        $data = $request->validated();
-
         $banner = new Banner();
-        $banner->title = $data['title'];
-        $banner->status = $data['status'];
-        $banner->slug = Str::slug($data['slug']);
-        $banner->description = $data['description'];
-
-        if($request->hasfile('coverimage')){
-            $file = $request->file('coverimage');
-            $filename = $data['slug'] . '.' . $file->getClientOriginalExtension();
-            $file->move('upload/banner/', $filename);
-            $banner->coverimage = $filename;
-        }
+        $banner->title = $request->title;
+        $banner->description = $request->description;
+        $banner->link = $request->link;
         $banner->created_by = Auth::user()->id;
+        if($request->hasfile('bannerimage')){
+            $file = $request->file('bannerimage');
+            $filename = $request->title . '.' . $file->getClientOriginalExtension();
+            $file->move('upload/banner/', $filename);
+            $banner->image = $filename;
+        }
         $banner->save();
-        
 
         $logs = new Logs();
         $logs->user = Auth::user()->name;
-        $logs->status = '<span class="badge bg-success"> Created </span> ';
-        $logs->action = 'Banner : '. $banner->title;
+        $logs->status = '<span class="badge p-2 bg-success"> Created </span> ';
+        $logs->action = '<a class="text-success">Banner</a> : '. $banner->title;
         $logs->save();
 
         session()->flash('message', 'Banner Created Successfully');
@@ -63,6 +58,35 @@ class BannerController extends Controller
     {
         $banner = Banner::find($banner_id);
         return view ('admin._banner.edit', compact('banner'));
+    }
+
+    public function update(BannerFormRequest $request, $banner_id)
+    {   
+        $data = $request->validated();
+        $banner = Banner::find($banner_id);
+
+        $banner->title = $data['title'];
+        $banner->description = $data['description'];
+        $banner->link = $data['link'];
+        $banner->created_by = $request->created_by;
+        $banner->updated_by = Auth::user()->name;
+    
+        if($request->hasfile('bannerimage')){
+            $file = $request->file('bannerimage');
+            $filename = $request->title . '.' . $file->getClientOriginalExtension();
+            $file->move('upload/banner/', $filename);
+            $banner->image = $filename;
+        }
+        $banner->update();
+
+        $logs = new Logs();
+        $logs->user = Auth::user()->name;
+        $logs->status = '<span class="badge p-2 bg-info"> Updated </span> ';
+        $logs->action = '<a class="text-info">Banner</a> : '. $banner->title;
+        $logs->save();
+
+        session()->flash('message', 'Banner Updated Successfully');
+        return redirect('admin/banner');
     }
 
 
@@ -79,8 +103,8 @@ class BannerController extends Controller
 
         $logs = new Logs();
         $logs->user = Auth::user()->name;
-        $logs->status = '<span class="badge bg-danger"> Removed </span>';
-        $logs->action = 'Banner : '. $banner->title;
+        $logs->status = '<span class="badge p-2 bg-danger"> Removed </span>';
+        $logs->action = '<a class="text-danger">Banner</a> : '. $banner->title;
         $logs->save();
 
         session()->flash('message', 'Banner Successfully Deleted');

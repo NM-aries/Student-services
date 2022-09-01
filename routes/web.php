@@ -97,11 +97,12 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin', 'cors'])->group(function 
     // USERS
     Route::prefix('users')->group(function () {
         Route::get('/',     [App\Http\Controllers\Admin\UserController::class, 'index']);
-        Route::get('add_user',     [App\Http\Controllers\Admin\UserController::class, 'create']);
-        Route::post('add_user',     [App\Http\Controllers\Admin\UserController::class, 'store']);
-        Route::get('edit_user/{user_id}',     [App\Http\Controllers\Admin\UserController::class, 'edit']);
-        Route::put('update_user/{user_id}',     [App\Http\Controllers\Admin\UserController::class, 'update']);
-
-        Route::get('profile/{user_id}',     [App\Http\Controllers\Admin\UserController::class, 'show']);
+        Route::get('add',     [App\Http\Controllers\Admin\UserController::class, 'create']);
+        Route::post('add',     [App\Http\Controllers\Admin\UserController::class, 'store']);
+        Route::get('edit/{user_id}',     [App\Http\Controllers\Admin\UserController::class, 'edit']);
+        Route::put('update/{user_id}',     [App\Http\Controllers\Admin\UserController::class, 'update']);
+        Route::get('view/{user_id}',     [App\Http\Controllers\Admin\UserController::class, 'show']);
+        Route::get('remove/{user_id}',     [App\Http\Controllers\Admin\UserController::class, 'destroy']);
+    
     });
 });

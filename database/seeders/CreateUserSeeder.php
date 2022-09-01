@@ -2,8 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
 use App\Models\User;
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class CreateUserSeeder extends Seeder
 {
@@ -14,7 +15,9 @@ class CreateUserSeeder extends Seeder
      */
     public function run()
     {
-        User::truncate();
+        // User::truncate();
+        DB::table('users')->delete();
+        
 
         $users =  [
             [

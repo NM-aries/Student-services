@@ -11,7 +11,7 @@
 @endsection
 
 @section('create_button')
-    <a href="{{ url('admin/user/create') }}" class="btn btn-primary d-inline-flex align-items-center">
+    <a href="{{ url('admin/users/add') }}" class="btn btn-primary d-inline-flex align-items-center">
         Register User
     </a>
 @endsection
@@ -27,7 +27,7 @@
                         <th class="border-0">Fullname</th>
                         <th class="border-0">Username</th>
                         <th class="border-0">Email</th>
-                        <th class="border-0">Contact Number</th>
+                        <th class="border-0">Role</th>
                         <th class="border-0">Status</th>
                         <th class="border-0 rounded-end">Action</th>
                     </tr>
@@ -36,13 +36,20 @@
                     @foreach ($users as $items)
                     <tr class="align-middle">
                         
-                        <td clas="text-center" style="width: 80px">
-                            <img class="avatar avatar-md rounded" src="{{ asset('images/user/'.$items->profile_img) }}" style="height: 50px; width:50px;">
+                        <td clas="" style="width: 80px">
+                            <img class="avatar avatar-md rounded" src="{{ asset('images/user/'.$items->profile_img) }}" style="height: 40px; width:40px;">
                         </td>
                         <td>{{ $items->name }}</td>
                         <td>{{ $items->username }}</td>
                         <td>{{ $items->email }}</td>
-                        <td>{{ $items->contact }}</td>
+                        <td style="width: 100px">
+                            @if ($items->is_admin == 1)
+                                <span class="badge p-2 bg-primary"> Administrator</span>    
+                            @else
+                                <span class="badge p-2 bg-secondary"> Staff</span> 
+                            @endif
+
+                        </td>
 
                         <td style="width: 100px">
                             @if($items->status == 1)
@@ -64,21 +71,21 @@
                                 <a  class="dropdown-item align-items-center" 
                                     href="{{ url('admin/users/view/'.$items->id) }}">
                                     <img src="{{ asset('images/icons/view.webp') }}" alt="" class="action_icon"> 
-                                    View Post
+                                    View Profile
                                 </a>
                                 @if (Auth::user()->is_admin == '1')
                                     <a  class="dropdown-item align-items-center" 
                                         href="{{ url('admin/users/edit/'.$items->id) }}">
                                         <img src="{{ asset('images/icons/edit.webp') }}" alt="" class="action_icon"> 
-                                        Edit Post
+                                        Edit User
                                     </a>
-
-                                    <a  class="dropdown-item align-items-center" 
-                                        href="{{ url('admin/users/remove/'.$items->id) }}">
-                                        <img src="{{ asset('images/icons/trash.webp') }}" alt="" class="action_icon"> 
-                                        Remove
-                                    </a>
-                                
+                                    @if (Auth::user()->id != $items->id)
+                                        <a  class="dropdown-item align-items-center" 
+                                            href="{{ url('admin/users/remove/'.$items->id) }}">
+                                            <img src="{{ asset('images/icons/trash.webp') }}" alt="" class="action_icon"> 
+                                            Remove
+                                        </a>
+                                    @endif
                                 @endif
                             </div>
                             

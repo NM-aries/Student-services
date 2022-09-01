@@ -27,7 +27,7 @@
                         <th class="border-0 ">Title</th>
                         <th class="border-0">Created By</th>
                         <th class="border-0">Created At</th>
-                        <th class="border-0">Status</th>
+                        <th class="border-0">Updated by</th>
                         <th class="border-0 rounded-end">Action</th>
                     </tr>
                 </thead>
@@ -44,13 +44,7 @@
                             <td>{{ Str::limit($items->title, 40) }}</td>
                             <td>{{ $items->user->name ?? 'None'}}</td>
                             <td>{{ $items->created_at->format('M d, Y') }}</td>
-                            <td style="width: 80px">
-                                @if($items->status == 1)
-                                    <span class="badge bg-success p-2">Published</span>
-                                @else
-                                    <span class="badge bg-danger p-2">Draft</span>
-                                @endif
-                            </td>
+                            <td>{{ $items->updated_by ?? '--'}}</td>
 
                             <td>
                                 <button class="btn btn-link dropdown-toggle m-0 p-0" data-bs-toggle="dropdown"  aria-expanded="false">

@@ -26,7 +26,6 @@ class AdminMiddleware
             }
             else
             {
-
                 notify()->error('status', 'Access Denied');
                 return redirect('/');
             }

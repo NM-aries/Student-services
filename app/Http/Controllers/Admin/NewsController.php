@@ -50,8 +50,8 @@ class NewsController extends Controller
 
         $logs = new Logs();
         $logs->user = Auth::user()->name;
-        $logs->status = '<span class="badge bg-success"> Created </span> ';
-        $logs->action = 'News : '. $news->title;
+        $logs->status = '<span class="badge p-2 bg-success"> Created </span> ';
+        $logs->action = '<a class="text-success"> News </a> :'. $news->title;
         $logs->save();
         
         session()->flash('message', 'News Created Successfully');
@@ -88,8 +88,8 @@ class NewsController extends Controller
 
         $logs = new Logs();
         $logs->user = Auth::user()->name;
-        $logs->status = '<span class="badge bg-info"> Updated </span> ';
-        $logs->action = 'News : '. $news->title;
+        $logs->status = '<span class="badge p-2 bg-info"> Updated </span> ';
+        $logs->action = '<a class="text-info"> News </a> : '. $news->title;
         $logs->save();
 
         session()->flash('message', 'News Updated Successfully');
@@ -116,11 +116,10 @@ class NewsController extends Controller
         }        
         $logs = new Logs();
         $logs->user = Auth::user()->name;
-        $logs->status = '<span class="badge bg-danger"> Removed </span> ';
-        $logs->action = 'News : '. $news->title;
+        $logs->status = '<span class="badge p-2 bg-danger"> Removed </span> ';
+        $logs->action = '<a class="text-danger"> News </a> : '. $news->title;
         $logs->save();
-
-
+        
         session()->flash('message', 'News Deleted Successfully');
         return redirect('admin/news');
     }

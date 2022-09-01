@@ -27,20 +27,17 @@ class BannerFormRequest extends FormRequest
             'title' => [
                 'required',
                 'string',
-                'max:100',
+                'max:1000',
                 'min:5'
-            ],
-            'slug' => [
-                'required',
             ],
             'description' => [
                 'required'
             ],
-            'status' => [
-                'required'
+            'link' => [
             ],
-            'image' => [
-                'mimes:jpeg,jpg,png,webp'
+            'bannerimage' => [
+                'required',
+                'mimes:jpeg,jpg,png,webp,gif'
             ],
             
         ];

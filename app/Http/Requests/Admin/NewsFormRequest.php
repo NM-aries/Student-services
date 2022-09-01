@@ -27,7 +27,7 @@ class NewsFormRequest extends FormRequest
             'title' => [
                 'required',
                 'string',
-                'max:100'
+                'max:1000'
             ],
             'slug' => [
                 'required',

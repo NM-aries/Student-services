@@ -13,6 +13,7 @@ class CreateAnnouncementTable extends Migration
      */
     public function up()
     {
+        Schema::enableForeignKeyConstraints();
         Schema::create('announcement', function (Blueprint $table) {
             $table->id();
             $table->string('title');
@@ -20,7 +21,9 @@ class CreateAnnouncementTable extends Migration
             $table->mediumText('description');
             $table->text('coverimage')->nullable();
             $table->boolean('status');
-            $table->string('created_by');
+            $table->unsignedBigInteger('created_by');
+ 
+            $table->foreign('created_by')->references('id')->on('users')->onDelete('cascade');
             $table->string('updated_by')->nullable();
             $table->timestamps();
             // $table->string('meta_title');

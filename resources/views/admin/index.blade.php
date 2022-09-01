@@ -9,33 +9,51 @@
 
 @section('content')
 <div class="row">
-    <div class="col-md-8 mb-4">
-        <div class="card">
-            <div class="card-body">
-                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-indicators">
-                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                    </div>
-                    <div class="carousel-inner">
-                      <div class="carousel-item active">
-                        <img src="https://wallpaperaccess.com/full/224784.jpg" class="d-block w-100" alt="...">
-                      </div>
-                      <div class="carousel-item">
-                        <img src="https://wallpaperaccess.com/full/1645707.jpg" class="d-block w-100" alt="...">
-                      </div>
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                      <span class="visually-hidden">Previous</span>
+    @if (session('denied'))
+        <div class="col-12">
+            <div class="alert alert-danger alert-dismissible fade show" role="alert" id="alert">
+                <span class="fas fa-bullhorn me-1"></span>
+                <strong>Sorry</strong> {!! session('denied') !!}
+                <button type="button" class="btn-close btn-sm" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+        </div>
+    @endif
+    
+    <div class="col-md-8 mb-4"> 
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+            <div class="carousel-indicators">
+                @foreach ($banner as $indicator )
+                    <button type="button" data-bs-target="#carouselExampleIndicators" aria-current="true" aria-label="Slide 1"
+                        data-bs-slide-to="{{ $loop->index }}" 
+                        @if($loop->first) class="text-danger active" @endif >
                     </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                      <span class="visually-hidden">Next</span>
-                    </button>
-                  </div>
+                @endforeach
             </div>
+            <div class="carousel-inner">
+                @foreach ( $banner as $banners )
+                    <div @if($loop->first) class="carousel-item active" @endif class="carousel-item" >
+                        <a @if($banners->link)
+                                href="{{ $banners->link }}" target="_blank" 
+                            @else 
+                                href="#" 
+                            @endif>
+                            <div class="img">
+                                <img class="d-block img-fluid" src="{{ asset('upload/banner/'. $banners->image) }}" alt="{{ $banners->description }}">
+                            </div>
+                        </a>
+                    </div>
+                @endforeach
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+                    <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
+                </svg>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                    <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+                  </svg>
+            </button>
         </div>
     </div>
 
@@ -141,7 +159,7 @@
                                 </h2>
                             </div>
                             <div class="col text-end">
-                                <span class="fs-4 fw-bolder text-dark">0</span>
+                                <span class="fs-4 fw-bolder text-dark">{{ $services }}</span>
                             </div>
                         </div>    
                     </div>
