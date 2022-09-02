@@ -38,14 +38,17 @@
     {{-- <script src="owlcarousel/owl.carousel.min.js"></script> --}}
     <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('js/custom.js') }}"></script>
-    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+
+    @yield('scripts')
+    
     <script>
-    window.OneSignal = window.OneSignal || [];
-    OneSignal.push(function() {
-        OneSignal.init({
-        appId: "763dfffd-dbf8-439f-a0ff-ded186903132",
-        });
-    });
+        function refreshTime() {
+            var datetime = new Date().toDateString();
+            var time = new Date().toLocaleTimeString();
+            document.getElementById("date").textContent = datetime
+            document.getElementById("time").textContent = time ;
+        } setInterval(refreshTime, 1000);
+        
     </script>
 </body>
 </html>

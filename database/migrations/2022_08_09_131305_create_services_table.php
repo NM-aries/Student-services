@@ -18,9 +18,11 @@ class CreateServicesTable extends Migration
             $table->string('title');
             $table->string('slug');
             $table->mediumText('description')->nullable();
-            $table->string('created_by')->nullable();
+            $table->unsignedBigInteger('created_by');
+            $table->foreign('created_by')->references('id')->on('users')->onDelete('cascade');
             $table->text('file')->nullable();
             $table->boolean('status');
+            $table->integer('visit_count');
             $table->timestamps();
         });
     }

@@ -22,9 +22,9 @@ class CreateAnnouncementTable extends Migration
             $table->text('coverimage')->nullable();
             $table->boolean('status');
             $table->unsignedBigInteger('created_by');
- 
             $table->foreign('created_by')->references('id')->on('users')->onDelete('cascade');
             $table->string('updated_by')->nullable();
+            $table->integer('visit_count');
             $table->timestamps();
             // $table->string('meta_title');
             // $table->text('meta_description');

@@ -21,6 +21,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/', [App\Http\Controllers\LandingPageController::class, 'index']);
 Route::get('/university_news', [App\Http\Controllers\LandingPageController::class, 'news']);
 Route::get('/university_news/{slug}', [\App\Http\Controllers\LandingPageController::class, 'show_news']);
+Route::put('/news_ViewCount/{id}', [\App\Http\Controllers\LandingPageController::class, 'nVisitCount']);
+
 
 Route::get('/university_announcements', [App\Http\Controllers\LandingPageController::class, 'announcements']);
 Route::get('/university_announcements/{slug}', [\App\Http\Controllers\LandingPageController::class, 'show_announcement']);

@@ -15,11 +15,11 @@
 
 <div class="container mb-5 mt-4" >
     <div class="row new_content ">
-        <div class="col-lg-8 col-md-12 col-12 order-1 ">
+        <div class="col-12 order-1 ">
             @if ($allNews->count())
                 @foreach ($allNews as $listNews )
                     <div class="card mb-3 news">
-                        <div class="row ">
+                        <div class="row">
                             <div class="col-md-4 ">
                                 <div class="thumb m-auto" 
                                 @if($listNews->coverimage) 
@@ -40,7 +40,21 @@
                                         <a class="btn mt-2 btn-outline-danger btn-sm" href="{{ url('university_news/'.$listNews->slug) }}"> 
                                             Continue Reading  
                                         </a>
-                                        <p class="card-text"><small class="text-muted">Posted on {{$listNews->created_at->format('M d, Y')}}</small></p>
+                                        <p class="card-text">
+                                            <small class="text-muted">
+                                                <svg class="icon icon-xs text-gray-400 me-1" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                                                    <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
+                                                    <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
+                                                </svg>
+                                                <span>Views {{$listNews->visit_count}}</span>
+                                            </small><br>
+                                            <small class="text-muted ">
+                                                <svg class="icon icon-xs text-gray-400 me-1 mt-0" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar" viewBox="0 0 16 16">
+                                                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+                                                </svg>
+                                                <span>Posted on {{$listNews->created_at->format('M d, Y')}}</span>
+                                            </small>
+                                        </p>
                                 
                                     </div>
                                 </div>
@@ -67,10 +81,7 @@
                 </div>
             @endif
        </div>
-
-        <div class="col-lg-4 col-md-12 col-12 order-md-first order-lg-last " >
-            @include('include/_search')
-        </div>
     </div>
 </div>
+
 @endsection

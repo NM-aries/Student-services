@@ -30,10 +30,10 @@
             <div class="container">
                 <ul class="navbar-nav ">
                     <li class="nav-item">
-                        <a href="#" class="nav-link active">Home</a>
+                        <a href="{{ url('/') }}" class="nav-link active">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link ">News</a>
+                        <a href="{{ url('university_news') }}" class="nav-link ">News</a>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link">Annoucements</a>
@@ -55,12 +55,4 @@
     
 
 </header>
-<script>
-    function refreshTime() {
-        var datetime = new Date().toDateString();
-        var time = new Date().toLocaleTimeString();
-        document.getElementById("date").textContent = datetime
-        document.getElementById("time").textContent = time ;
-    } setInterval(refreshTime, 1000);
-    
-</script>
+

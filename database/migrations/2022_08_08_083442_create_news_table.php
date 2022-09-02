@@ -20,8 +20,10 @@ class CreateNewsTable extends Migration
             $table->mediumText('description');
             $table->text('coverimage')->nullable();
             $table->boolean('status');
-            $table->string('created_by');
+            $table->unsignedBigInteger('created_by');
+            $table->foreign('created_by')->references('id')->on('users')->onDelete('cascade');
             $table->string('updated_by')->nullable();
+            $table->integer('visit_count');
             $table->timestamps();
         });//
     }

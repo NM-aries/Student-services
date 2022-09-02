@@ -14,7 +14,7 @@ class LandingPageController extends Controller
     public function index()
     {
         $banner = Banner::orderBy('created_at', 'desc')->take(5)->get();
-        $other_news = News::where('status','1')->orderBy('created_at', 'desc')->take(10)->get();
+        $other_news = News::where('status',1)->orderBy('created_at', 'desc')->take(10)->get();
         $other_announcements = Announcement::where('status','1')->orderBy('created_at', 'desc')->take(10)->get();
         $other_services = Services::where('status','1')->orderBy('created_at', 'desc')->take(10)->get();
         
@@ -28,7 +28,7 @@ class LandingPageController extends Controller
 
     public function news()
     {
-        $allNews = News::orderBy('created_at','desc')->get();
+        $allNews = News::where('status', 1)->orderBy('created_at','desc')->get();
         return view('news', compact('allNews'));
     }
 
@@ -37,10 +37,20 @@ class LandingPageController extends Controller
         $news_details = News::where('slug', $slug)->firstOrFail();
         $next = News::where('id', '<', $news_details->id)->max('id');
         $prev = News::where('id', '>', $news_details->id)->min('id');
-        return view('pages.news_view',)
+        return view('pages._news-show',)
             ->with('news_details',$news_details)
             ->with('next' , News::find($next))
             ->with('prev', News::find($prev));
+    }
+
+
+    public function nVisitCount(Request $request, $id)
+    {
+        $news = News::find($id);
+        $news->visit_count = $request->input('visit_count');
+        $news->update();
+
+        return redirect('university_news/'.$news->slug);
     }
 
     public function announcements()

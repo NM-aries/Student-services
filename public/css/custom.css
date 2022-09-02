@@ -204,7 +204,7 @@ img._icon{
     max-height: 200px;
     overflow: hidden;
 }
-._thumb{
+._thumb_home{
     height: 100%;
     width: 100%;
     background-size: cover !important;
@@ -212,7 +212,24 @@ img._icon{
     transition: all .3s ease-in-out !important;
 }
 
-#news:hover ._thumb{
+.thumb {
+    height: 150px;
+    border-radius: 5px;
+    width: 90%;
+    background-repeat: no-repeat !important;
+    background-size: 120% !important;
+    background-position: center !important;
+    -webkit-transition: all 0.3s ease-in-out !important;
+    transition: all 0.3s ease !important;
+    margin-top: 7% !important;
+}
+
+.news:hover .thumb {
+    -webkit-transition: all 0.3s ease-in-out !important;
+    background-size: 125% !important;
+}
+
+#news:hover ._thumb_home{
     transform: scale(1.1);
     transition: all .3s ease-in-out !important;
 }
