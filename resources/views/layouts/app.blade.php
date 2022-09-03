@@ -46,8 +46,9 @@
     <script >
       window.fbAsyncInit = function() {
         FB.init({
-          xfbml            : false,
-          version          : 'v14.0'
+          status     : true,
+          xfbml      : true,
+          version    : 'v14.0'
         });
       };
 
