@@ -22,42 +22,28 @@
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
 
     <!-- Messenger Chat Plugin Code -->
+    
+   
+
+
+
+</head>
+<body class="bg-gray-200">
+
     <div id="fb-root"></div>
 
     <!-- Your Chat Plugin code -->
     <div id="fb-customer-chat" class="fb-customerchat">
     </div>
-
+    
     <script>
-        var fbCustomerChat = document.getElementById('fb-customer-chat');
-        fbCustomerChat.setAttribute('page_id', '102229915181852')
-        document.body.appendChild(fbCustomerChat);
-
-        window.fbAsyncInit = function() {
-            FB.init({
-              appId            : 'xxx',
-              autoLogAppEvents : true,
-              xfbml            : true,
-              version          : 'v12.0'
-            });
-        };
-
-        (function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s); js.id = id;
-            js.src = "https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-    </script>
-    {{-- <script defer>
       var chatbox = document.getElementById('fb-customer-chat');
       chatbox.setAttribute("page_id", "102229915181852");
       chatbox.setAttribute("attribution", "biz_inbox");
     </script>
 
     <!-- Your SDK code -->
-    <script defer>
+    <script >
       window.fbAsyncInit = function() {
         FB.init({
           xfbml            : true,
@@ -73,12 +59,7 @@
         fjs.parentNode.insertBefore(js, fjs);
       }(document, 'script', 'facebook-jssdk'));
     </script>
-    --}}
 
-
-
-</head>
-<body class="bg-gray-200">
     @include('include/_navbar')
 
     <div id="app" class="pb-0">
@@ -89,6 +70,7 @@
 
     
     @include('include/_footer')
+    
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
