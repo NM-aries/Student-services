@@ -38,6 +38,7 @@ class NewsController extends Controller
         $news->status = $data['status'];
         $news->slug = Str::slug($data['slug']);
         $news->description = $data['description'];
+        $news->visit_count = 0;
 
         if($request->hasfile('coverimage')){
             $file = $request->file('coverimage');

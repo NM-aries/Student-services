@@ -40,6 +40,7 @@ class AnnouncementController extends Controller
         $announcement->status = $data['status'];
         $announcement->slug = Str::slug($data['slug']);
         $announcement->description = $data['description'];
+        $announcement->visit_count = 0;
 
         if($request->hasfile('coverimage')){
             $file = $request->file('coverimage');
