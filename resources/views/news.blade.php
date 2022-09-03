@@ -4,11 +4,10 @@
 
 @section('content')
 
-
-<div class="container-fluid bg-light shadow" id="title_container">
+<div class="container-fluid bg-gray-600 shadow" id="title_container">
     <div class="container">
-        <div class="header py-4">
-            <h2 class="text-danger">News Archives </h2>
+        <div class="header py-3">
+            <h2 class="text-white">NEWS</h2>
         </div>
    </div>
 </div>
@@ -55,13 +54,14 @@
                                                 <span>Posted on {{$listNews->created_at->format('M d, Y')}}</span>
                                             </small>
                                         </p>
-                                
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 @endforeach
+
+                {{ $allNews->links() }}
             @else
                 <div class="bg-danger card-body text-white mb-5 rounded-md">
                     <div class="row">

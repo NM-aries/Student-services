@@ -1,67 +1,85 @@
 
 @extends('layouts.app')
 
-@section('title', 'News| {{ $news_details->title }}')
+@section('title')
+    {{$news_details->title}}
+@endsection
+
 
 @section('content')
 
-<div class="container-fluid bg-light shadow" id="title_container">
-    <div class="container">
-        <div class="header py-4 ">
-            <h3>{{$news_details->title}}</h3>
+<div class="container-fluid text-center bg-gray-600 shadow " id="title_container">
+    <div class="container" >
+        <div class="header py-3">
+            <h3 class="text-white text-uppercase">{{$news_details->title}}</h3>
         </div>
    </div>
-
-<div class="container mb-5 mt-5">
-    <div class="row new_content ">
-        <form action="{{ url('news_ViewCount/'.$news_details->id) }}" method="POST" id="form">
-            @csrf 
-            @method('PUT')
-            <input type="hidden" value="{{ $news_details->visit_count }}" name="visit_count" id="postVisitCount">
-        </form>
-        <div class="col-12 col-lg-10">
-            <div class="card">
-                <div class="card-header">
-                    @if ($news_details->coverimage)
-                        <img class="img-fluid" src="{{asset('upload/news/'.$news_details->coverimage)}}" alt="">
-                    @endif
+</div>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-10 ">
+            @if ($news_details->coverimage)
+                <img class="w-100" src="{{asset('upload/news/'.$news_details->coverimage)}}" alt="">
+            @endif
+            <div class="card-body bg-white">
+                <div class="d-flex justify-content-between align-items-center">
+                    <small class="bg-primary badge py-2 px-3 btn-sm">
+                        <svg class="icon icon-xs text-white me-1" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                            <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
+                            <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
+                        </svg>
+                        <span> {{$news_details->visit_count}} Views</span>
+                    </small>
+                    <p class="card-text">
+                        <small class="text-muted ">
+                            <svg class="icon icon-xs text-gray-400 me-1 mt-0" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar" viewBox="0 0 16 16">
+                                <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+                            </svg>
+                            <span>Posted on {{$news_details->created_at->format('M d, Y')}}</span>
+                        </small>
+                    </p>
                 </div>
-                <div class="card-body">
-                    <p>Posted on <span class="text-danger">{{$news_details->created_at->format('M d, Y')}}</span> </p>
-                    <p class="card-text lead">{!! $news_details->description !!}</p>
-                    <hr class="mt-3 text-danger">
-                    <div class="mt-3">
-                       
-                        <div class="row justify-content-center">
-                            @if ($prev)
-                                <div class="col-3">
-                                    <a href="{{url('university_news/'.$prev->slug)}}" class=" btn btn-outline-danger icon icon-left ">
-                                        <i class="bi bi-chevron-double-left"></i>
-                                        Previous Page
-                                    </a>
-                                </div>
-                            @endif
-    
-                            @if ($next)
-                                <div class="col-3">
-                                    <a href="{{url('university_news/'.$next->slug)}}" class=" btn btn-outline-danger icon icon-right ">
-                                        Next Page
-                                        <i class="bi bi-chevron-double-right"></i>
-                                    </a>  
-                                </div>
-                            @endif
-                            
-                        </div>
-                       
-                       
+                <hr>
+                <p class="card-text lead">{!! $news_details->description !!}</p>
+                    <hr class="my-4 text-danger">
+                <div class="">
+                    <div class="d-flex justify-content-between align-items-center">
+                        @if ($prev)
+                            <div class="_prev">
+                                <a href="{{url('university_news/'.$prev->slug)}}" class=" btn btn-outline-danger icon-left ">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+                                        <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
+                                    </svg>
+                                    Previous Page
+                                </a>
+                            </div>
+                        @endif
+
+                        @if ($next)
+                            <div class="_next ">
+                                <a href="{{url('university_news/'.$next->slug)}}" class=" btn btn-outline-danger icon-right ">
+                                    Next Page
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                                        <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+                                    </svg>
+                                </a>  
+                            </div>
+                        @endif
+                        
                     </div>
+                   
+                   
                 </div>
-
-               
             </div>
-       </div>
+        </div>
     </div>
 </div>
+
+<form class="hidden" action="{{ url('news_ViewCount/'.$news_details->id) }}" method="POST" id="form">
+    @csrf 
+    @method('PUT')
+    <input type="hidden" value="{{ $news_details->visit_count }}" name="visit_count" id="postVisitCount">
+</form>
 @endsection
 
 

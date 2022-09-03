@@ -26,6 +26,8 @@ Route::put('/news_ViewCount/{id}', [\App\Http\Controllers\LandingPageController:
 
 Route::get('/university_announcements', [App\Http\Controllers\LandingPageController::class, 'announcements']);
 Route::get('/university_announcements/{slug}', [\App\Http\Controllers\LandingPageController::class, 'show_announcement']);
+Route::put('/announcenment_ViewCount/{id}', [\App\Http\Controllers\LandingPageController::class, 'aVisitCount']);
+
 
 Route::get('/university_services', [App\Http\Controllers\LandingPageController::class, 'services']);
 

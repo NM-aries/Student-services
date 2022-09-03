@@ -8,7 +8,7 @@
             <div class="col-9  text-white align-middle">
                 <p>
                     <h4 class="fs-6 fw-600"> Hooray !</h4>
-                    {{ session('message') }}
+                    {!! session('message') !!}
                 </p>
             </div>
         </div>

@@ -13,7 +13,7 @@ class LandingPageController extends Controller
 
     public function index()
     {
-        $banner = Banner::orderBy('created_at', 'desc')->take(5)->get();
+        $banner = Banner::orderBy('created_at', 'desc')->take(10)->get();
         $other_news = News::where('status',1)->orderBy('created_at', 'desc')->take(10)->get();
         $other_announcements = Announcement::where('status','1')->orderBy('created_at', 'desc')->take(10)->get();
         $other_services = Services::where('status','1')->orderBy('created_at', 'desc')->take(10)->get();
@@ -26,9 +26,11 @@ class LandingPageController extends Controller
         ));
     }
 
+//NEWS LANDING
+
     public function news()
     {
-        $allNews = News::where('status', 1)->orderBy('created_at','desc')->get();
+        $allNews = News::where('status', 1)->orderBy('created_at','desc')->Paginate(10);
         return view('news', compact('allNews'));
     }
 
@@ -49,25 +51,34 @@ class LandingPageController extends Controller
         $news = News::find($id);
         $news->visit_count = $request->input('visit_count');
         $news->update();
-
         return redirect('university_news/'.$news->slug);
     }
 
+//ANNOUNCEMENTS LANDING
+
     public function announcements()
     {
-        $allAnnouncement = Announcement::orderBy('created_at','desc')->get();
+        $allAnnouncement = Announcement::orderBy('created_at','desc')->Paginate(10);
         return view('announcement', compact('allAnnouncement'));
     }
 
-    public function show_announcements($slug)
+    public function show_announcement($slug)
     {
-        $announcement_details = Announcement::where('slug',$slug)->get();
-        $next = News::where('id', '<', $announcement_details->id)->max('id');
-        $prev = News::where('id', '>', $announcement_details->id)->min('id');
-        return view('pages.announcement_view',)
+        $announcement_details = Announcement::where('slug', $slug)->firstOrFail();
+        $next = Announcement::where('id', '<', $announcement_details->id)->max('id');
+        $prev = Announcement::where('id', '>', $announcement_details->id)->min('id');
+        return view('pages._announcements-show',)
             ->with('announcement_details',$announcement_details)
-            ->with('next' , News::find($next))
-            ->with('prev', News::find($prev));
+            ->with('next' , Announcement::find($next))
+            ->with('prev', Announcement::find($prev));
+    }
+
+    public function aVisitCount(Request $request, $id)
+    {
+        $announcement = Announcement::find($id);
+        $announcement->visit_count = $request->input('visit_count');
+        $announcement->update();
+        return redirect('university_announcements/'.$announcement->slug);
     }
 
     public function services()

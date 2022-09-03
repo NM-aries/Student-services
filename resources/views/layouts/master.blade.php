@@ -15,8 +15,6 @@
     <link href="{{ asset('css/animate.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
     @yield('styles')
-    <style>
-        </style>
 
 </head>
 <body>

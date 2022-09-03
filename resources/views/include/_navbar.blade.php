@@ -29,17 +29,17 @@
         <nav class="navbar  bg-secondary navbar-expand-sm  " >
             <div class="container">
                 <ul class="navbar-nav ">
-                    <li class="nav-item">
-                        <a href="{{ url('/') }}" class="nav-link active">Home</a>
+                    <li class="nav-item me-1 {{ (request()->is('/')) ? 'active' : '' }}">
+                        <a href="{{ url('/') }}" class="nav-link">Home</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item me-1 {{ (request()->is('university_news*')) ? 'active' : '' }}">
                         <a href="{{ url('university_news') }}" class="nav-link ">News</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Annoucements</a>
+                    <li class="nav-item me-1 {{ (request()->is('university_announcements*')) ? 'active' : '' }}">
+                        <a href="{{ url('university_announcements') }}" class="nav-link">Annoucements</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Services</a>
+                    <li class="nav-item me-1 {{ (request()->is('university_services*')) ? 'active' : '' }}">
+                        <a href="{{ url('university_services') }}" class="nav-link">Services</a>
                     </li>
                 </ul>
                 <div class="d-flex navbar-dark text-right nav_clock d-none d-md-block">

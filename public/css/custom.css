@@ -245,16 +245,8 @@ img._icon{
 .carousel-indicators button{
     width: 20px !important;
     height: 1px !important;
-    background: #1F2937 !important;
-    border-radius: 100%;
+    background: #fff !important;
 }
-.carousel-indicators .active{
-    padding: 0 !important;
-    border-radius: 100%;
-    width: 20px;
-    height: 1px !important;
-}
-
 .colour-block {
     background:#1F2937;
     width:100%;
@@ -264,6 +256,13 @@ img._icon{
     width:100%;
     padding-top:6rem !important;
     color:#823A9C;
+}
+
+._hero{
+    background-image: url('/images/others/bg_image.png');
+    background-position: left;
+    background-size: 50%;
+    background-repeat:repeat-x;
 }
 
 .announcements_section{
@@ -302,10 +301,25 @@ img._icon{
     background: linear-gradient(to left bottom, #1F2937 50%);
 }
 
-.nav-link.active{
-    color: #fb503b !important;
-    font-weight: 600;
+li.active a{
+    color: #fff !important;
+    font-weight: 400;
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: inset 0 0 1px;
+    border-radius: 10px;
 }
+#menu li:hover{
+    color: #fff !important;
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: inset 0 0 1px;
+    border-radius: 10px;
+    transition: 0.3s all;
+}
+._postImage{
+    border:solid red;
+    padding: 0.5rem;
+}
+
 .slider-right-btn{
     right:0;
     top:40%;
@@ -315,6 +329,24 @@ img._icon{
     left:0;
     top:40%;
     position: absolute;
+}
+._news-title{
+    font-size: 1rem;
+    /* text-align: justify; */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    height: 40px;
+    overflow: hidden;
+        
+}
+._news-description{
+    /* text-align: justify; */
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: 95px;        
 }
 
 

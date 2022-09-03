@@ -1,5 +1,5 @@
 
-    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+    <div id="carouselExampleIndicators" class="carousel slide mb-3" data-bs-ride="true">
         <div class="carousel-indicators">
             @foreach ($banner as $indicator )
                 <button type="button" data-bs-target="#carouselExampleIndicators" aria-current="true" aria-label="Slide 1"
