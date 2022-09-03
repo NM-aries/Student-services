@@ -29,13 +29,35 @@
     </div>
 
     <script>
+        var fbCustomerChat = document.getElementById('fb-customer-chat');
+        fbCustomerChat.setAttribute('page_id', '102229915181852')
+        document.body.appendChild(fbCustomerChat);
+
+        window.fbAsyncInit = function() {
+            FB.init({
+              appId            : 'xxx',
+              autoLogAppEvents : true,
+              xfbml            : true,
+              version          : 'v12.0'
+            });
+        };
+
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+    {{-- <script defer>
       var chatbox = document.getElementById('fb-customer-chat');
       chatbox.setAttribute("page_id", "102229915181852");
       chatbox.setAttribute("attribution", "biz_inbox");
     </script>
 
     <!-- Your SDK code -->
-    <script>
+    <script defer>
       window.fbAsyncInit = function() {
         FB.init({
           xfbml            : true,
@@ -51,7 +73,7 @@
         fjs.parentNode.insertBefore(js, fjs);
       }(document, 'script', 'facebook-jssdk'));
     </script>
-   
+    --}}
 
 
 
