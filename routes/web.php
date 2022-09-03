@@ -15,25 +15,27 @@ use Illuminate\Support\Facades\Route;
 
 
 Auth::routes();
+Route::group(['middleware' => ['api', 'cors']],function(){
+    
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::get('/', [App\Http\Controllers\LandingPageController::class, 'index']);
-Route::get('/university_news', [App\Http\Controllers\LandingPageController::class, 'news']);
-Route::get('/university_news/{slug}', [\App\Http\Controllers\LandingPageController::class, 'show_news']);
-Route::put('/news_ViewCount/{id}', [\App\Http\Controllers\LandingPageController::class, 'nVisitCount']);
-
-
-Route::get('/university_announcements', [App\Http\Controllers\LandingPageController::class, 'announcements']);
-Route::get('/university_announcements/{slug}', [\App\Http\Controllers\LandingPageController::class, 'show_announcement']);
-Route::put('/announcenment_ViewCount/{id}', [\App\Http\Controllers\LandingPageController::class, 'aVisitCount']);
+    Route::get('/', [App\Http\Controllers\LandingPageController::class, 'index']);
+    Route::get('/university_news', [App\Http\Controllers\LandingPageController::class, 'news']);
+    Route::get('/university_news/{slug}', [\App\Http\Controllers\LandingPageController::class, 'show_news']);
+    Route::put('/news_ViewCount/{id}', [\App\Http\Controllers\LandingPageController::class, 'nVisitCount']);
 
 
-Route::get('/university_services', [App\Http\Controllers\LandingPageController::class, 'services']);
+    Route::get('/university_announcements', [App\Http\Controllers\LandingPageController::class, 'announcements']);
+    Route::get('/university_announcements/{slug}', [\App\Http\Controllers\LandingPageController::class, 'show_announcement']);
+    Route::put('/announcenment_ViewCount/{id}', [\App\Http\Controllers\LandingPageController::class, 'aVisitCount']);
 
-Route::get('search', [\App\Http\Controllers\SearchController::class , 'search']);
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+    Route::get('/university_services', [App\Http\Controllers\LandingPageController::class, 'services']);
+
+    Route::get('search', [\App\Http\Controllers\SearchController::class , 'search']);
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+});
 
 Route::prefix('admin')->middleware(['auth', 'isAdmin', 'cors'])->group(function () {
     Route::get('/dashboard',    [App\Http\Controllers\Admin\DashboardController::class, 'index']);
