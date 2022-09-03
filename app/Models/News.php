@@ -31,6 +31,7 @@ class News extends Model
         'coverimage',
         'created_by',
         'updated_by',
+        'visit_count',
         'status',
 
         // 'meta_title',

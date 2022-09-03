@@ -31,6 +31,7 @@ class Announcement extends Model
         'coverimage',
         'created_by',
         'updated_by',
+        'visit_count',
         'status',
     ];
 
