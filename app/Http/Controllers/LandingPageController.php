@@ -81,11 +81,17 @@ class LandingPageController extends Controller
         return redirect('university_announcements/'.$announcement->slug);
     }
 
+    // SERVICES
+
     public function services()
     {
         $allServices = Services::orderBy('created_at','desc')->get();
         return view('services', compact('allServices'));
     }
+    //EVENTS
 
-    
+    public function events()
+    {
+        return view('events');
+    }
 }
