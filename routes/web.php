@@ -30,6 +30,8 @@ Route::put('/announcenment_ViewCount/{id}', [\App\Http\Controllers\LandingPageCo
 Route::get('/university_services', [App\Http\Controllers\LandingPageController::class, 'services']);
 
 Route::get('search', [\App\Http\Controllers\SearchController::class , 'search']);
+Route::post('subscribe', [\App\Http\Controllers\SubscribeController::class, 'subscribe']);
+
 
 
 Route::prefix('admin')->middleware(['auth', 'isAdmin', 'cors'])->group(function () {

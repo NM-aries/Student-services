@@ -258,6 +258,18 @@ img._icon{
     color:#823A9C;
 }
 
+.go_up{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin-right: 30px;
+    margin-bottom: 30px;
+    display: none;
+    border:solid #f0bc74;
+    color:#1F2937;
+    background-color:#f0bc74;
+}
+
 ._hero{
     background-image: url('/images/others/bg_image.png');
     background-position: left;

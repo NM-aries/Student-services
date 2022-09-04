@@ -8,14 +8,17 @@
                 </a>
             </div>
             <div class="d-flex navbar-dark mt-1">
-                <div class="input-group me-2 ">
-                    <input  type="text" class=" form-control form-control-sm " placeholder="Search Here..">
-                    <button class="input-group-text btn-secondary" id="basic-addon1">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                        </svg>
-                    </button>
-                </div>
+                <form action="{{ url('search') }}" action="GET">
+                    <div class="input-group me-2 ">
+                            <input  type="text" name="search" class="form-control form-control-sm " placeholder="Search Here..">
+                            <button type="submit" class="input-group-text btn-secondary" id="basic-addon1">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                                </svg>
+                            </button>
+                        
+                    </div>
+                </form>
                 <button class="d-block d-lg-none navbar-toggler text-white" type="button" 
                     data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                     <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-text-right" viewBox="0 0 16 16">
@@ -28,8 +31,8 @@
     <div class="collapse d-lg-block" id="menu">
         <nav class="navbar  bg-secondary navbar-expand-sm  " >
             <div class="container">
-                <ul class="navbar-nav ">
-                    <li class="nav-item me-1 {{ (request()->is('/')) ? 'active' : '' }}">
+                <ul class="navbar-nav _landing-nav ">
+                    <li class="nav-item  me-1 {{ (request()->is('/')) ? 'active' : '' }}">
                         <a href="{{ url('/') }}" class="nav-link">Home</a>
                     </li>
                     <li class="nav-item me-1 {{ (request()->is('university_news*')) ? 'active' : '' }}">

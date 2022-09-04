@@ -1,31 +1,32 @@
-@extends('layouts.frontend')
+@extends('layouts.app')
 
 @section('title', 'Seardh Results')
 
 @section('content')
 
-<div class="container-fluid bg-light shadow" id="title_container">
+
+<div class="container-fluid bg-gray-600 shadow" id="title_container">
     <div class="container">
-        <div class="header py-4">
-            <h2 class="text-danger">Search Results: <i class="text-info">{{ request()->input('search') }}</i></h2>
+        <div class="header py-3">
+            <h2 class="text-white">SEARCH RESULTS: <span class="text-secondary">{{ request()->input('search') }}</span></h2>
         </div>
    </div>
 </div>
 
 <div class="container mb-5 mt-3" >
     <div class="row new_content ">
-        <div class="col-lg-8 col-md-12 col-12 order-1 text-danger">
+        <div class="col-lg-10 col-md-12 col-12 order-1 text-danger">
             @if($news->count())
                 <div class="card mt-3">
                     <div class="card-body">
-                        <h4>News Search Result</h4>
+                        <h4>News</h4>
                         @foreach ($news as $newsItem)
                             <div class="card mb-3 news">
                                 <div class="row ">
                                     <div class="col-md-4 ">
                                         <div class="thumb m-auto" 
                                         @if($newsItem->coverimage) 
-                                            style="background: url(upload/announcement/{{$newsItem->coverimage}});"
+                                            style="background: url(upload/news/{{$newsItem->coverimage}});"
                                         @else
                                             style="background: url(assets/images/no-picture-available-icon-4.jpg);"
                                         @endif
@@ -50,6 +51,7 @@
                                 </div>
                             </div>
                         @endforeach
+                        {{ $news->links() }}
                     </div>
                 </div>
             @endif
@@ -57,7 +59,7 @@
             @if($announcement->count())
                 <div class="card mt-3">
                     <div class="card-body">
-                        <h4>Announcement Search Result</h4>
+                        <h4>Announcement </h4>
                         @foreach ($announcement as $announcementItems)
                             <div class="card mb-3 news">
                                 <div class="row ">
@@ -89,6 +91,7 @@
                                 </div>
                             </div>
                         @endforeach
+                        {{ $announcement->links() }}
                     </div>
                 </div>
             @endif
@@ -102,9 +105,7 @@
             @endif
     
        </div>
-       <div class="col-lg-4 col-md-12 col-12 order-md-first order-lg-last " >
-            @include('include/adds_on/side-row')
-        </div>
+       
     </div>
 </div>
 @endsection

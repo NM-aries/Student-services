@@ -6,6 +6,8 @@ use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
+use Faker\Factory as Faker;
+
 class CreateUserSeeder extends Seeder
 {
     /**
@@ -16,7 +18,20 @@ class CreateUserSeeder extends Seeder
     public function run()
     {
         // User::truncate();
-        DB::table('users')->delete();
+        // $faker = Faker::create();
+        // foreach(range(1,10) as $value){
+        //     DB::table('users')->insert([
+        //         'name' => $faker->name,
+        //         'username' => $faker->username,
+        //         'contact' => $faker->phonenumber,
+        //         'profile_img' => '1.jpg',
+        //         'is_admin' => '1',
+        //         'status' => '1',
+        //         'email' => $faker->email,
+        //         'password' => bcrypt($faker->password),
+        //     ]);
+        // }
+        // DB::table('users')->delete();
         
 
         $users =  [

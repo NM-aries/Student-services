@@ -1,52 +1,43 @@
-@extends('layouts.frontend')
+@extends('layouts.app')
 
 @section('title', 'Services')
 
 @section('content')
-
-<div class="container-fluid bg-light shadow" id="title_container">
+<style>
+    .accordion-button.active{
+        background-color: red !important;
+    }
+</style>
+<div class="container-fluid bg-gray-600 shadow" id="title_container">
     <div class="container">
-        <div class="header py-4">
-            <h2 class="text-danger">Services </h2>
+        <div class="header py-3">
+            <h2 class="text-white">SERVICES</h2>
         </div>
    </div>
 </div>
-
 <div class="container mb-5 mt-3" >
     <div class="row new_content ">
         <div class="col-lg-8 col-md-12 col-12 order-1 ">
+            <div class="accordion" id="accordionPricing">
             @if ($allServices->count())
                 @foreach ($allServices as $listServices )
-                    <div class="card mb-3 news">
-                        <div class="row ">
-                            <div class="col-md-4 ">
-                                <div class="thumb m-auto" 
-                                @if($listServices->coverimage) 
-                                    style="background: url(upload/announcement/{{$listServices->coverimage}});"
-                                @else
-                                    style="background: url(assets/images/no-picture-available-icon-4.jpg);"
-                                @endif
-                                
-                                ></div>
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{$listServices->title}}</h5>
-                                    <p class="card-text">
-                                        {!! Str::limit($listServices->description, 150, $end=" .....") !!}
-                                    </p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <a class="btn mt-2 btn-outline-danger btn-sm" href="{{ url('university_announcement/'.$listServices->slug) }}"> 
-                                            Continue Reading  
-                                        </a>
-                                        <p class="card-text"><small class="text-muted">Posted on {{$listServices->created_at->format('M d, Y')}}</small></p>
-                                
-                                    </div>
-                                </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header " id="headingOne">
+                            <button class="accordion-button 
+                                @if(!$loop->first) collapsed @endif" 
+                                type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne-{{ $listServices->id }}" aria-expanded="true" aria-controls="collapseOne">
+                                {{ $listServices->title }}
+                            </button>
+                        </h2>
+                        <div id="collapseOne-{{ $listServices->id }}" class="accordion-collapse collapse collapsed @if($loop->first) show
+                            @endif " aria-labelledby="headingOne" data-bs-parent="#accordionPricing">
+                            <div class="accordion-body">
+                                {!! $listServices->description !!}    
                             </div>
                         </div>
                     </div>
                 @endforeach
+            </div>
                 
             @else
                 <div class="bg-danger card-body text-white mb-5 rounded-md">
@@ -67,9 +58,6 @@
                 </div>
             @endif
        </div>
-       <div class="col-lg-4 col-md-12 col-12 order-md-first order-lg-last " >
-        @include('include/_search')
-        </div>
     </div>
 </div>
 @endsection

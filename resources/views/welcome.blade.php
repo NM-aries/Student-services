@@ -4,11 +4,14 @@
 
 @section('content')
 
+{{-- hero carousel --}}
 <div class="_hero bg-gray-600 shadow-sm " >
     <div class="container pt-3 py-2"> 
         @include('include/_banner')
     </div>
 </div>
+
+{{-- NEws --}}
 <div class="news_section"></div>
 <div class="colour-block py-4">
     <section class="container _section1 ">
@@ -33,22 +36,19 @@
                                                 </h2>
                                             </div>
                                             <div class="px-3 py-2">
-                                                <div class="row">
-                                                    <div class="col-12 col-md-6 text-left">
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <div class="text-left">
                                                         <svg class="icon icon-xs text-gray-400 me-1" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
                                                             <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
                                                             <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
                                                           </svg>
                                                         <span class="small ">{{$newsItems->visit_count}}</span>
                                                     </div>
-                                                    <div class="col-12 col-md-6 text-right">
+                                                    <div class="text-right">
                                                         <svg class="icon icon-xs text-gray-400 me-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path></svg>
-                                                        <span class="small ">{{$newsItems->created_at->diffForHumans()}}</span>
+                                                        <span class="small ">{{$newsItems->created_at->diffForHumans()}}</span>        
                                                     </div>
-                                                    
                                                 </div>
-                                
-                                                
                                                 <p class="lead fs-6 ">
                                                     <div class="_news-description">{!! $newsItems->description !!}
                                                     </div>
@@ -68,12 +68,13 @@
         </div>
 
         <div class="button_readmore text-center">
-            <a href="{{ url('news') }}" class="fs-6 btn btn-secondary">Read More News</a>
+            <a href="{{ url('university_news') }}" class="fs-6 btn btn-secondary">Read More News</a>
         </div>
     </section>
 
 </div>
 
+{{-- Announcements --}}
 <div class="announcements_section "></div>
 <div class="white-block pb-5">
     <section class="container _section1 ">
@@ -137,6 +138,7 @@
     </section>
 </div>
 
+{{-- //About --}}
 <div class="skew-c"></div>
 <div class="colour-block py-4">
     <section class="container _section1 ">
@@ -145,7 +147,7 @@
         </div>
         <div class="text-white text-center">
             <h2 class="fs-2">VISION</h6>
-            <p class="fs-6  lead">A Leading State University in Technological and Professional Education.</p> 
+            <p class="fs-6 lead">A Leading State University in Technological and Professional Education.</p> 
         </div>
         <div class="text-white text-center py-3">
             <h2 class="fs-2">MISSION</h6>
@@ -163,4 +165,50 @@
     </section>
 </div>
 
+<div class="announcements_section "></div>
+<div class="white-block pb-5">
+    <section class="container _section1 ">
+        <div class="_header text-center mb-3 ">
+            <h2 class="text-primary">Subscribe Via Email</h2>
+        </div>
+        <div class="row justify-content-center text-center">
+        <p class="lead text-primary">Keep up with our latest news and Events Subscribe to our newsletter.</p>
+           <div class="col-7 ">
+            <form action="{{ url('subscribe') }}" method="post">
+                @csrf
+                <input name="subs_email" type="email" class="text-center form-control mb-3" placeholder="Email Address">
+                <button type="submit" class="col-5 btn btn-primary"> Subscribe</button>
+            </form>
+           </div>
+           
+        </div>
+    </section>
+</div>
+
+@endsection
+
+@section('scripts')
+    <script>
+        $('.owl-carousel').owlCarousel({
+            margin:30,
+            nav:true,
+            navText:['<button type="button" class="btn btn-secondary slider-left-btn"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16"><path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/></svg></button>','<button type="button" class="btn btn-secondary slider-right-btn"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16"><path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/></svg></button>'],
+            dots:true,
+            responsiveClass:true,
+            responsive:{
+                0:{
+                    items:1,
+                },
+                600:{
+                    items:1,
+                },
+                768:{
+                items:2.5,
+                },
+                1000:{
+                    items:3,
+                }
+            }
+        })
+    </script>
 @endsection

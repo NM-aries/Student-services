@@ -13,8 +13,8 @@ class SearchController extends Controller
 
         $query = $request->input('search');
 
-        $announcement = Announcement::where('status', '1')->search($query)->get();
-        $news         = News::where('status', '1')->search($query)->get();
+        $announcement = Announcement::where('status', '1')->search($query)->Paginate(5);
+        $news         = News::where('status', '1')->search($query)->Paginate(5);
         
         
         // $result = $announcement->concat($news)->shuffle()->take(4);

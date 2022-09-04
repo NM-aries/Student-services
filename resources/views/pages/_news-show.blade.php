@@ -17,7 +17,7 @@
 </div>
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-10 ">
+        <div class="col-12 col-md-10 ">
             @if ($news_details->coverimage)
                 <img class="w-100" src="{{asset('upload/news/'.$news_details->coverimage)}}" alt="">
             @endif
@@ -50,7 +50,7 @@
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
                                         <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
                                     </svg>
-                                    Previous Page
+                                    Newer Post
                                 </a>
                             </div>
                         @endif
@@ -58,7 +58,7 @@
                         @if ($next)
                             <div class="_next ">
                                 <a href="{{url('university_news/'.$next->slug)}}" class=" btn btn-outline-danger icon-right ">
-                                    Next Page
+                                    Older Post
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
                                         <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
                                     </svg>
@@ -67,8 +67,6 @@
                         @endif
                         
                     </div>
-                   
-                   
                 </div>
             </div>
         </div>
@@ -84,21 +82,21 @@
 
 
 @section('scripts')
-<script>
-    setTimeout(function(){
-        let visitCount = document.getElementById('postVisitCount').value;
-        let visiCountPlusOne = parseInt(visitCount) + 1;
-        document.getElementById('postVisitCount').value = visiCountPlusOne;
-        
-        let $formData = $('#form');
+    <script>
+        setTimeout(function(){
+            let visitCount = document.getElementById('postVisitCount').value;
+            let visiCountPlusOne = parseInt(visitCount) + 1;
+            document.getElementById('postVisitCount').value = visiCountPlusOne;
+            
+            let $formData = $('#form');
 
-        $.ajax({
-            url:"{{ url('news_ViewCount/'.$news_details->id) }}",
-            type: 'PUT',
-            data: $formData.serialize(),
-        });
-       
-    }, 1000);
-</script>
+            $.ajax({
+                url:"{{ url('news_ViewCount/'.$news_details->id) }}",
+                type: 'PUT',
+                data: $formData.serialize(),
+            });
+        
+        }, 1000);
+    </script>
 
 @endsection

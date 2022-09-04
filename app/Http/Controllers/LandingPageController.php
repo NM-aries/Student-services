@@ -30,7 +30,7 @@ class LandingPageController extends Controller
 
     public function news()
     {
-        $allNews = News::where('status', 1)->orderBy('created_at','desc')->Paginate(10);
+        $allNews = News::where('status', 1)->orderBy('created_at','desc')->Paginate(5);
         return view('news', compact('allNews'));
     }
 
