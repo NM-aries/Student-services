@@ -12,11 +12,15 @@ class SubscribeController extends Controller
     public function subscribe(Request $request)
     {
 
+        $subs_email = array([
+            'subs_email' => $request['subs_email']
+        ]);
+
         $subscriber = new Subscribers();
         $subscriber->email = $request->input('subs_email');
 
-        Mail::raw('text sample email', function($message) use ($request){  
-            $subscriber_email = $request['subs_email'];          
+        Mail::raw('text sample email', function($message) use ($subs_email){  
+            $subscriber_email = $subs_email['subs_email'];          
             $message->to($subscriber_email)
             ->subject('Thank you for Subscribing to our Website'); 
         });
