@@ -18,15 +18,9 @@ class SubscribeController extends Controller
         $subscriber->save();
 
         // $name = 'Cloudways';
-        
-
-        $notifyData = [
-            'body' => 'Thank you for Subscribing on our Website YOu will receive Email on Latest News & Announcements',
-            'text' => 'Visit Our Website',
-            'url'   => url('/'),
-            'footer' => 'Thank you for using our application!'
-        ];
-        Mail::to('Cloudways@Cloudways.com')->send(new SubscriberNotification($notifyData));
+        Mail::raw('text sample email', function($message){
+            $message->to('ariesyap125@gmail.com');
+        });
 
         // $subscriber->notify(new SubscriberNotification($notifyData));
         
