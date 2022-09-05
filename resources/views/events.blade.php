@@ -14,71 +14,57 @@
 </div>
 
 <div class="container mb-5 mt-4" >
-    <div class="row new_content ">
-        <div class="col-12 order-1 ">
-            <div class="row">
-                <div class="col-lg-3 mb-2">
-                    <div class="card">
-                        <div class="card-header p-0">
-                            <img src="{{ asset('images/others/cover.gif') }}" alt="">
-                        </div>
-                       <div class="card-body bg-yellow-100 px-3">
-                            <h6 class="fs-5 ">Engineering Days</h6>
-                            <small class="text-gray mt-3">Date: Aug 20 2022</small>
-                            <p class="lead fs-6 mt-3">
-                                Nine out of ten doctors recommend Laracasts over competing brands. Come inside, see for yourself, and massively level up your development skills in the process.
-                            </p>
+    <div class="col-12">
+        <div class="card border-0 shadow">
+            <div class="card-body">
+                <!-- Event 1 -->
+                <div class="row align-items-center d-block d-sm-flex ">
+                    <div class="col-auto mb-3 mb-sm-0">
+                        <div class="calendar d-flex">
+                            <span class="calendar-month  bg-primary ">Aug</span>
+                            <span class="calendar-day py-2">10</span>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3 mb-2">
-                    <div class="card">
-                        <div class="card-header p-0">
-                            <img src="{{ asset('images/others/cover.gif') }}" alt="">
+                    <div class="col">
+                        <style>
+                            
+                             ._w-icon:hover {
+                                transition: 0.3s all;
+                                color:red;
+                                text-decoration-line:underline;
+                            }
+
+                        </style>
+                        <a href="#">
+                            <h3 class="h4 mb-1 _w-icon">Engineering Days 
+                        </h3>
+                            
+                        </a>
+                        <span>
+                            Organized by 
+                            <a href="#">Engineering Department</a>
+                        </span>
+                        
+                        <div class="small fw-bold">
+                            <span class="text-danger">Date</span>:
+                            Thu, 12 Sep - Sat, 18 Sep 2020
                         </div>
-                       <div class="card-body bg-yellow-100 px-3">
-                            <h6 class="fs-6 ">Fun run</h6>
-                            <small class="text-gray mt-3">Date: Aug 20 2022</small>
-                            <p class="lead fs-6 mt-3">
-                                Nine out of ten doctors recommend Laracasts over competing brands. Come inside, see for yourself, and massively level up your development skills in the process.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 mb-2">
-                    <div class="card">
-                        <div class="card-header p-0">
-                            <img src="{{ asset('images/others/cover.gif') }}" alt="">
-                        </div>
-                       <div class="card-body bg-yellow-100 px-3">
-                            <h6 class="fs-6 ">Fun run</h6>
-                            <small class="text-gray mt-3">Date: Aug 20 2022</small>
-                            <p class="lead fs-6 mt-3">
-                                Nine out of ten doctors recommend Laracasts over competing brands. Come inside, see for yourself, and massively level up your development skills in the process.
-                            </p>
-                        </div>
+                        <span class="small fw-bold">
+                            <span class="text-danger">Place</span>: Evsu - Tanauan Campus
+                        </span>
+                        <p class="lead fs-6 mt-1">
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur quaerat cumque quam optio fugiat. Odit laudantium nostrum vero amet assumenda voluptates blanditiis inventore consequatur laboriosam accusantium neque, quis sapiente voluptas.
+                        </p>
                     </div>
                 </div>
             </div>
-            {{-- @else --}}
-                {{-- <div class="card-body text-white mb-5 rounded-md">
-                    <div class="row">
-                        <div class="col-2">
-                            <img class="w-100" src="https://cdn.shopify.com/s/files/1/1061/1924/products/Sad_Face_Emoji_large.png?v=1571606037" alt="">
-                        </div>
-                        <div class="col-10">
-                            <h4 class="text-white">SORRY !</h4>
-                            <p class="lead">
-                                NO POST AVAILABLE RIGHT NOW 
-                                <br>
-                                PLEASE COMEBACK LATER THANK YOU..
-                            </p>
-                            
-                        </div>
-                    </div>
-                </div> --}}
-            {{-- @endif --}}
-       </div>
+            <div class="card-footer border-top bg-gray-50">
+                <a class="fw-bold d-flex align-items-center justify-content-center" href="../calendar.html">
+                    <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 12a2 2 0 100-4 2 2 0 000 4z"></path><path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"></path></svg>
+                    See all
+                </a>
+            </div>
+        </div>
     </div>
 </div>
 

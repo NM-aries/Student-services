@@ -55,6 +55,13 @@
                     <span class="sidebar-text">Banner</span>
                 </a>
             </li>
+
+            <li class="nav-item {{ (request()->is('admin/events*')) ? 'active' : '' }}">
+                <a href="{{ url('admin/events') }}" class="nav-link">
+                    <img src="{{ asset('images/icons/events.png') }}" alt="" class="sidebar_icon">
+                    <span class="sidebar-text">Events</span>
+                </a>
+            </li>
             
             @if (Auth::user()->is_admin == 1)
                 <li class="nav-item {{ (request()->is('admin/user*')) ? 'active' : '' }}">
@@ -67,6 +74,12 @@
                     <a href="{{ url('admin/logs') }}" class="nav-link">
                         <img src="{{ asset('images/icons/logs.webp') }}" alt="" class="sidebar_icon"> 
                         <span class="sidebar-text">Activity Logs</span>
+                    </a>
+                </li>
+                <li class="nav-item {{ (request()->is('admin/logs')) ? 'active' : '' }}">
+                    <a href="{{ url('admin/subscibers') }}" class="nav-link">
+                        <img src="{{ asset('images/icons/Mailbox-264x264.png') }}" alt="" class="sidebar_icon"> 
+                        <span class="sidebar-text">Subscribers</span>
                     </a>
                 </li>
             @endif

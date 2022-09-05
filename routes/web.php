@@ -111,4 +111,15 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin', 'cors'])->group(function 
         Route::get('remove/{user_id}',     [App\Http\Controllers\Admin\UserController::class, 'destroy']);
     
     });
+
+    Route::prefix('subscriber')->group(function () {
+        Route::get('/',     [App\Http\Controllers\Admin\UserController::class, 'index']);
+        Route::get('add',     [App\Http\Controllers\Admin\UserController::class, 'create']);
+        Route::post('add',     [App\Http\Controllers\Admin\UserController::class, 'store']);
+        Route::get('edit/{user_id}',     [App\Http\Controllers\Admin\UserController::class, 'edit']);
+        Route::put('update/{user_id}',     [App\Http\Controllers\Admin\UserController::class, 'update']);
+        Route::get('view/{user_id}',     [App\Http\Controllers\Admin\UserController::class, 'show']);
+        Route::get('remove/{user_id}',     [App\Http\Controllers\Admin\UserController::class, 'destroy']);
+    
+    });
 });
