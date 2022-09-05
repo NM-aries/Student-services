@@ -14,12 +14,17 @@ class SubscribeController extends Controller
 
         $subscriber = new Subscribers();
         $subscriber->email = $request->input('subs_email');
+        
+        
 
-        Mail::raw('text sample email', function($message){
-            $message->to('ariesyap125@gmail.com');
-        });
 
         $subscriber->save();
+
+        $subscriber_email = $request->input('subs_email');
+        
+        Mail::raw('text sample email', function($message){
+            $message->to($subscriber_email);
+        });
 
         // $name = 'Cloudways';
         
