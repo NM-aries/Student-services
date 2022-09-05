@@ -15,10 +15,19 @@ class SubscribeController extends Controller
         $subscriber = new Subscribers();
         $subscriber->email = $request->input('subs_email');
 
-        Mail::raw('text sample email', function($request, $message){  
-            $subscriber_email = $request->input('subs_email');          
-            $message->to($subscriber_email); 
+        Mail::raw('text sample email', function($message) use ($request){  
+            $subscriber_email = $request['subs_email'];          
+            $message->to($subscriber_email)
+            ->subject('Thank you for Subscribing to our Website'); 
         });
+
+        // Mail::send('welcome_email', $email_data, function ($message) use ($email_data) {
+        //     $message->to($email_data['email'], $email_data['name'])
+        //         ->subject('Welcome to MyNotePaper')
+        //         ->from('info@mynotepaper.com', 'MyNotePaper');
+        // });
+
+
 
         $subscriber->save();
 
