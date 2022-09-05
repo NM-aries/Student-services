@@ -23,6 +23,7 @@ class CreateServicesTable extends Migration
             $table->text('file')->nullable();
             $table->boolean('status');
             $table->integer('visit_count');
+            $table->integer('download_count');
             $table->timestamps();
         });
     }

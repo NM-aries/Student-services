@@ -12,23 +12,13 @@ class SubscribeController extends Controller
     public function subscribe( Request $request)
     {
 
-        $subs_email = array([
-            'subs_email' => $request['subs_email']
-        ]);
-
-        Mail::send('welcome_email',$subs_email, function($message) use ($subs_email){       
-            $message->to($subs_email['subs_email'])
-            ->subject('Thank you for Subscribing to our Website'); 
-        });
-
         $subscriber = new Subscribers();
         $subscriber->email = $request->input('subs_email');
+        $subscriber->name = $request->input('name');
         $subscriber->save();
 
-        // $name = 'Cloudways';
         
-
-        $subscriber->notify(new SubscriberNotification($notifyData));
+        $subscriber->notify(new SubscriberNotification($subscriber));
         
         return redirect()->back()->with('message','Thank You for Subscribing to our website');
     }

@@ -2,6 +2,7 @@
 
 namespace App\Notifications;
 
+use App\Models\Subscribers;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
@@ -10,16 +11,16 @@ use Illuminate\Notifications\Notification;
 class SubscriberNotification extends Notification
 {
     use Queueable;
-    private $notifyData;
+    private $subscriber;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct($notifyData)
+    public function __construct(Subscribers $subscriber)
     {
-        $this->notifyData = $notifyData;
+        $this->subscriber = $subscriber;
     }
 
     /**
@@ -42,9 +43,10 @@ class SubscriberNotification extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-            ->line($this->notifyData['body'])
-            ->action($this->notifyData['text'], $this->notifyData['url'])
-            ->line($this->notifyData['footer']);
+                ->greeting('Hello, '.$this->subscriber->name)
+                ->line('Welcome to EVSU - .')
+                ->action('Explore our Website', url('/'))
+                ->line('Thank you for using our application!');
             
     }
 

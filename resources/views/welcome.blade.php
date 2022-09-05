@@ -164,7 +164,7 @@
         </div>
     </section>
 </div>
-
+{{-- 
 <div class="announcements_section "></div>
 <div class="white-block pb-5">
     <section class="container _section1 ">
@@ -177,9 +177,48 @@
             <form action="{{ url('subscribe') }}" method="post">
                 @csrf
                 <input name="subs_email" type="email" class="text-center form-control mb-3" placeholder="Email Address">
+                
+                <input name="subs_email" type="email" class="text-center form-control mb-3" placeholder="Email Address">
                 <button type="submit" class="col-md-5 btn btn-primary"> Subscribe</button>
             </form>
            </div>
+           
+        </div>
+    </section>
+</div> --}}
+
+{{-- SUBSCRIBE --}}
+<div class="announcements_section "></div>
+<div class="white-block pb-5">
+    <section class="container _section1 ">
+        <div class="_header text-center mb-3 ">
+            <h2 class="text-primary">Subscribe </h2>
+        </div>
+        <div class="row justify-content-center">
+           <div class="col-5 col-md-3 py-0">
+                <img src="{{ asset('images/others/preview.jpg') }}" alt="">
+           </div>
+           <div class="col-12 col-md-9 m-auto align-middle ">
+            <div class="card-body ">
+                <p class="lead text-primary">
+                    Want us to email you occasionally with EVSU news?
+                    <br>Subscribe our newsletter to recieve the latest News and Announcements. </p>
+                <form action="{{ url('subscribe') }}" method="post">
+                    @csrf
+                    <div class="row ">
+                        <div class="col-auto">
+                            <input name="name" type="text" class="rounded-0 form-control mb-3"  autocomplete="off"  placeholder="Name" required>
+                        </div>
+                        <div class="col-6">
+                            <input name="subs_email" type="email" class="rounded-0 form-control mb-3" placeholder="Email Address" autocomplete="off" required>
+                        </div>  
+                        <div class="col-auto">
+                            <button class="rounded-0 btn btn-secondary">Subscribe</button>    
+                        </div>                        
+                    </div>
+                </form>
+            </div>
+       </div>
            
         </div>
     </section>
