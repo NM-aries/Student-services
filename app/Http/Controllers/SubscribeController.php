@@ -9,7 +9,7 @@ use App\Notifications\SubscriberNotification;
 
 class SubscribeController extends Controller
 {
-    public function subscribe(Request $request)
+    public function subscribe( Request $request)
     {
 
         $subs_email = array([
@@ -19,7 +19,7 @@ class SubscribeController extends Controller
         $subscriber = new Subscribers();
         $subscriber->email = $request->input('subs_email');
 
-        Mail::raw('text sample email', function($message) use ($subs_email){  
+        Mail::send('welcome_email',$subs_email, function($message) use ($subs_email){  
             $subscriber_email = $subs_email['subs_email'];          
             $message->to($subscriber_email)
             ->subject('Thank you for Subscribing to our Website'); 
