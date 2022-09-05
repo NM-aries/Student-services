@@ -28,7 +28,7 @@ class Subscriber extends Mailable
      */
     public function build()
     {
-        return $this->from('kuyzarhiexzg@gmail.com', 'Example')
+        return $this->from('example@example.com', 'Example')
         ->text('text sample email');
     }
 }
