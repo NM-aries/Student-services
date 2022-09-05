@@ -11,14 +11,18 @@ class SearchController extends Controller
     public function search(Request $request)
     {
 
-        $query = $request->input('search');
+        $search = $request->input('search');
 
-        $announcement = Announcement::where('status', 1)->search($query)->Paginate(5);
-        $news         = News::where('status', 1)->search($query)->Paginate(5);
+        $announcement = Announcement::query()
+                        ->where('title', 'LIKE', "%{$search}%")
+                        ->orWhere('description', 'LIKE', "%{$search}%")
+                        ->Paginate(5);
+        $news         = News::query()
+                        ->where('title', 'LIKE', "%{$search}%")
+                        ->orWhere('description', 'LIKE', "%{$search}%")
+                        ->Paginate(5);
         
-        
-        // $result = $announcement->concat($news)->shuffle()->take(4);
-
+    
         return view('search_result',compact('news','announcement'));
     }
 }

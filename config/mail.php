@@ -92,9 +92,11 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'kuyzarhiexzg@gmail.com'),
-        'name' => env('MAIL_FROM_NAME', 'EVSU SERVICES'),
+        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
+        'name' => env('MAIL_FROM_NAME', 'EVSU-TC STUDENT SERVICES MOBILE ADVISORY'),
+        
     ],
+
 
     /*
     |--------------------------------------------------------------------------
