@@ -27,7 +27,7 @@
 
 
 </head>
-<body class="bg-gray-200">
+<body class="bg-gray-200 pb-0">
 
     <!-- Messenger Chat Plugin Code -->
     <div id="fb-root"></div>
@@ -82,8 +82,9 @@
       </button>
   {{-- </div> --}}
     
+  <div class="_footer bg-primary text-white sticky-footer ">
     @include('include/_footer')
-    
+  </div>
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

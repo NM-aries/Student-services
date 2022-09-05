@@ -17,8 +17,8 @@
 </div>
 <div class="container mb-5 mt-3" >
     <div class="row new_content ">
-        <div class="col-lg-8 col-md-12 col-12 order-1 ">
-            <div class="accordion" id="accordionPricing">
+        <div class="col-lg-10 col-md-12 col-12 order-1 ">
+            <div class="accordion " id="accordionPricing">
             @if ($allServices->count())
                 @foreach ($allServices as $listServices )
                     <div class="accordion-item">
@@ -31,7 +31,7 @@
                         </h2>
                         <div id="collapseOne-{{ $listServices->id }}" class="accordion-collapse collapse collapsed @if($loop->first) show
                             @endif " aria-labelledby="headingOne" data-bs-parent="#accordionPricing">
-                            <div class="accordion-body">
+                            <div class="accordion-body bg-white">
                                 {!! $listServices->description !!}    
                             </div>
                         </div>

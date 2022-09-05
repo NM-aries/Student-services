@@ -16,7 +16,8 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/', [App\Http\Controllers\LandingPageController::class, 'index'])->middleware('cors');
+Route::get('/', [App\Http\Controllers\LandingPageController::class, 'index']);
+Route::get('/home', [App\Http\Controllers\LandingPageController::class, 'index']);
 Route::get('/university_news', [App\Http\Controllers\LandingPageController::class, 'news']);
 Route::get('/university_news/{slug}', [\App\Http\Controllers\LandingPageController::class, 'show_news']);
 Route::put('/news_ViewCount/{id}', [\App\Http\Controllers\LandingPageController::class, 'nVisitCount']);
