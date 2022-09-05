@@ -19,9 +19,8 @@ class SubscribeController extends Controller
         $subscriber = new Subscribers();
         $subscriber->email = $request->input('subs_email');
 
-        Mail::send('welcome_email',$subs_email, function($message) use ($subs_email){  
-            $subscriber_email = $subs_email['subs_email'];          
-            $message->to($subscriber_email)
+        Mail::send('welcome_email',$subs_email, function($message) use ($subs_email){       
+            $message->to($subs_email['subs_email'])
             ->subject('Thank you for Subscribing to our Website'); 
         });
 
