@@ -112,14 +112,24 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin', 'cors'])->group(function 
     
     });
 
-    Route::prefix('subscriber')->group(function () {
-        Route::get('/',     [App\Http\Controllers\Admin\UserController::class, 'index']);
-        Route::get('add',     [App\Http\Controllers\Admin\UserController::class, 'create']);
-        Route::post('add',     [App\Http\Controllers\Admin\UserController::class, 'store']);
-        Route::get('edit/{user_id}',     [App\Http\Controllers\Admin\UserController::class, 'edit']);
-        Route::put('update/{user_id}',     [App\Http\Controllers\Admin\UserController::class, 'update']);
-        Route::get('view/{user_id}',     [App\Http\Controllers\Admin\UserController::class, 'show']);
-        Route::get('remove/{user_id}',     [App\Http\Controllers\Admin\UserController::class, 'destroy']);
+    Route::prefix('subscribers')->group(function () {
+        Route::get('/',     [App\Http\Controllers\SubscribeController::class, 'index']);
+        Route::post('/send-email',     [App\Http\Controllers\SubscribeController::class, 'sendEmail']);
+    
+    });
+
+    
+    Route::prefix('events')->group(function () {
+        Route::get('/',     [App\Http\Controllers\Admin\EventsController::class, 'index']);
+        Route::post('/add-event', [App\Http\Controllers\Admin\EventsController::class, 'add_event']);
+        Route::put('/edit-event/{id}', [App\Http\Controllers\Admin\EventsController::class, 'edit_event']);
+        Route::get('/remove/{id}', [App\Http\Controllers\Admin\EventsController::class, 'destroy']);
     
     });
 });
+
+    Route::get('fullcalender', [App\Http\Controllers\Admin\EventsController::class, 'index']);
+    Route::post('fullcalenderAjax-create', [App\Http\Controllers\Admin\EventsController::class, 'createEvent']);
+
+
+   

@@ -76,8 +76,8 @@
                         <span class="sidebar-text">Activity Logs</span>
                     </a>
                 </li>
-                <li class="nav-item {{ (request()->is('admin/logs')) ? 'active' : '' }}">
-                    <a href="{{ url('admin/subscibers') }}" class="nav-link">
+                <li class="nav-item {{ (request()->is('admin/subscribers*')) ? 'active' : '' }}">
+                    <a href="{{ url('admin/subscribers') }}" class="nav-link">
                         <img src="{{ asset('images/icons/Mailbox-264x264.png') }}" alt="" class="sidebar_icon"> 
                         <span class="sidebar-text">Subscribers</span>
                     </a>
