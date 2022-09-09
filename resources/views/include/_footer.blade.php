@@ -1,13 +1,14 @@
 <div class="container">
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-4 ">
-      <div class="col-md-4 d-flex align-items-center">
-        <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
-          <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
-        </a>
-        <span class="text-muted">© 2022 - All rights reserved. <br> Developed by Michael Aries Yap</span>
+      <div class="d-flex align-items-center">
+        <span class="text-muted">© 2022 - All rights reserved.</span>
+      </div>
+
+      <div class="d-flex align-items-center">
+        <span class="text-muted">Developed by EVSU - Student Services Department</span>
       </div>
   
-      <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+      {{-- <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
         <li class="ms-3">
             <a class="text-muted" href="https://www.facebook.com/aRhiExz" target="_blank">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
@@ -36,6 +37,6 @@
                 </svg>
             </a>
         </li>
-        </ul>
+        </ul> --}}
     </footer>
   </div>

@@ -36,6 +36,7 @@ class ServicesController extends Controller
         $services->status = $data['status'];
         $services->slug = Str::slug($data['slug']);
         $services->description = $data['description'];
+        $services->visit_count = 0;
 
         if($request->hasfile('coverimage')){
             $file = $request->file('coverimage');
