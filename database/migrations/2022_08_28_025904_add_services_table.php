@@ -14,7 +14,7 @@ class AddServicesTable extends Migration
     public function up()
     {
         Schema::table('services', function (Blueprint $table) {
-            $table->string('updated_by');
+            $table->string('updated_by')->nullable();
         });
     }
 

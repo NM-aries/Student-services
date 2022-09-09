@@ -29,6 +29,7 @@ class Services extends Model
         'file',
         'description',
         'created_by',
+        'updated_by',
         'status',
     ];
 
