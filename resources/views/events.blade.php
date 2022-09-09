@@ -4,6 +4,14 @@
 
 @section('content')
 
+<style>
+    ._w-icon:hover {
+        transition: 0.3s all;
+        color:red;
+        text-decoration-line:underline;
+    }
+</style>
+
 
 <div class="container-fluid bg-gray-600 shadow" id="title_container">
     <div class="container">
@@ -19,50 +27,40 @@
             <div class="card-body">
                 <!-- Event 1 -->
                 <div class="row align-items-center d-block d-sm-flex ">
-                    <div class="col-auto mb-3 mb-sm-0">
-                        <div class="calendar d-flex">
-                            <span class="calendar-month  bg-primary ">Aug</span>
-                            <span class="calendar-day py-2">10</span>
+                    @foreach ($allEvents as $item)
+                        <div class="col-auto mb-3 mb-sm-0">
+                            <div class="calendar d-flex">
+                                <span class="calendar-month  bg-primary ">{{ date('M ', strtotime($item->start)) }}</span>
+                                <span class="calendar-day py-2">{{ date('d', strtotime($item->start)) }}</span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col">
-                        <style>
+                        <div class="col">
+                            <a href="{{ url('university_events/'.$item->title ) }}">
+                                <h3 class="h4 mb-1 _w-icon">{{ $item->title }} 
+                            </h3>
+                                
+                            </a>
+                            <span>
+                                Organized by 
+                                <a href="#">{{ $item->organizer }}</a>
+                            </span>
                             
-                             ._w-icon:hover {
-                                transition: 0.3s all;
-                                color:red;
-                                text-decoration-line:underline;
-                            }
+                            <div class="small fw-bold">
+                                <span class="text-danger">Date</span>:
+                                
+                                {{ date('M d,Y', strtotime($item->start)) }} - {{ date('M d,Y', strtotime($item->end)) }}
+                            </div>
+                            <span class="small fw-bold">
+                                <span class="text-danger">Place</span>: {{ $item->location }}
+                            </span>
+                            <p class="lead fs-6 mt-1">
+                                {!! Str::limit($item->description, 200) !!}
+                            </p>
+                        </div>
+                    @endforeach
 
-                        </style>
-                        <a href="#">
-                            <h3 class="h4 mb-1 _w-icon">Engineering Days 
-                        </h3>
-                            
-                        </a>
-                        <span>
-                            Organized by 
-                            <a href="#">Engineering Department</a>
-                        </span>
-                        
-                        <div class="small fw-bold">
-                            <span class="text-danger">Date</span>:
-                            Thu, 12 Sep - Sat, 18 Sep 2020
-                        </div>
-                        <span class="small fw-bold">
-                            <span class="text-danger">Place</span>: Evsu - Tanauan Campus
-                        </span>
-                        <p class="lead fs-6 mt-1">
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur quaerat cumque quam optio fugiat. Odit laudantium nostrum vero amet assumenda voluptates blanditiis inventore consequatur laboriosam accusantium neque, quis sapiente voluptas.
-                        </p>
-                    </div>
+                    {{ $allEvents->links() }}
                 </div>
-            </div>
-            <div class="card-footer border-top bg-gray-50">
-                <a class="fw-bold d-flex align-items-center justify-content-center" href="../calendar.html">
-                    <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 12a2 2 0 100-4 2 2 0 000 4z"></path><path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"></path></svg>
-                    See all
-                </a>
             </div>
         </div>
     </div>

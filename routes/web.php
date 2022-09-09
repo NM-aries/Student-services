@@ -32,6 +32,7 @@ Route::get('/university_services', [App\Http\Controllers\LandingPageController::
 
 
 Route::get('/university_events' ,[App\Http\Controllers\LandingPageController::class, 'events']);
+Route::get('/university_events/{title}' ,[App\Http\Controllers\LandingPageController::class, 'show_events']);
 Route::get('search', [\App\Http\Controllers\SearchController::class , 'search']);
 Route::post('subscribe', [\App\Http\Controllers\SubscribeController::class, 'subscribe']);
 
@@ -41,8 +42,6 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin', 'cors'])->group(function 
     Route::get('/dashboard',    [App\Http\Controllers\Admin\DashboardController::class, 'index']);
     Route::get('/previous',    [App\Http\Controllers\Admin\DashboardController::class, 'previous']);
     Route::get('/logs', [App\Http\Controllers\Admin\LogsController::class, 'index']);
-
-
 
     // Announcement Route
     Route::prefix('announcement')->group(function () {
@@ -128,8 +127,6 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin', 'cors'])->group(function 
     });
 });
 
-    Route::get('fullcalender', [App\Http\Controllers\Admin\EventsController::class, 'index']);
-    Route::post('fullcalenderAjax-create', [App\Http\Controllers\Admin\EventsController::class, 'createEvent']);
 
 
    

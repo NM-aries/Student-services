@@ -13,8 +13,7 @@ class EventsController extends Controller
 {
     public function index(Request $request)
     {
-        $events = Events::all();
- 
+        $events = Events::Paginate(10);
         return view('admin._events.index', compact('events'));
     }
     public function add_event(Request $request)
@@ -27,9 +26,23 @@ class EventsController extends Controller
         $event->location = $request->location;
         $event->organizer = $request->organizer;
         $event->textColor = $request->textColor;
+        if($request->hasfile('image')){
+            $file = $request->file('image');
+            $filename = $request->title . '.' . $file->getClientOriginalExtension();
+            $file->move('upload/event/', $filename);
+            $event->image = $filename;
+        }
         $event->backgroundColor = $request->backgroundColor;
 
         $event->save();
+
+        $logs = new Logs();
+        $logs->user = Auth::user()->name;
+        $logs->status = '<span class="badge p-2 bg-success"> Created </span> ';
+        $logs->action = '<a class="text-success">Event</a> : '. $event->title;
+        $logs->save();
+
+        session()->flash('message', 'Event Successfully Created');
 
         return redirect()->back();
     }

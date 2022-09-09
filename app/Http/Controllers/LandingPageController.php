@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Announcement;
 use App\Models\Banner;
+use App\Models\Events;
 use App\Models\News;
 use App\Models\Services;
 use Illuminate\Http\Request;
@@ -81,17 +82,23 @@ class LandingPageController extends Controller
         return redirect('university_announcements/'.$announcement->slug);
     }
 
-    // SERVICES
-
+// SERVICES
     public function services()
     {
         $allServices = Services::orderBy('created_at','desc')->get();
         return view('services', compact('allServices'));
     }
-    //EVENTS
 
+//EVENTS
     public function events()
     {
-        return view('events');
+        $allEvents = Events::orderBy('start', 'desc')->Paginate(10);
+        return view('events', compact('allEvents'));
+    }
+
+    public function show_events($title)
+    {
+        $event = Events::where('title', $title)->firstOrFail();
+        return view('pages._events-show', compact('event'));
     }
 }

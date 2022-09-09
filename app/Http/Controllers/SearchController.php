@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Announcement;
+use App\Models\Events;
 use App\Models\News;
 use Illuminate\Http\Request;
 
@@ -17,12 +18,18 @@ class SearchController extends Controller
                         ->where('title', 'LIKE', "%{$search}%")
                         ->orWhere('description', 'LIKE', "%{$search}%")
                         ->Paginate(5);
+
         $news         = News::query()
+                        ->where('title', 'LIKE', "%{$search}%")
+                        ->orWhere('description', 'LIKE', "%{$search}%")
+                        ->Paginate(5);
+
+        $events         = Events::query()
                         ->where('title', 'LIKE', "%{$search}%")
                         ->orWhere('description', 'LIKE', "%{$search}%")
                         ->Paginate(5);
         
     
-        return view('search_result',compact('news','announcement'));
+        return view('search_result',compact('news','announcement','events'));
     }
 }

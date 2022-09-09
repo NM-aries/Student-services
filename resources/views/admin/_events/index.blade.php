@@ -9,21 +9,21 @@
 @endsection
 
 @section('breadcrumbs')
-    {{ Breadcrumbs::render('logs') }}
+    {{ Breadcrumbs::render('events') }}
 @endsection
 
 @section('content')
 <div class="row">
-    <div class="col-6">
+    <div class="col-12 col-md-6">
         <div class="card border-0 shadow mb-4">
             <div class="card-body">
                 <div id='calendar'></div>
             </div>
         </div>
     </div>
-    <div class="col-6">
+    <div class="col-12 col-md-6">
         <div class="card border-0 shadow mb-4">
-            <div class="card-body">
+            <div class="card-body p-1">
                 <table class="table table-centered table-hover mb-0 rounded" id="data">
                     <thead class="thead-light">
                         <tr>
@@ -51,12 +51,6 @@
                                     </button>
                         
                                     <div class="dropdown-menu bg-primary text-white dashboard-dropdown px-2">
-                                        <a  class="dropdown-item align-items-center" 
-                                            href="{{ url('admin/banner/view/'.$items->id) }}">
-                                            <img src="{{ asset('images/icons/view.webp') }}" alt="" class="action_icon"> 
-                                            View Post
-                                        </a>
-                                        
                                         <a class="dropdown-item align-items-center"
                                             data-bs-toggle="modal" data-bs-target="#editModal{{ $items->id }}" role="button"
                                             >
@@ -74,6 +68,7 @@
                             </tr>
                             @include('admin/_include/_editEvent_modal')
                         @endforeach
+                        
                     </tbody>
                 </table>
             </div>
@@ -81,7 +76,7 @@
     </div>
 </div>
 
-
+@include('admin/_include/_event_modal')
 
 @endsection
 
@@ -90,6 +85,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="{{ asset('js/ckeditor.js') }}"></script>
+<script>
+    ClassicEditor
+    .create( document.querySelector('#description' ) )
+</script>
 
     <script>
         $(document).ready(function() {
@@ -110,8 +110,6 @@
                     {
                         id : '{{ $event->id }}',
                         title : '{{ $event->title }}',
-                        description : '{{ $event->description }}',
-                        image : '{{ $event->image }}',
                         start : '{{ $event->start }} 00:00:00',
                         end : '{{ $event->end }} 11:00:00',
                         backgroundColor: '{{ $event->backgroundColor }}',

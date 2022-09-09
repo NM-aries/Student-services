@@ -118,6 +118,13 @@ Breadcrumbs::for('logs', function ($trail) {
 });
 
 
+// Dashboard -> Activity Logs
+Breadcrumbs::for('events', function ($trail) {
+    $trail->parent('dashboard');
+    $trail->push('Events Calendar');
+});
+
+
 
 
 ?>
