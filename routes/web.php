@@ -93,7 +93,7 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin', 'cors'])->group(function 
         Route::get('edit/{news_id}', [App\Http\Controllers\Admin\ServicesController::class, 'edit']);
         Route::put('update/{news_id}', [App\Http\Controllers\Admin\ServicesController::class, 'update']);
         Route::get('remove/{services_id}', [App\Http\Controllers\Admin\ServicesController::class, 'destroy']);
-        Route::get('checkslug', [App\Http\Controllers\Admin\ServicesController::class, 'checkslug']);
+        // Route::get('checkslug', [App\Http\Controllers\Admin\ServicesController::class, 'checkslug']);
     
     
     });

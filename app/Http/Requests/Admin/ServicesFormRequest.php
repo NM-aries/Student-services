@@ -29,9 +29,6 @@ class ServicesFormRequest extends FormRequest
                 'string',
                 'max:100'
             ],
-            'slug' => [
-                'required',
-            ],
             'description' => [
                 'required'
             ],

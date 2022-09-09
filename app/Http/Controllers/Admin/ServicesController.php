@@ -26,23 +26,19 @@ class ServicesController extends Controller
     public function store(ServicesFormRequest $request)
     {
         $data = $request->validated();
-        
-        $this->validate($request,[
-            'slug'=>'alpha_dash|required|unique:services'
-        ]);
-        
+    
+    
         $services = new Services();
         $services->title = $data['title'];
         $services->status = $data['status'];
-        $services->slug = Str::slug($data['slug']);
         $services->description = $data['description'];
-        $services->visit_count = 0;
+        $services->download_count = 0;
 
-        if($request->hasfile('coverimage')){
-            $file = $request->file('coverimage');
-            $filename = $data['slug'] . '.' . $file->getClientOriginalExtension();
+        if($request->hasfile('file')){
+            $file = $request->file('file');
+            $filename = $data['title'] . '.' . $file->getClientOriginalExtension();
             $file->move('upload/services/', $filename);
-            $services->coverimage = $filename;
+            $services->file = $filename;
         }
         $services->created_by = Auth::user()->id;
         $services->save();
@@ -72,7 +68,6 @@ class ServicesController extends Controller
         $services = Services::find($services_id);
         $services->title = $data['title'];
         $services->status = $data['status'];
-        $services->slug = Str::slug($data['slug']);
         $services->description = $data['description'];
 
         

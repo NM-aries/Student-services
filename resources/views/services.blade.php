@@ -32,7 +32,13 @@
                         <div id="collapseOne-{{ $listServices->id }}" class="accordion-collapse collapse collapsed @if($loop->first) show
                             @endif " aria-labelledby="headingOne" data-bs-parent="#accordionPricing">
                             <div class="accordion-body bg-white">
-                                {!! $listServices->description !!}    
+                                {!! $listServices->description !!}  
+
+                                @if ($listServices->file)
+                                    <div class="my-2">
+                                        <a href="{{asset('upload/services/')}}/{{ $listServices->file }}" target="_blank" class="btn btn-secondary"> Dowload File</a>
+                                    </div>  
+                                @endif
                             </div>
                         </div>
                     </div>
