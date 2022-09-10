@@ -11,10 +11,10 @@
         </div>
         <div class="row">
             <div class="col-3">
-                <p class="">Username</p>
+                <p class="">User ID</p>
             </div>
             <div class="col-9">
-                <p class="text-muted ">{{$user->username}}</p>
+                <p class="text-muted ">{{$user->user_id}}</p>
             </div>
         </div>
         <div class="row">

@@ -47,9 +47,9 @@
                             
                             <div class="col-12 mb-2">
                                 <div class="form-group has-icon-left">
-                                    <label for="username">Username</label>
+                                    <label for="username">User ID</label>
                                     <div class="position-relative">
-                                        <input type="text" name="username" class="form-control" id="username" autocomplete="off">
+                                        <input type="text" name="user_id" class="form-control" id="user_id" autocomplete="off">
                                         <div class="form-control-icon">
                                             <i class="bi bi-person-badge"></i>
                                         </div>
@@ -157,7 +157,7 @@
             var imgholder = $('.imgholder');
             var extension = img_path.substring(img_path.lastIndexOf('.')+1).toLowerCase();
 
-            if(extension == 'jpeg' || extension == 'jpg' || extension == 'png' ){
+            if(extension == 'jpeg' || extension == 'jpg' || extension == 'png' || extension == 'gif' ){
                 if(typeof(FileReader) != 'undefined'){
                     imgholder.empty();
                     var reader = new FileReader();

@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,6 +30,7 @@ Route::put('/announcenment_ViewCount/{id}', [\App\Http\Controllers\LandingPageCo
 
 
 Route::get('/university_services', [App\Http\Controllers\LandingPageController::class, 'services']);
+Route::put('/services_downloadCount/{id}', [App\Http\Controllers\LandingPageController::class, 'servicesDownload']);
 
 
 Route::get('/university_events' ,[App\Http\Controllers\LandingPageController::class, 'events']);
@@ -93,7 +95,7 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin', 'cors'])->group(function 
         Route::get('edit/{news_id}', [App\Http\Controllers\Admin\ServicesController::class, 'edit']);
         Route::put('update/{news_id}', [App\Http\Controllers\Admin\ServicesController::class, 'update']);
         Route::get('remove/{services_id}', [App\Http\Controllers\Admin\ServicesController::class, 'destroy']);
-        // Route::get('checkslug', [App\Http\Controllers\Admin\ServicesController::class, 'checkslug']);
+        
     
     
     });

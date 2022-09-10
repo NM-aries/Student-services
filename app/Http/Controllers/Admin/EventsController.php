@@ -26,6 +26,7 @@ class EventsController extends Controller
         $event->location = $request->location;
         $event->organizer = $request->organizer;
         $event->textColor = $request->textColor;
+
         if($request->hasfile('image')){
             $file = $request->file('image');
             $filename = $request->title . '.' . $file->getClientOriginalExtension();
@@ -33,7 +34,6 @@ class EventsController extends Controller
             $event->image = $filename;
         }
         $event->backgroundColor = $request->backgroundColor;
-
         $event->save();
 
         $logs = new Logs();

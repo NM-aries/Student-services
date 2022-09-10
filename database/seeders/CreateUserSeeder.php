@@ -37,7 +37,7 @@ class CreateUserSeeder extends Seeder
         $users =  [
             [
                 'name' => 'Michael Aries Yap',
-                'username' => 'aRhiExz',
+                'user_id' => '60-1128',
                 'contact' => '09551387497',
                 'profile_img' => '1.jpg',
                 'is_admin' => '1',
@@ -47,7 +47,7 @@ class CreateUserSeeder extends Seeder
             ],
             [
                 'name' => 'Student Services Department',
-                'username' => 'admin',
+                'user_id' => '2019-35744',
                 'contact' => '09123456789',
                 'profile_img' => '1.jpg',
                 'is_admin' => '1',

@@ -62,11 +62,11 @@ class LoginController extends Controller
         $input = $request->all();
 
         $this->validate($request, [
-            'username' => 'required|string',
+            'user_id' => 'required|string',
             'password' => 'required|string',
         ]);
 
-        if(auth()->attempt(array('username' => $input['username'], 'password' => $input['password'])))
+        if(auth()->attempt(array('user_id' => $input['user_id'], 'password' => $input['password'])))
         {
             if (Auth::user()->status == 1 && Auth::user()->is_admin == 1)
             {
@@ -92,7 +92,7 @@ class LoginController extends Controller
         else
         {
             return redirect()->route('login')
-                ->with('error','The Auth ID or Password you entered did not match our records. Please double-check and try again.');
+                ->with('error','The User ID or Password you entered did not match our records. Please double-check and try again.');
         }
 
     }

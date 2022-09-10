@@ -18,8 +18,8 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-10 ">
-                @if (!$event->coverimage)
-                    <img class="w-100" src="https://www.evsu.edu.ph/wp-content/uploads/2022/08/2022_18th-charter-anniversary_480x1600.webp" alt="">
+                @if ($event->coverimage)
+                    <img class="w-100" src="{{ asset('upload/events/').$event->coverimage }}" alt="">
                 @endif
             <div class="card-body bg-white">
                 

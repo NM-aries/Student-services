@@ -66,9 +66,14 @@ class UserController extends Controller
         $user->name = $data['name'];
         $user->email = $data['email'];
         $user->status = $data['status'];
-        $user->username = $data['username'];
+        $user->user_id = $data['user_id'];
         $user->is_admin = $request->input('is_admin');
         $user->contact = $request->input('contact');
+
+        if($request->password !== null)
+        {
+            $user->password = bcrypt($request->input('password'));
+        }
 
         if($request->hasfile('profilePic')){
             $file = $request->file('profilePic');
@@ -127,14 +132,14 @@ class UserController extends Controller
 
         $request->validate([
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'username' => ['unique:users']
+            'user_id' => ['unique:users']
         ]);
 
         $user = User::create([
             'name' => trim($request->input('name')),
             'email' => strtolower($request->input('email')),
             'password' => bcrypt($request->input('password')),
-            'username' => $request->input('username'),
+            'user_id' => $request->input('user_id'),
             'contact' => $request->input('contact'),
             'status' => $request->input('status'),
             'is_admin' => $request->input('is_admin'),

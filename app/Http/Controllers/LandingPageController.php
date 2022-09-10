@@ -89,10 +89,18 @@ class LandingPageController extends Controller
         return view('services', compact('allServices'));
     }
 
+    public function servicesDownload(Request $request, $id)
+    {
+        $services = Services::find($id);
+        $services->download_count = $request->input('download_count');
+        $services->update();
+        return redirect()->back();
+    }
+
 //EVENTS
     public function events()
     {
-        $allEvents = Events::orderBy('start', 'desc')->Paginate(10);
+        $allEvents = Events::orderBy('start', 'asc')->Paginate(10);
         return view('events', compact('allEvents'));
     }
 

@@ -20,7 +20,7 @@
         <div class="col-lg-10 col-md-12 col-12 order-1 ">
             <div class="accordion " id="accordionPricing">
             @if ($allServices->count())
-                @foreach ($allServices as $listServices )
+                @foreach ($allServices->where('status', 1) as $listServices )
                     <div class="accordion-item">
                         <h2 class="accordion-header " id="headingOne">
                             <button class="accordion-button 
@@ -36,12 +36,28 @@
 
                                 @if ($listServices->file)
                                     <div class="my-2">
-                                        <a href="{{asset('upload/services/')}}/{{ $listServices->file }}" target="_blank" class="btn btn-secondary"> Dowload File</a>
-                                    </div>  
+                                         </a>
+                                    </div> 
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <a id="download_link" href="{{asset('upload/services/')}}/{{ $listServices->file }}" target="" class="btn btn-secondary"> Dowload Now</a>
+                                        <span class="badge bg-primary py-3  rounded-0 px-2">
+                                            <span class="text-secondary mx-2">{{ $listServices->download_count }}</span> 
+                                            Downloads
+                                        </span>
+                                    </div>
+
                                 @endif
+
                             </div>
                         </div>
                     </div>
+
+                    
+                    <form class="hidden" action="{{ url('servicesDownload/'.$listServices->id) }}" method="POST" id="form">
+                        @csrf 
+                        @method('PUT')
+                        <input type="hidden" value="{{ $listServices->download_count }}" name="download_count" id="DownloadCount">
+                    </form>
                 @endforeach
             </div>
                 
@@ -66,4 +82,24 @@
        </div>
     </div>
 </div>
+
+@endsection
+
+@section('scripts')
+
+    <script>
+        document.getElementById("download_link").onclick = function() {
+            let downloadCount = document.getElementById('DownloadCount').value;
+            let downloadCountPlusOne = parseInt(downloadCount) + 1;
+            document.getElementById('DownloadCount').value = downloadCountPlusOne;
+            
+            let $formData = $('#form');
+        
+            $.ajax({
+                url: $formData.attr('action'),
+                type: 'PUT',
+                data: $formData.serialize(),
+            });
+        };
+    </script>
 @endsection

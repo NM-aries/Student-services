@@ -44,8 +44,8 @@
                             
                             <div class="col-12 mb-3 ">
                                 <div class="form-group">
-                                    <label for="username">Username</label>
-                                    <input type="text" name="username" class="form-control" id="username" value="{{$user->username}}">
+                                    <label for="username">User ID</label>
+                                    <input type="text" name="user_id" class="form-control" id="user_id" value="{{$user->user_id}}">
                                 </div>
                             </div>
     
@@ -83,6 +83,32 @@
                                     
                                 </div>
                             </div>
+
+                            <div class="col-12 mb-2">
+                                <div class="form-group has-icon-left">
+                                    <label for="username">Password</label>
+                                    <div class="position-relative">
+                                        <input id="password" type="password" class="form-control" value="" name="password" autocomplete="off" >
+                                        <div class="form-control-icon">
+                                            <i class="bi bi-lock"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="col-12 mb-2">
+                                <div class="form-group has-icon-left">
+                                    <label for="username">Confirm Password</label>
+                                    <div class="position-relative">
+                                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation" autocomplete="off" value="">
+                                        <div class="form-control-icon">
+                                            <i class="bi bi-lock-fill"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
                             @if (Auth::user()->is_admin == 1)
                                 <div class="col-12 col-md-6 mb-3">
                                     <div class="form-group has-icon-left">

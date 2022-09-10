@@ -23,9 +23,9 @@
             <table class="table table-centered table-hover mb-0 rounded" id="data">
                 <thead class="thead-light">
                     <tr>
-                        <th class="border-0 rounded-start">Profile Pic</th>
+                        <th class="border-0 rounded-start">Profile Pic</th>                        
+                        <th class="border-0">User ID</th>
                         <th class="border-0">Fullname</th>
-                        <th class="border-0">Username</th>
                         <th class="border-0">Email</th>
                         <th class="border-0">Role</th>
                         <th class="border-0">Status</th>
@@ -39,8 +39,8 @@
                         <td clas="" style="width: 80px">
                             <img class="avatar avatar-md rounded" src="{{ asset('images/user/'.$items->profile_img) }}" style="height: 40px; width:40px;">
                         </td>
-                        <td>{{ $items->name }}</td>
-                        <td>{{ $items->username }}</td>
+                        <td>{{ $items->user_id }}</td>
+                        <td>{{ $items->name }}</td>                        
                         <td>{{ $items->email }}</td>
                         <td style="width: 100px">
                             @if ($items->is_admin == 1)

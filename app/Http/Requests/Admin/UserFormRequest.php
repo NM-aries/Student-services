@@ -32,7 +32,7 @@ class UserFormRequest extends FormRequest
                 'string',
                 'max:100'
             ],
-            'username' => [
+            'user_id' => [
                 'required',
                 'string',
                 'max:100',
