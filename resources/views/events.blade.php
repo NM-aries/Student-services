@@ -23,7 +23,7 @@
 
 <div class="container mb-5 mt-4" >
     <div class="col-12">
-        <div class="card border-0 shadow">
+        <div class="card border-0">
             <div class="card-body">
                 <!-- Event 1 -->
                 <div class="row ">
