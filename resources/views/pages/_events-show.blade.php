@@ -18,9 +18,9 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-10 ">
-                @if ($event->coverimage)
-                    <img class="w-100" src="{{ asset('upload/events/').$event->coverimage }}" alt="">
-                @endif
+            {{-- @if ($event->image) --}}
+                <img class="w-100" src="{{ asset('upload/events/'. $event->image)}}" alt="">
+            {{-- @endif --}}
             <div class="card-body bg-white">
                 
                 <div class="">

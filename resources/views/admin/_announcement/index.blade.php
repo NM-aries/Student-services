@@ -19,6 +19,8 @@
 @section('content')
 <div class="card border-0 shadow mb-4">
     <div class="card-body p-3">
+        @include('include._alert')
+       
         <div class="table-responsive pt-1">
             <table class="table table-centered table-hover mb-0 rounded" id="data">
                 <thead class="thead-light">

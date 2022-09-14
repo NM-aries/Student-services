@@ -49,7 +49,7 @@ class ServicesController extends Controller
         $logs->action = '<a class="text-success">Services </a>: '. $services->title;
         $logs->save();
         
-        session()->flash('message', 'Services Created Successfully');
+        session()->flash('message', 'Services <span class="text-success fw-bolder text-decoration-underline">'. $services->title. '</span> Created');
         return redirect('admin/services');
     }
 
@@ -72,7 +72,7 @@ class ServicesController extends Controller
 
         
         $services->created_by = $request->input('created_by');
-        $services->updated_by = Auth::user()->id;
+        $services->updated_by = Auth::user()->name;
         $services->update();
 
         $logs = new Logs();
@@ -81,7 +81,7 @@ class ServicesController extends Controller
         $logs->action = '<a class="text-info">Services </a>: '. $services->title;
         $logs->save();
 
-        session()->flash('message', 'Services Updated Successfully');
+        session()->flash('message', 'Services <span class="text-success fw-bolder text-decoration-underline">'. $services->title. '</span> Updated');
         return redirect('admin/services');
     }
     //
@@ -113,7 +113,7 @@ class ServicesController extends Controller
         $logs->action = '<a class="text-danger">Services </a>:'. $services->title;
         $logs->save();
 
-        session()->flash('message', 'Service Successfully Deleted');
+        session()->flash('message', 'Services <span class="text-success fw-bolder text-decoration-underline">'. $services->title. '</span> Deleted');
         return redirect('admin/services');
     }
 

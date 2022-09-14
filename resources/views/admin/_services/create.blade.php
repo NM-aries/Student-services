@@ -52,7 +52,7 @@
                 </div>
 
                 <div class="col-12 mb-2">
-                    <label for="formFile" class="form-label">File <small class="text-danger text-xs">(Compressed file Example: Zip, Rar)</small></label>
+                    <label for="formFile" class="form-label">File </label> <small class="text-danger text-xs">(Optional)</small>
                     <div class="img_holder"></div>
                     <input class="form-control" type="file" id="formFile" name="file" value="{{ old('file') }}">
                 </div>

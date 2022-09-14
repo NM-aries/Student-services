@@ -6,7 +6,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="{{ url('admin/events/edit-event/'. $items->id) }}" method="post">
+                <form action="{{ url('admin/events/edit-event/'. $items->id) }}" method="post" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                 <div class="row">
@@ -47,6 +47,11 @@
                     <div class="col-12 col-md-6 mb-3" id="datetimepicker">
                         <label class="col-form-label">End Date:</label>
                         <input type="date" class="form-control" name="end" value="{{ $items->end }}" >
+                    </div>
+
+                    <div class="col-12 col-md-12 mb-3" id="image">
+                        <label class="col-form-label">Cover Image:</label>
+                        <input type="file" class="form-control" name="image" id="image" value="{{ $items->image }}" accept="image/png, image/gif, image/jpeg">
                     </div>
 
                     <div class="col-12 col-md-6" id="datetimepicker">

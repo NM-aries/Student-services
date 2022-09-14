@@ -16,6 +16,7 @@ class EventsController extends Controller
         $events = Events::Paginate(10);
         return view('admin._events.index', compact('events'));
     }
+    
     public function add_event(Request $request)
     {
         $event = new Events();
@@ -30,7 +31,7 @@ class EventsController extends Controller
         if($request->hasfile('image')){
             $file = $request->file('image');
             $filename = $request->title . '.' . $file->getClientOriginalExtension();
-            $file->move('upload/event/', $filename);
+            $file->move('upload/events/', $filename);
             $event->image = $filename;
         }
         $event->backgroundColor = $request->backgroundColor;
@@ -42,7 +43,7 @@ class EventsController extends Controller
         $logs->action = '<a class="text-success">Event</a> : '. $event->title;
         $logs->save();
 
-        session()->flash('message', 'Event Successfully Created');
+        session()->flash('message', 'Event <span class="text-success fw-bolder">'. $event->title. '</span> Created');
 
         return redirect()->back();
     }
@@ -58,9 +59,16 @@ class EventsController extends Controller
         $event->organizer = $request->organizer;
         $event->textColor = $request->textColor;
         $event->backgroundColor = $request->backgroundColor;
+        
+        if($request->hasfile('image')){
+            $file = $request->file('image');
+            $filename = $request->title . '.' . $file->getClientOriginalExtension();
+            $file->move('upload/events/', $filename);
+            $event->image = $filename;
+        }
 
         $event->update();
-
+        session()->flash('message', 'Event <span class="text-success fw-bolder">'. $event->title. '</span> Updated');
         return redirect()->back();
     }
     public function destroy($id)
@@ -74,7 +82,7 @@ class EventsController extends Controller
         $logs->action = '<a class="text-danger">Event</a> : '. $event->title;
         $logs->save();
 
-        session()->flash('message', 'Event Successfully Deleted');
+        session()->flash('message', 'Event <span class="text-success fw-bolder">'. $event->title. '</span> Deleted');
         return redirect()->back();
     }
  

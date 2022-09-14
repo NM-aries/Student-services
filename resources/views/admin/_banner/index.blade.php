@@ -19,6 +19,8 @@
 @section('content')
 <div class="card border-0 shadow mb-4">
     <div class="card-body p-3">
+        
+        @include('include/_alert')
         <div class="table-responsive pt-1">
             <table class="table table-centered table-hover mb-0 rounded" id="data">
                 <thead class="thead-light">
@@ -56,11 +58,6 @@
                     
                                 <div class="dropdown-menu bg-primary text-white dashboard-dropdown px-2">
                                     <a  class="dropdown-item align-items-center" 
-                                        href="{{ url('admin/banner/view/'.$items->id) }}">
-                                        <img src="{{ asset('images/icons/view.webp') }}" alt="" class="action_icon"> 
-                                        View Post
-                                    </a>
-                                    <a  class="dropdown-item align-items-center" 
                                         href="{{ url('admin/banner/edit/'.$items->id) }}">
                                         <img src="{{ asset('images/icons/edit.webp') }}" alt="" class="action_icon"> 
                                         Edit Post
@@ -82,7 +79,6 @@
     </div>
 </div>
 
-@include('include/_alert')
 @endsection
 
 

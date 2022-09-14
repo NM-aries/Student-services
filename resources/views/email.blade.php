@@ -1,9 +1,8 @@
 <p>
     Hi, <br>
-    You have a new contact email from your website
+    You have a new contact email from your website <br>
 
-<strong>Subject</strong> {{ $data['subject'] }}
-<strong>Title</strong> {{ $data['title'] }}
-<strong>Description</strong> {!! $data['description'] !!}
+<strong>Title</strong> {{ $data['title'] }} <br>
+<strong>Description: </strong> {!! $data['description'] !!}
 
 </p>

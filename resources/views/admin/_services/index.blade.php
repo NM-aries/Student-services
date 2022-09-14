@@ -19,6 +19,9 @@
 @section('content')
 <div class="card border-0 shadow mb-4">
     <div class="card-body p-3">
+        
+        @include('include/_alert')
+
         <div class="table-responsive pt-1">
             <table class="table table-centered table-hover mb-0 rounded" id="data">
                 <thead class="thead-light">
@@ -38,12 +41,7 @@
                             <td>{{ $items->user->name ?? 'None'}}</td>
                             <td>{{ $items->created_at->format('M d, Y') }}</td>
                             <td>
-                                @if (!$items->updated_by)
-                                    <span class="text-gray"> -- </span>
-                                @else
-                                    {{ $items->user->name }}
-                                @endif
-                                
+                                {{ $items->updated_by ?? '--'}}
                             </td>
                             <td style="width: 80px">
                                 @if($items->status == 1)
@@ -89,7 +87,6 @@
     </div>
 </div>
 
-@include('include/_alert')
 @endsection
 
 

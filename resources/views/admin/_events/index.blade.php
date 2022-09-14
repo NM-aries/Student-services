@@ -4,6 +4,8 @@
 
 @section('styles')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" />
+    
+    <link rel="stylesheet" href="{{ asset('css/dataTables.bootstrap5.min.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">
 
 @endsection
@@ -14,6 +16,10 @@
 
 @section('content')
 <div class="row">
+    
+   <div class="col-12">
+    @include('include/_alert')
+   </div>
     <div class="col-12 col-md-6">
         <div class="card border-0 shadow mb-4">
             <div class="card-body">
@@ -23,7 +29,7 @@
     </div>
     <div class="col-12 col-md-6">
         <div class="card border-0 shadow mb-4">
-            <div class="card-body p-1">
+            <div class="card-body p-1 py-3">
                 <table class="table table-centered table-hover mb-0 rounded" id="data">
                     <thead class="thead-light">
                         <tr>
@@ -82,13 +88,27 @@
 
 
 @section('scripts')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js"></script>
-    <script src="{{ asset('js/ckeditor.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js"></script>
+<script src="{{ asset('js/ckeditor.js') }}"></script>
+<script src="{{asset('js/jquery.dataTables.min.js')}}" defer ></script>
+<script src="{{asset('js/dataTables.bootstrap5.min.js')}}" defer></script>
+
 <script>
-    ClassicEditor
-    .create( document.querySelector('#description' ) )
+    $(document).ready(function () {
+        $('#data').DataTable({
+            destroy: true,
+            "order": [[ 2, "asc" ]]
+        });
+    });
+</script>
+
+<script>
+    var allEditors = document.querySelectorAll('#description');
+    for (var i = 0; i < allEditors.length; ++i) {
+        ClassicEditor.create(allEditors[i]);
+    }
 </script>
 
     <script>

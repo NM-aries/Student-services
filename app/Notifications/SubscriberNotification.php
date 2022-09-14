@@ -44,7 +44,7 @@ class SubscriberNotification extends Notification
     {
         return (new MailMessage)
                 ->greeting('Hello, '.$this->subscriber->name)
-                ->line('Welcome to EVSU - .')
+                ->line('Welcome to EVSU - TC STUDENT SERVICES MOBILE ADVISORY.')
                 ->action('Explore our Website', url('/'))
                 ->line('Thank you for using our application!');
             

@@ -138,8 +138,8 @@
     
             @if (!$announcement->count() && ! $news->count())
                 <div class="card">
-                    <div class="card-body p-5">
-                        <img src="{{ asset('assets/images/icon/search_no_result.webp') }}" alt="" class="w-100">
+                    <div class="card-body p-0">
+                        <img src="{{ asset('images/others/no result.webp') }}" alt="" class="w-100">
                     </div>
                 </div>
             @endif

@@ -31,6 +31,8 @@ class BannerController extends Controller
 
     public function store(BannerFormRequest $request)
     {   
+        
+        
         $banner = new Banner();
         $banner->title = $request->title;
         $banner->description = $request->description;
@@ -50,7 +52,7 @@ class BannerController extends Controller
         $logs->action = '<a class="text-success">Banner</a> : '. $banner->title;
         $logs->save();
 
-        session()->flash('message', 'Banner Created Successfully');
+        session()->flash('message', 'Banner <span class="text-success fw-bolder">'. $banner->title. '</span> Created');
         return redirect('admin/banner');
     }
 
@@ -67,16 +69,18 @@ class BannerController extends Controller
 
         $banner->title = $data['title'];
         $banner->description = $data['description'];
-        $banner->link = $data['link'];
+        $banner->link = $request->input('link');
         $banner->created_by = $request->created_by;
         $banner->updated_by = Auth::user()->name;
     
         if($request->hasfile('bannerimage')){
             $file = $request->file('bannerimage');
-            $filename = $request->title . '.' . $file->getClientOriginalExtension();
+            $filename = $data['title'] . '.' . $file->getClientOriginalExtension();
             $file->move('upload/banner/', $filename);
             $banner->image = $filename;
         }
+
+        
         $banner->update();
 
         $logs = new Logs();
@@ -85,7 +89,7 @@ class BannerController extends Controller
         $logs->action = '<a class="text-info">Banner</a> : '. $banner->title;
         $logs->save();
 
-        session()->flash('message', 'Banner Updated Successfully');
+        session()->flash('message', 'Banner <span class="text-success fw-bolder">'. $banner->title. '</span> Updated');
         return redirect('admin/banner');
     }
 
@@ -107,7 +111,7 @@ class BannerController extends Controller
         $logs->action = '<a class="text-danger">Banner</a> : '. $banner->title;
         $logs->save();
 
-        session()->flash('message', 'Banner Successfully Deleted');
+        session()->flash('message', 'Banner <span class="text-success fw-bolder">'. $banner->title. '</span> Deleted');
         return redirect('admin/banner');
     }
 }

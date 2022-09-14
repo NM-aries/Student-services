@@ -35,18 +35,12 @@
                 </div>
                 @endif
 
-                <div class="col-12 col-md-6 mb-2">
+                <div class="col-12 col-md-12 mb-2">
                     <div class="form-group">
                         <label for="title">Title</label>
                         <input type="text" class="form-control" name="title" id="title" value="{{ $services->title }}" required >
                         <input type="hidden" name="created_by" value="{{ $services->created_by }}">
                     
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 mb-2">
-                    <div class="form-group">
-                        <label for="slug">Slug</label>
-                        <input type="text" id="slug" class="form-control" name="slug"  value="{{ $services->slug }}" required autocomplete="off">
                     </div>
                 </div>
 
@@ -60,9 +54,9 @@
                 </div>
 
                 <div class="col-12 mb-2">
-                    <label for="formFile" class="form-label">File <small class="text-danger text-xs">(Compressed file Example: Zip, Rar)</small></label>
+                    <label for="formFile" class="form-label">File <small class="text-danger text-xs"></small></label>
                     <div class="img_holder"></div>
-                    <input class="form-control" type="file" id="formFile" name="coverimage">
+                    <input class="form-control" type="file" id="formFile" name="coverimage" value="={{ $services->file }}">
                 </div>
 
                 <div class="col-12 mb-2">
@@ -104,39 +98,5 @@
         $('.select2').select2();
     });
 
-    $('input[type="file"][name="coverimage"]').val('');
-    $('input[type="file"][name="coverimage"]').on('change', function(){
-        var img_path = $(this)[0].value;
-        var img_holder = $('.img_holder');
-        var extension = img_path.substring(img_path.lastIndexOf('.')+1).toLowerCase();
-
-        if(extension == 'jpeg' || extension == 'jpg' || extension == 'png' || extension == 'webp' ){
-            if(typeof(FileReader) != 'undefined'){
-                img_holder.empty();
-                var reader = new FileReader();
-                reader.onload = function(e){
-                    $('<img/>',{'src':e.target.result,'class':'img-fluid','style':'max-width:100%;margin-bottom:10px'}).
-                    appendTo(img_holder);
-                }
-                img_holder.show();
-                reader.readAsDataURL($(this)[0].files[0])
-            }else{
-                $(img_holder).html('This Browser does not support FileReader');
-            }
-        }else{
-            $(img_holder).empty();
-        }
-    });
-</script>
-
-<script>
-    $('#title').change(function(e) {
-       $.get('{{ url('admin/announcement/checkslug') }}', 
-       { 'title': $(this).val() }, 
-       function( data ) {
-           $('#slug').val(data.slug);
-       }
-       );
-    });
 </script>
 @endsection

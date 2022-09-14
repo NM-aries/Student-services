@@ -55,7 +55,7 @@ class NewsController extends Controller
         $logs->action = '<a class="text-success"> News </a> :'. $news->title;
         $logs->save();
         
-        session()->flash('message', 'News Created Successfully');
+        session()->flash('message', 'News <span class="text-success fw-bolder text-decoration-underline">'. $news->title. '</span> Created');
         return redirect('admin/news');
     }
 
@@ -76,7 +76,7 @@ class NewsController extends Controller
         $news->slug = Str::slug($data['slug']);
         $news->description = $data['description'];
         $news->created_by = $request->input('created_by');
-        $news->updated_by = Auth::user()->id;
+        $news->updated_by = Auth::user()->name;
 
         if($request->hasfile('coverimage')){
             $file = $request->file('coverimage');
@@ -93,7 +93,7 @@ class NewsController extends Controller
         $logs->action = '<a class="text-info"> News </a> : '. $news->title;
         $logs->save();
 
-        session()->flash('message', 'News Updated Successfully');
+        session()->flash('message', 'News <span class="text-success fw-bolder text-decoration-underline">'. $news->title. '</span> Updated ');
         return redirect('admin/news');
     }
 
@@ -121,7 +121,7 @@ class NewsController extends Controller
         $logs->action = '<a class="text-danger"> News </a> : '. $news->title;
         $logs->save();
         
-        session()->flash('message', 'News Deleted Successfully');
+        session()->flash('message', 'News <span class="text-success fw-bolder text-decoration-underline">'. $news->title. '</span> Deleted');
         return redirect('admin/news');
     }
 

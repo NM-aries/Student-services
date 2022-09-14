@@ -33,7 +33,6 @@
             {{-- @include('include/_footer') --}}
         </main>
     </div>
-    @include('include._alert')
     @include('include._script')
 </body>
 </html>

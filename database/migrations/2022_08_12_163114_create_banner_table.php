@@ -21,7 +21,7 @@ class CreateBannerTable extends Migration
             $table->string('link')->nullable();
             $table->unsignedBigInteger('created_by');
             $table->foreign('created_by')->references('id')->on('users')->onDelete('cascade');
-            $table->integer('updated_by')->nullable();
+            $table->string('updated_by')->nullable();
             $table->timestamps();
         });
     }

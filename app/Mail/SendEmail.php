@@ -29,8 +29,8 @@ class SendEmail extends Mailable
     public function build()
     {
         return $this->view('email')
-            ->subject('A new Contact Emai')
-            ->from('admin@gmail.com',' EVSU-TC STUDENT SERVICES MOBILE ADVISORY')
+            ->subject('Notification')
+            ->from('admin@gmail.com','EVSU-TC STUDENT SERVICES MOBILE ADVISORY')
             ->with('data', $this->data);
         ;
     }

@@ -30,7 +30,7 @@ Route::put('/announcenment_ViewCount/{id}', [\App\Http\Controllers\LandingPageCo
 
 
 Route::get('/university_services', [App\Http\Controllers\LandingPageController::class, 'services']);
-Route::put('/services_downloadCount/{id}', [App\Http\Controllers\LandingPageController::class, 'servicesDownload']);
+Route::put('/servicesDownload/{id}', [App\Http\Controllers\LandingPageController::class, 'servicesDownload']);
 
 
 Route::get('/university_events' ,[App\Http\Controllers\LandingPageController::class, 'events']);

@@ -6,17 +6,7 @@
     <link rel="stylesheet" href="{{ asset('css/dataTables.bootstrap5.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/choices.min.css') }}">
     
-    <style>
-        #subscribers_info,#subscribers_length{
-            display:none
-        }
-        div.dataTables_wrapper div.dataTables_filter{
-            text-align: left !important;
-        }
-        #table_subs #subscribers_wrapper .col-sm-12.col-md-6{
-            width: 100%;
-        }
-    </style>
+    
 @endsection
 
 @section('content')
@@ -32,10 +22,6 @@
                 </div>
                 <form action="{{ url('admin/subscribers/send-email') }}" method="post">
                     @csrf
-                    <div class="form-group">
-                        <label for="">Subject</label>
-                        <input name="subject" type="text" class="form-control">
-                    </div>
     
                     <div class="form-group my-3">
                         <label for="">Title</label>
@@ -48,7 +34,7 @@
     
                         </textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary">Send</button>
+                    <button type="submit" class="btn btn-primary my-2">Send</button>
                 </form>
             </div>
         </div>

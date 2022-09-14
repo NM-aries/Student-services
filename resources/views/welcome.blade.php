@@ -164,28 +164,6 @@
         </div>
     </section>
 </div>
-{{-- 
-<div class="announcements_section "></div>
-<div class="white-block pb-5">
-    <section class="container _section1 ">
-        <div class="_header text-center mb-3 ">
-            <h2 class="text-primary">Subscribe Via Email</h2>
-        </div>
-        <div class="row justify-content-center text-center">
-        <p class="lead text-primary">Keep up with our latest news and Events Subscribe to our newsletter.</p>
-           <div class="col-12 col-md-7">
-            <form action="{{ url('subscribe') }}" method="post">
-                @csrf
-                <input name="subs_email" type="email" class="text-center form-control mb-3" placeholder="Email Address">
-                
-                <input name="subs_email" type="email" class="text-center form-control mb-3" placeholder="Email Address">
-                <button type="submit" class="col-md-5 btn btn-primary"> Subscribe</button>
-            </form>
-           </div>
-           
-        </div>
-    </section>
-</div> --}}
 
 {{-- SUBSCRIBE --}}
 <div class="announcements_section "></div>
@@ -210,7 +188,7 @@
                             <input name="name" type="text" class="rounded-0 form-control mb-3"  autocomplete="off"  placeholder="Name" required>
                         </div>
                         <div class="col-6">
-                            <input name="subs_email" type="email" class="rounded-0 form-control mb-3" placeholder="Email Address" autocomplete="off" required>
+                            <input name="email" type="email" class="rounded-0 form-control mb-3" placeholder="Email Address" autocomplete="off" required>
                         </div>  
                         <div class="col-auto">
                             <button class="rounded-0 btn btn-secondary">Subscribe</button>    

@@ -57,7 +57,7 @@ class AnnouncementController extends Controller
         $logs->action = '<a class="text-success">Announcement</a> : '. $announcement->title;
         $logs->save();
         
-        session()->flash('message', '<i>Announcement</i> Created Successfully');
+        session()->flash('message', 'Announcement <span class="text-success fw-bolder">'. $announcement->title. '</span> Created');
         return redirect('admin/announcement');
     }
 
@@ -97,7 +97,7 @@ class AnnouncementController extends Controller
         $logs->action = '<a class="text-info">Announcement</a> : '. $announcement->title;
         $logs->save();
 
-        session()->flash('message', 'Announcement Updated Successfully');
+        session()->flash('message', 'Announcement <span class="text-danger fw-bolder">'. $announcement->title. '</span> Updated');
         return redirect('admin/announcement');
     }
 
@@ -119,7 +119,7 @@ class AnnouncementController extends Controller
         $logs->action = '<a class="text-danger">Announcement</a> : '. $announcement->title;
         $logs->save();
 
-        session()->flash('message', 'Announcement Successfully Deleted');
+        session()->flash('message', 'Announcement <span class="text-danger fw-bolder">'. $announcement->title. '</span> Deleted');
         return redirect('admin/announcement');
 
     }

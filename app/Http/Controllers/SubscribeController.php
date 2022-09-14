@@ -19,8 +19,12 @@ class SubscribeController extends Controller
 
     public function subscribe( Request $request)
     {
+        $this->validate($request,[
+            'email'=>'unique:subscribers'
+         ]);
+
         $subscriber = new Subscribers();
-        $subscriber->email = $request->input('subs_email');
+        $subscriber->email = $request->input('email');
         $subscriber->name = $request->input('name');
         $subscriber->save();
 
@@ -34,15 +38,14 @@ class SubscribeController extends Controller
         $users = Subscribers::all();
 
         $data = [
-            'subject'=>$request->subject,
             'title'=>$request->title,
             'description'=>$request->description
         ];
         foreach($users as $key =>$user){
             Mail::to($user->email)->send(new SendEmail($data));
         }
-        
-
+    
+        session()->flash('message', 'Email Successfully Sent');
         return redirect()->back();
     }
 }

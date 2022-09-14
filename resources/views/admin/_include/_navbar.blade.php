@@ -8,7 +8,7 @@
                         </path>
                     </svg>
                 </button>
-                <form class="navbar-search form-inline" id="navbar-search-main">
+                {{-- <form class="navbar-search form-inline" id="navbar-search-main">
                     <div class="input-group input-group-merge search-bar">
                         <span class="input-group-text" id="topbar-addon">
                             <svg class="icon icon-xs" x-description="Heroicon name: solid/search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -18,7 +18,7 @@
                         </span>
                         <input type="text" class="form-control" id="topbarInputIconLeft" placeholder="Search" aria-label="Search" aria-describedby="topbar-addon" autocomplete="off">
                     </div>
-                </form>
+                </form> --}}
             </div>
             <ul class="navbar-nav align-items-center">
                 <li class="nav-item dropdown ms-lg-3">

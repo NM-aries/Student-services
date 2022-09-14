@@ -33,12 +33,7 @@ class BannerFormRequest extends FormRequest
             'description' => [
                 'required'
             ],
-            'link' => [
-            ],
-            'bannerimage' => [
-                'required',
-                'mimes:jpeg,jpg,png,webp,gif'
-            ],
+            
             
         ];
         return $rules;

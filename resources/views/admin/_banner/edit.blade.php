@@ -41,7 +41,7 @@
                             {{-- <small class="text-warning"></small>   --}}
                         </label>
                         <div class="img_holder mb-2"></div>
-                        <input class="form-control" type="file" id="formFile" name="bannerimage" value="{{ $banner->coverimage }}">
+                        <input class="form-control" type="file" id="formFile" name="bannerimage" value="{{$banner->image}}">
                     </div>
 
                     <div class="col-12 mb-2">
