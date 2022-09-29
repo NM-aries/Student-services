@@ -184,13 +184,17 @@
                 <form action="{{ url('subscribe') }}" method="post">
                     @csrf
                     <div class="row ">
-                        <div class="col-auto">
-                            <input name="name" type="text" class="rounded-0 form-control mb-3"  autocomplete="off"  placeholder="Name" required>
-                        </div>
-                        <div class="col-6">
+                       
+                        <div class="col-12">
                             <input name="email" type="email" class="rounded-0 form-control mb-3" placeholder="Email Address" autocomplete="off" required>
                         </div>  
-                        <div class="col-auto">
+                        <div class="col-5">
+                            <input name="name" type="text" class="rounded-0 form-control mb-3"  autocomplete="off"  placeholder="Name" required>
+                        </div>
+                        <div class="col-5">
+                            <input name="contact_number" type="text" class="rounded-0 form-control mb-3"  autocomplete="off"  placeholder="Contact Number" required>
+                        </div>
+                        <div class="col-auto right-0">
                             <button class="rounded-0 btn btn-secondary">Subscribe</button>    
                         </div>                        
                     </div>

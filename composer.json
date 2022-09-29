@@ -6,6 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
+        "aloha/twilio": "^5.0",
         "barryvdh/laravel-cors": "^3.0",
         "cviebrock/eloquent-sluggable": "8.0.*",
         "davejamesmiller/laravel-breadcrumbs": "5.x",
@@ -16,7 +17,9 @@
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.4",
         "mckenziearts/laravel-notify": "^2.3",
-        "nicolaslopezj/searchable": "^1.13"
+        "nexmo/client": "^2.4",
+        "nicolaslopezj/searchable": "^1.13",
+        "twilio/sdk": "^6.42"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

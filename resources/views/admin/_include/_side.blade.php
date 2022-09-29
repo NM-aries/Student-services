@@ -62,6 +62,9 @@
                     <span class="sidebar-text">Events</span>
                 </a>
             </li>
+
+            
+            
             
             @if (Auth::user()->is_admin == 1)
                 <li class="nav-item {{ (request()->is('admin/user*')) ? 'active' : '' }}">
@@ -76,12 +79,34 @@
                         <span class="sidebar-text">Activity Logs</span>
                     </a>
                 </li>
-                <li class="nav-item {{ (request()->is('admin/subscribers*')) ? 'active' : '' }}">
-                    <a href="{{ url('admin/subscribers') }}" class="nav-link">
-                        <img src="{{ asset('images/icons/Mailbox-264x264.png') }}" alt="" class="sidebar_icon"> 
-                        <span class="sidebar-text">Subscribers</span>
-                    </a>
-                </li>
+
+                <li class="nav-item " >
+                    <span class="nav-link collapsed d-flex justify-content-between align-items-center active {{ (request()->is('admin/subscribers*')) ? 'bg-gray-700' : '' }}" data-bs-toggle="collapse" data-bs-target="#submenu-app">
+                        <span>
+                            <img src="{{ asset('images/icons/Mailbox-264x264.png') }}" alt="" class="sidebar_icon"> 
+                            <span class="sidebar-text">Subscribers</span>
+                        </span>
+                        <span class="link-arrow"><svg class="icon icon-sm" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                          </svg></span>
+                    </span>
+                    <div class="multi-level collapse {{ (request()->is('admin/subscribers*')) ? 'show' : '' }}" role="list" id="submenu-app" aria-expanded="false">
+                        <ul class="flex-column nav">
+                            <li class="nav-item ">
+                                <a class="nav-link  {{ (request()->is('admin/subscribers')) ? 'bg-gray-900' : '' }} " href="{{ url('admin/subscribers') }}">
+                                    <span class="sidebar-text">Email</span>
+                                </a>
+                            </li>
+    
+                            {{-- <li class="nav-item ">
+                                <a class="nav-link {{ (request()->is('admin/subscribers/sms')) ? 'bg-gray-900' : '' }} " href="{{ url('admin/subscribers/sms') }}">
+                                    <span class="sidebar-text">SMS</span>
+                                </a>
+                            </li> --}}
+                        </ul>
+                    </div>
+                  </li>
+                
             @endif
 
             

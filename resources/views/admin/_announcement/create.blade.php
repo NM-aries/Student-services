@@ -110,7 +110,7 @@
                 img_holder.empty();
                 var reader = new FileReader();
                 reader.onload = function(e){
-                    $('<img/>',{'src':e.target.result,'class':'img-fluid','style':'max-width:100%;margin-bottom:10px'}).
+                    $('<img/>',{'src':e.target.result,'class':'img-fluid','style':'max-width:100%;'}).
                     appendTo(img_holder);
                 }
                 img_holder.show();

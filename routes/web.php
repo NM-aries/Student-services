@@ -38,6 +38,8 @@ Route::get('/university_events/{title}' ,[App\Http\Controllers\LandingPageContro
 Route::get('search', [\App\Http\Controllers\SearchController::class , 'search']);
 Route::post('subscribe', [\App\Http\Controllers\SubscribeController::class, 'subscribe']);
 
+// Route::get('send-sms', [App\Http\Controllers\SendSMSController::class, 'index']);
+
 
 
 Route::prefix('admin')->middleware(['auth', 'isAdmin', 'cors'])->group(function () {
@@ -116,6 +118,8 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin', 'cors'])->group(function 
     Route::prefix('subscribers')->group(function () {
         Route::get('/',     [App\Http\Controllers\SubscribeController::class, 'index']);
         Route::post('/send-email',     [App\Http\Controllers\SubscribeController::class, 'sendEmail']);
+        Route::get('/sms',     [App\Http\Controllers\SubscribeController::class, 'sms']);
+        Route::post('/send-sms',     [App\Http\Controllers\SubscribeController::class, 'sendSms']);
     
     });
 

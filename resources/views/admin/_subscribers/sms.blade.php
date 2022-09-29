@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title' , 'Email - Subscribers')
+@section('title' , 'SMS - Subscribers')
 
 @section('styles')
     <link rel="stylesheet" href="{{ asset('css/dataTables.bootstrap5.min.css') }}">
@@ -14,23 +14,16 @@
     <div class="col-md-7 mb-4 ">
         <div class="card ">
             <div class="card-body">
-                <div>
-                    From: <a class="text-danger"> {{ Auth::user()->email }}</a>
-                </div>
-                <div>
-                    To: <a class="text-info">All Subscribers</a>
-                </div>
-                <form action="{{ url('admin/subscribers/send-email') }}" method="post">
+                <form action="{{ url('admin/subscribers/send-sms') }}" method="post">
                     @csrf
-    
-                    <div class="form-group my-3">
-                        <label for="">Title</label>
-                        <input name="title" type="text" class="form-control">
-                    </div>
-    
+                    <label for="">To: All Subscribers
+                    </label>
+                    
+                    <input type="text" name="contact_number" value="">
+                    <br>
                     <div class="form-group">
-                        <label for="">Description</label>
-                        <textarea class="form-control" name="description" id="email_body" cols="30" rows="10">
+                        <label for="">Message Body</label>
+                        <textarea class="form-control" name="message" id="email_body" cols="30" rows="10">
     
                         </textarea>
                     </div>
