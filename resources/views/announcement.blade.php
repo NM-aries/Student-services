@@ -5,7 +5,7 @@
 @section('content')
 
 
-<div class="container-fluid bg-gray-600 shadow" id="title_container">
+<div class="container-fluid bg-gray shadow" id="title_container">
     <div class="container">
         <div class="header py-3">
             <h2 class="text-white">ANNOUNCEMENTS </h2>

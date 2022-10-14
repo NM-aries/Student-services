@@ -1,6 +1,15 @@
+
+<style>
+    p{
+        font-family: sans-serif;
+    }
+</style>
+
 <p>
     Hi, <br>
-    You have a new contact email from your website <br>
+    There is a new update on website check it out!
+    <br>
+    <br>
 
 <strong>Title</strong> {{ $data['title'] }} <br>
 <strong>Description: </strong> {!! $data['description'] !!}

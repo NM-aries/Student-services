@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div class="container-fluid bg-gray-600 shadow" id="title_container">
+<div class="container-fluid bg-gray shadow" id="title_container">
     <div class="container">
         <div class="header py-3">
             <h2 class="text-white">NEWS</h2>
@@ -13,11 +13,11 @@
 </div>
 
 <div class="container mb-5 mt-4" >
-    <div class="row new_content ">
-        <div class="col-12 order-1 ">
+    <div class="row new_content  ">
+        <div class="col-12 order-1  ">
             @if ($allNews->count())
                 @foreach ($allNews as $listNews )
-                    <div class="card mb-3 news">
+                    <div class="card mb-3 news bg-white">
                         <div class="row">
                             <div class="col-md-4 ">
                                 <div class="thumb m-auto" 
@@ -36,7 +36,7 @@
                                         {!! Str::limit($listNews->description, 150, $end=" .....") !!}
                                     </p>
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <a class="btn mt-2 btn-outline-danger btn-sm" href="{{ url('university_news/'.$listNews->slug) }}"> 
+                                        <a class="btn mt-2 text-white bg-gray btn-sm" href="{{ url('university_news/'.$listNews->slug) }}"> 
                                             Continue Reading  
                                         </a>
                                         <p class="card-text">

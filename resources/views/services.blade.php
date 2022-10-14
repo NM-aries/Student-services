@@ -8,7 +8,7 @@
         background-color: red !important;
     }
 </style>
-<div class="container-fluid bg-gray-600 shadow" id="title_container">
+<div class="container-fluid bg-gray shadow" id="title_container">
     <div class="container">
         <div class="header py-3">
             <h2 class="text-white">SERVICES</h2>
@@ -23,14 +23,13 @@
                 @foreach ($allServices->where('status', 1) as $listServices )
                     <div class="accordion-item">
                         <h2 class="accordion-header " id="headingOne">
-                            <button class="accordion-button 
+                            <button class="accordion-button collapsed
                                 @if(!$loop->first) collapsed @endif" 
                                 type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne-{{ $listServices->id }}" aria-expanded="true" aria-controls="collapseOne">
                                 {{ $listServices->title }}
                             </button>
                         </h2>
-                        <div id="collapseOne-{{ $listServices->id }}" class="accordion-collapse collapse collapsed @if($loop->first) show
-                            @endif " aria-labelledby="headingOne" data-bs-parent="#accordionPricing">
+                        <div id="collapseOne-{{ $listServices->id }}" class="accordion-collapse show collapse collapsed  " aria-labelledby="headingOne" data-bs-parent="#accordionPricing">
                             <div class="accordion-body bg-white">
                                 {!! $listServices->description !!}  
 
@@ -39,9 +38,9 @@
                                          </a>
                                     </div> 
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <a id="download_link" href="{{asset('upload/services/')}}/{{ $listServices->file }}" target="" class="btn btn-secondary"> Dowload Now</a>
-                                        <span class="badge bg-primary py-3  rounded-0 px-2">
-                                            <span class="text-secondary mx-2">{{ $listServices->download_count }}</span> 
+                                        <a id="download_link" href="{{asset('upload/services/')}}/{{ $listServices->file }}" target="" class="btn bg-gray text-white"> Dowload Now</a>
+                                        <span class="badge bg-gray py-3  rounded-0 px-2">
+                                            <span class="text-white mx-2">{{ $listServices->download_count }}</span> 
                                             Downloads
                                         </span>
                                     </div>

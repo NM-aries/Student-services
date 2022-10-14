@@ -8,7 +8,7 @@
 
 @section('content')
 
-<div class="container-fluid text-center bg-gray-600 shadow " id="title_container">
+<div class="container-fluid text-center bg-gray shadow " id="title_container">
     <div class="container" >
         <div class="header py-3">
             <h3 class="text-white text-uppercase">{{$news_details->title}}</h3>
@@ -46,7 +46,7 @@
                     <div class="d-flex justify-content-between align-items-center">
                         @if ($prev)
                             <div class="_prev">
-                                <a href="{{url('university_news/'.$prev->slug)}}" class=" btn btn-outline-danger icon-left ">
+                                <a href="{{url('university_news/'.$prev->slug)}}" class=" btn bg-gray text-white icon-left ">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
                                         <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
                                     </svg>
@@ -57,7 +57,7 @@
 
                         @if ($next)
                             <div class="_next ">
-                                <a href="{{url('university_news/'.$next->slug)}}" class=" btn btn-outline-danger icon-right ">
+                                <a href="{{url('university_news/'.$next->slug)}}" class=" btn bg-gray text-white icon-right ">
                                     Older Post
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
                                         <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>

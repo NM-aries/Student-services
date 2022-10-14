@@ -11,6 +11,8 @@
     </div>
 </div>
 
+
+
 {{-- NEws --}}
 <div class="news_section"></div>
 <div class="colour-block py-4">
@@ -30,7 +32,7 @@
                                             </div>
                                         </div>
                                         <div class="card-body p-0">
-                                            <div class="title bg-primary p-3 text-white">
+                                            <div class="title bg-gray-10 p-3 text-white">
                                                 <h2 class="fs-6 _news-title" >
                                                     {!! Str::limit($newsItems->title, 70) !!}
                                                 </h2>
@@ -53,7 +55,7 @@
                                                     <div class="_news-description">{!! $newsItems->description !!}
                                                     </div>
                                                 </p>
-                                                <a href="{{ url('university_news/'.$newsItems->slug) }}"class="mb-3 btn btn-secondary">
+                                                <a href="{{ url('university_news/'.$newsItems->slug) }}"class="mb-3 btn bg-gray-10 text-white">
                                                     Continue Reading
                                                 </a>
                                             </div>
@@ -68,7 +70,7 @@
         </div>
 
         <div class="button_readmore text-center">
-            <a href="{{ url('university_news') }}" class="fs-6 btn btn-secondary">Read More News</a>
+            <a href="{{ url('university_news') }}" class="fs-6 btn bg-gray-20 text-white">Read More News</a>
         </div>
     </section>
 
@@ -79,7 +81,7 @@
 <div class="white-block pb-5">
     <section class="container _section1 ">
         <div class="_header text-center mb-3 ">
-            <h2 class="text-primary">Announcements</h2>
+            <h2 class="text-white">Announcements</h2>
         </div>
         <div class="row justify-content-center">
             @if ($other_announcements->count())
@@ -93,7 +95,7 @@
                                             </div>
                                         </div>
                                         <div class="card-body p-0">
-                                            <div class="title bg-primary p-3 text-white">
+                                            <div class="title bg-gray p-3 text-white">
                                                 <h2 class="fs-6 _news-title" >
                                                     {!! Str::limit($announcemenetItems->title, 70) !!}
                                                 </h2>
@@ -119,7 +121,7 @@
                                                     <div class="_news-description text-primary">{!! $announcemenetItems->description !!}
                                                     </div>
                                                 </p>
-                                                <a href="{{ url('university_announcements/'.$announcemenetItems->slug) }}"class="mb-3 btn btn-secondary">
+                                                <a href="{{ url('university_announcements/'.$announcemenetItems->slug) }}"class="mb-3 btn text-white bg-gray-10">
                                                     Continue Reading
                                                 </a>
                                             </div>
@@ -133,7 +135,7 @@
             @endif
         </div>
         <div class="button_readmore text-center">
-            <a href="{{ url('announcements') }}" class="fs-6 btn btn-secondary">Read More Announcements</a>
+            <a href="{{ url('university_announcements') }}" class="fs-6 btn bg-gray text-white">Read More Announcements</a>
         </div>
     </section>
 </div>
@@ -156,10 +158,10 @@
         <div class="text-white text-center ">
             <h2 class="fs-2">CORE VALUES</h6>
             <p class="fs-6  lead">
-                <b class="fs-4 text-danger">E</b>XCELLENCE <br>
-                <b class="fs-4 text-danger">V</b>ALUE-LADEN <br>
-                <b class="fs-4 text-danger">S</b>ERVICE-DRIVEN <br>
-                <b class="fs-4 text-danger">U</b>NITY IN DIVERSITY <br>
+                <b class="fs-4 text-white">E</b>XCELLENCE <br>
+                <b class="fs-4 text-white">V</b>ALUE-LADEN <br>
+                <b class="fs-4 text-white">S</b>ERVICE-DRIVEN <br>
+                <b class="fs-4 text-white">U</b>NITY IN DIVERSITY <br>
             </p> 
         </div>
     </section>
@@ -170,32 +172,29 @@
 <div class="white-block pb-5">
     <section class="container _section1 ">
         <div class="_header text-center mb-3 ">
-            <h2 class="text-primary">Subscribe </h2>
+            <h2 class="text-white">Subscribe </h2>
         </div>
         <div class="row justify-content-center">
            <div class="col-5 col-md-3 py-0">
-                <img src="{{ asset('images/others/preview.jpg') }}" alt="">
+                <img src="http://icon-park.com/imagefiles/mail_vector_icon_light_gray.png" alt="">
            </div>
            <div class="col-12 col-md-9 m-auto align-middle ">
             <div class="card-body ">
-                <p class="lead text-primary">
+                <p class="lead text-white">
                     Want us to email you occasionally with EVSU news?
                     <br>Subscribe our newsletter to recieve the latest News and Announcements. </p>
                 <form action="{{ url('subscribe') }}" method="post">
                     @csrf
                     <div class="row ">
                        
-                        <div class="col-12">
+                        <div class="col-5">
                             <input name="email" type="email" class="rounded-0 form-control mb-3" placeholder="Email Address" autocomplete="off" required>
                         </div>  
                         <div class="col-5">
                             <input name="name" type="text" class="rounded-0 form-control mb-3"  autocomplete="off"  placeholder="Name" required>
                         </div>
-                        <div class="col-5">
-                            <input name="contact_number" type="text" class="rounded-0 form-control mb-3"  autocomplete="off"  placeholder="Contact Number" required>
-                        </div>
                         <div class="col-auto right-0">
-                            <button class="rounded-0 btn btn-secondary">Subscribe</button>    
+                            <button class="rounded-0 btn bg-gray text-white">Subscribe</button>    
                         </div>                        
                     </div>
                 </form>

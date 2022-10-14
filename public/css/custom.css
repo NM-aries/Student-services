@@ -1,3 +1,25 @@
+.btn-green{
+
+    background-color:#08e17e !important;
+    color:#1d1c1e;
+}
+.bg-green{
+    background-color:#08e17e !important;
+}
+
+.bg-gray{
+    background-color: #333 !important;
+}
+.bg-gray-10
+{
+    background-color: #555 !important;
+}
+.bg-gray-20
+{
+    background-color: #999 !important;
+}
+
+
 .sidebar_icon{
     height: 30px;
     margin-right: 10px;
@@ -240,7 +262,7 @@ img._icon{
 
 #news:hover .title h2{
     transition: all .3s ease-in-out !important;
-    color: #fb503b !important;
+    color: #fff !important;
 }
 .carousel-indicators button{
     width: 20px !important;
@@ -248,11 +270,11 @@ img._icon{
     background: #fff !important;
 }
 .colour-block {
-    background:#1F2937;
+    background:#333;
     width:100%;
 }
 .white-block {
-    background:#fff;
+    background:#999;
     width:100%;
     padding-top:6rem !important;
     color:#823A9C;
@@ -282,7 +304,7 @@ img._icon{
     height:100px;
     position:absolute;
     left:0px;
-    background: linear-gradient(to right bottom, #1F2937 49%, #fff 50%),
+    background: linear-gradient(to right bottom, #333 49%, #999 50%),
     linear-gradient(0deg, #ffffff 0px, #000 0);
 }
 .skew-c ~ .colour-block{
@@ -293,7 +315,7 @@ img._icon{
     height:100px;
     position:absolute;
     left:0px;
-    background: linear-gradient(to left bottom, #fff 49%, #1F2937 50%);
+    background: linear-gradient(to left bottom, #999 49%, #333 50%);
 }
 
 ._header h2
@@ -310,20 +332,20 @@ img._icon{
     height:auto;
     position:absolute;
     left:0px;
-    background: linear-gradient(to left bottom, #1F2937 50%);
+    background: linear-gradient(to left bottom, #333 50%);
 }
 
 li.active a{
     color: #fff !important;
     font-weight: 400;
-    background-color: rgba(255, 255, 255, 0.2);
-    box-shadow: inset 0 0 1px;
+    background-color: #333;
+    /* box-shadow: inset 0 0 1px; */
     border-radius: 10px;
 }
 #menu li:hover{
     color: #fff !important;
-    background-color: rgba(255, 255, 255, 0.2);
-    box-shadow: inset 0 0 1px;
+    background-color: #333;
+    /* box-shadow: inset 0 0 1px; */
     border-radius: 10px;
     transition: 0.3s all;
 }
@@ -401,4 +423,12 @@ li.active a{
 
 .text-right{
     text-align: end !important;
+}
+
+
+.accordion-button:not(.collapsed) {
+
+    color: white;
+    background-color: #555 !important;
+    box-shadow: inset 0 -0.0625rem 0 #555 !important;
 }

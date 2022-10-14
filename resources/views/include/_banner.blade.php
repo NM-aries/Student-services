@@ -8,7 +8,7 @@
                 </button>
             @endforeach
         </div>
-        <div class="carousel-inner bg-primary">
+        <div class="carousel-inner bg-gray">
             @foreach ( $banner as $banners )
                 <div @if($loop->first) class="carousel-item active" @endif class="carousel-item" >
                     <a @if($banners->link)
