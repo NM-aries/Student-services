@@ -5,10 +5,10 @@
 @section('content')
 
 
-<div class="container-fluid bg-gray-600 shadow" id="title_container">
+<div class="container-fluid bg-gray shadow" id="title_container">
     <div class="container">
         <div class="header py-3">
-            <h2 class="text-white">SEARCH RESULTS: <span class="text-secondary">{{ request()->input('search') }}</span></h2>
+            <h2 class="text-white">Search Result of: <i class="text-white">{{ request()->input('search') }}</span></h2>
         </div>
    </div>
 </div>

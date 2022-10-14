@@ -19,6 +19,8 @@
     <link href="{{ asset('css/owl.theme.default.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/gray.css') }}" rel="stylesheet">
+
 
    
     

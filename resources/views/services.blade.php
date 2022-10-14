@@ -17,7 +17,7 @@
 </div>
 <div class="container mb-5 mt-3" >
     <div class="row new_content ">
-        <div class="col-lg-10 col-md-12 col-12 order-1 ">
+        <div class="col-lg-12 col-md-12 col-12 order-1 ">
             <div class="accordion " id="accordionPricing">
             @if ($allServices->count())
                 @foreach ($allServices->where('status', 1) as $listServices )
@@ -61,7 +61,7 @@
             </div>
                 
             @else
-                <div class="card-body text-white mb-5 rounded-md">
+                <div class="card-body bg-gray text-white mb-5 rounded-md">
                     <div class="row">
                         <div class="col-2">
                             <img class="w-100" src="https://cdn.shopify.com/s/files/1/1061/1924/products/Sad_Face_Emoji_large.png?v=1571606037" alt="">
