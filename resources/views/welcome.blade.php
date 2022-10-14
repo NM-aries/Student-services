@@ -5,7 +5,7 @@
 @section('content')
 
 {{-- hero carousel --}}
-<div class="_hero bg-gray-600 shadow-sm " >
+<div class="_hero bg-gray-300 shadow-sm " >
     <div class="container pt-3 py-2"> 
         @include('include/_banner')
     </div>
@@ -18,7 +18,7 @@
 <div class="colour-block py-4">
     <section class="container _section1 ">
         <div class="_header text-center mb-3 ">
-            <h2 class="news_header">Latest News</h2>
+            <h2 class="news_header fw-bolder text-danger">Latest News</h2>
         </div>
         <div class="row justify-content-center">
             @if ($other_news->count())
@@ -26,13 +26,13 @@
                         <div class="owl-carousel owl-theme row">
                             @foreach ($other_news as $newsItems)
                                 <div class="item"  style="width:100%">
-                                    <div class="card p-0" id="news">
+                                    <div class="card p-0 border-0 bg-gray-100 " id="news">
                                         <div class="card-header p-0 _thumbnail">
                                             <div class="_thumb_home" style="background:url(upload/news/{{ $newsItems->coverimage }})">
                                             </div>
                                         </div>
-                                        <div class="card-body p-0">
-                                            <div class="title bg-gray-10 p-3 text-white">
+                                        <div class="card-body p-0 shadow">
+                                            <div class="title bg-danger p-3 text-white">
                                                 <h2 class="fs-6 _news-title" >
                                                     {!! Str::limit($newsItems->title, 70) !!}
                                                 </h2>
@@ -55,7 +55,7 @@
                                                     <div class="_news-description">{!! $newsItems->description !!}
                                                     </div>
                                                 </p>
-                                                <a href="{{ url('university_news/'.$newsItems->slug) }}"class="mb-3 btn bg-gray-10 text-white">
+                                                <a href="{{ url('university_news/'.$newsItems->slug) }}"class="mb-3 btn btn-danger">
                                                     Continue Reading
                                                 </a>
                                             </div>
@@ -70,7 +70,7 @@
         </div>
 
         <div class="button_readmore text-center">
-            <a href="{{ url('university_news') }}" class="fs-6 btn bg-gray-20 text-white">Read More News</a>
+            <a href="{{ url('university_news') }}" class="fs-6 btn btn-danger">Read More News</a>
         </div>
     </section>
 
@@ -81,7 +81,7 @@
 <div class="white-block pb-5">
     <section class="container _section1 ">
         <div class="_header text-center mb-3 ">
-            <h2 class="text-white">Announcements</h2>
+            <h2 class="text-white fw-bolder">Announcements</h2>
         </div>
         <div class="row justify-content-center">
             @if ($other_announcements->count())
@@ -89,7 +89,7 @@
                         <div class="owl-carousel owl-theme row">
                             @foreach ($other_announcements as $announcemenetItems)
                                 <div class="item"  style="width:100%">
-                                    <div class="card p-0" id="news">
+                                    <div class="card p-0 border-0" id="news">
                                         <div class="card-header p-0 _thumbnail">
                                             <div class="_thumb_home" style="background:url(upload/announcement/{{ $announcemenetItems->coverimage }})">
                                             </div>
@@ -121,7 +121,7 @@
                                                     <div class="_news-description text-primary">{!! $announcemenetItems->description !!}
                                                     </div>
                                                 </p>
-                                                <a href="{{ url('university_announcements/'.$announcemenetItems->slug) }}"class="mb-3 btn text-white bg-gray-10">
+                                                <a href="{{ url('university_announcements/'.$announcemenetItems->slug) }}"class="mb-3 btn text-white bg-danger">
                                                     Continue Reading
                                                 </a>
                                             </div>
@@ -135,7 +135,7 @@
             @endif
         </div>
         <div class="button_readmore text-center">
-            <a href="{{ url('university_announcements') }}" class="fs-6 btn bg-gray text-white">Read More Announcements</a>
+            <a href="{{ url('university_announcements') }}" class="fs-6 btn btn-secondary">Read More Announcements</a>
         </div>
     </section>
 </div>
@@ -145,23 +145,23 @@
 <div class="colour-block py-4">
     <section class="container _section1 ">
         <div class="_header text-center mb-3 ">
-            <h2 class="news_header">About</h2>
+            <h2 class="news_header fw-bolder text-danger">About</h2>
         </div>
-        <div class="text-white text-center">
+        <div class="text-danger text-center">
             <h2 class="fs-2">VISION</h6>
             <p class="fs-6 lead">A Leading State University in Technological and Professional Education.</p> 
         </div>
-        <div class="text-white text-center py-3">
+        <div class="text-danger text-center py-3">
             <h2 class="fs-2">MISSION</h6>
             <p class="fs-6 lead">Develop a Strong Technologically and Professionally Competent Productive Human Resource Imbued with Positive Values Needed to Propel Sustainable Development.</p> 
         </div>
-        <div class="text-white text-center ">
+        <div class="text-danger text-center ">
             <h2 class="fs-2">CORE VALUES</h6>
             <p class="fs-6  lead">
-                <b class="fs-4 text-white">E</b>XCELLENCE <br>
-                <b class="fs-4 text-white">V</b>ALUE-LADEN <br>
-                <b class="fs-4 text-white">S</b>ERVICE-DRIVEN <br>
-                <b class="fs-4 text-white">U</b>NITY IN DIVERSITY <br>
+                <b class="fs-4 text-danger">E</b>XCELLENCE <br>
+                <b class="fs-4 text-danger">V</b>ALUE-LADEN <br>
+                <b class="fs-4 text-danger">S</b>ERVICE-DRIVEN <br>
+                <b class="fs-4 text-danger">U</b>NITY IN DIVERSITY <br>
             </p> 
         </div>
     </section>
@@ -172,11 +172,11 @@
 <div class="white-block pb-5">
     <section class="container _section1 ">
         <div class="_header text-center mb-3 ">
-            <h2 class="text-white">Subscribe </h2>
+            <h2 class="text-white fw-bolder">Subscribe </h2>
         </div>
         <div class="row justify-content-center">
            <div class="col-5 col-md-3 py-0">
-                <img src="http://icon-park.com/imagefiles/mail_vector_icon_light_gray.png" alt="">
+                <img src="{{ asset('images/icons/mail.png') }}" alt="">
            </div>
            <div class="col-12 col-md-9 m-auto align-middle ">
             <div class="card-body ">

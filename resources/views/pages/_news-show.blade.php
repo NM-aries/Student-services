@@ -23,7 +23,7 @@
             @endif
             <div class="card-body bg-white">
                 <div class="d-flex justify-content-between align-items-center">
-                    <small class="bg-primary badge py-2 px-3 btn-sm">
+                    <small class="bg-gray-10 badge py-2 px-3 btn-sm">
                         <svg class="icon icon-xs text-white me-1" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
                             <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
                             <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
@@ -41,7 +41,7 @@
                 </div>
                 <hr>
                 <p class="card-text lead">{!! $news_details->description !!}</p>
-                    <hr class="my-4 text-danger">
+                    <hr class="my-4 text-gray">
                 <div class="">
                     <div class="d-flex justify-content-between align-items-center">
                         @if ($prev)

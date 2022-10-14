@@ -33,12 +33,12 @@
                             <div class="col-md-8">
                                 <div class="card-body">
                                     <h5 class="card-title">{{$listAnnouncement->title}}</h5>
-                                    <p class="card-text lead">
+                                    <p class="lead card-text">
                                         {!! Str::limit($listAnnouncement->description, 150, $end=" .....") !!}
                                     </p>
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <a class="btn mt-2 btn-outline-danger btn-sm" href="{{ url('university_announcements/'.$listAnnouncement->slug) }}"> 
-                                            Continue Reading  
+                                        <a class="btn mt-2 btn-danger  btn-sm" href="{{ url('university_announcements/'.$listAnnouncement->slug) }}"> 
+                                            Continue Reading
                                         </a>
                                         <p class="card-text">
                                             <small class="text-muted">

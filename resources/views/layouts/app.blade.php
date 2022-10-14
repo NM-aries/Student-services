@@ -19,7 +19,7 @@
     <link href="{{ asset('css/owl.theme.default.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/gray.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/pink.css') }}" rel="stylesheet">
 
 
    
@@ -98,7 +98,7 @@
       </button>
   {{-- </div> --}}
     
-  <div class="_footer bg-gray text-white sticky-footer ">
+  <div class="_footer bg-gray-100 text-danger fw-bold fixed-footer ">
     @include('include/_footer')
   </div>
 
