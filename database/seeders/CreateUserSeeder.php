@@ -36,16 +36,6 @@ class CreateUserSeeder extends Seeder
 
         $users =  [
             [
-                'name' => 'Michael Aries Yap',
-                'user_id' => '60-1128',
-                'contact' => '09551387497',
-                'profile_img' => '1.jpg',
-                'is_admin' => '1',
-                'status' => '1',
-                'email' => 'aRhiExz@gmail.com',
-                'password' => bcrypt('admin123'),
-            ],
-            [
                 'name' => 'Student Services Department',
                 'user_id' => '2019-35744',
                 'contact' => '09123456789',
