@@ -19,7 +19,7 @@ class SubscribeController extends Controller
     }
 
 
-    public function subscribe( Request $request)
+    public function subscribe(Request $request)
     {
         $this->validate($request,[
             'email'=>'unique:subscribers'
