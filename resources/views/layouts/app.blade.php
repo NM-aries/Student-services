@@ -8,7 +8,7 @@
 
     <title> EVSU | @yield('title')</title>
     <link rel="shortcut icon" href="{{ asset('images/logo/logo.png') }}" type="image/x-icon">
-    <meta property="og:title" content="https://evsu-app.herokuapp.com/" />
+    <meta name="google-site-verification" content="Zd02u4meJ4C0ufRrzUmYXdK6iBckq28deuR3HBbA8pM" />
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
