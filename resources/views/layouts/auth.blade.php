@@ -7,6 +7,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta property="og:title" content="https://evsu-app.herokuapp.com/" />
+    <meta name="description" content="EVSU STUDENT SERVICES is a website aimed to provide students of Eastern Visayas State University easy access
+ over millions of resources with just a few clicks."/>
 
     <title> EVSU | @yield ('title')</title>
     <link rel="shortcut icon" href="{{ asset('images/logo/logo.png') }}" type="image/x-icon">
