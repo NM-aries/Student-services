@@ -42,7 +42,7 @@ class NewsController extends Controller
 
         if($request->hasfile('coverimage')){
             $file = $request->file('coverimage');
-            $filename = Str::slug($data['slug']) . '.' . time() . '.' . $file->getClientOriginalExtension();
+            $filename = $data['slug'] . '.' . $file->getClientOriginalExtension();
             $file->move('upload/news/', $filename);
             $news->coverimage = $filename;
         }
