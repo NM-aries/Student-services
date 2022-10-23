@@ -53,7 +53,7 @@
                     
                     @if (request()->is('/'))
                         <li class="nav-item me-1">
-                            <a href="#subscribe" class="nav-link">Subscribe</a>
+                            <a href="#subscribe1" class="nav-link">Subscribe</a>
                         </li>
                     @else
                         <li class="nav-item me-1">
@@ -80,7 +80,7 @@
     <div class="modal-dialog  modal-lg">
         <div class="modal-content">
             <div class="modal-body bg-danger">
-                <section class="container _section1 " id="subscribe">
+                <section class="container _section1 ">
                     <div class="_header text-center">
                         <h2 class="text-white fw-bolder">Subscribe </h2>
                     </div>

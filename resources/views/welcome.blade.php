@@ -170,7 +170,7 @@
 {{-- SUBSCRIBE --}}
 <div class="announcements_section "></div>
 <div class="white-block pb-5" data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" class="scrollspy-example" tabindex="0">
-    <section class="container _section1 " id="subscribe">
+    <section class="container _section1 " id="subscribe1">
         <div class="_header text-center mb-3 ">
             <h2 class="text-white fw-bolder">Subscribe </h2>
         </div>
