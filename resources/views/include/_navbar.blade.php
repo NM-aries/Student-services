@@ -3,8 +3,8 @@
         <div class="container">
             <div class="logo mt-1 ">
                 <a href="/">
-                    <img src="{{ asset('images/logo/logo-text.png') }}" class=" d-none d-md-block" height="50">
-                    <img src="{{ asset('images/logo/logo.png') }}" class="d-block d-md-none" height="50">
+                    <img src="{{ asset('images/logo/tan.png') }}" class=" d-none d-md-block" height="50">
+                    <img src="{{ asset('images/logo/tan.png') }}" class="d-block d-md-none" height="50">
                 </a>
             </div>
             <div class="d-flex navbar-dark mt-1 border-0">

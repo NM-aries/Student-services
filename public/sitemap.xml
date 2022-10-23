@@ -2,37 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
  
 <url>
-  <loc>https://evsu-app.herokuapp.com/</loc>
+  <loc><loc>https://evsu-tc-student-service.herokuapp.com/</loc></loc>
   <changefreq>weekly</changefreq>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>https://evsu-app.herokuapp.com/login</loc>
+  <loc><loc>https://evsu-tc-student-service.herokuapp.com/</loc>login</loc>
   <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://evsu-app.herokuapp.com/university_news</loc>
+  <loc><loc>https://evsu-tc-student-service.herokuapp.com/</loc>university_news</loc>
     <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://evsu-app.herokuapp.com/university_announcements</loc>
+  <loc><loc>https://evsu-tc-student-service.herokuapp.com/</loc>university_announcements</loc>
     <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://evsu-app.herokuapp.com/university_services</loc>
+  <loc><loc>https://evsu-tc-student-service.herokuapp.com/</loc>university_services</loc>
     <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://evsu-app.herokuapp.com/university_events</loc>
+  <loc><loc>https://evsu-tc-student-service.herokuapp.com/</loc>university_events</loc>
     <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
-<loc>https://evsu-app.herokuapp.com/register</loc>
+<loc><loc>https://evsu-tc-student-service.herokuapp.com/</loc>register</loc>
   <changefreq>weekly</changefreq>
 <lastmod>2022-10-19T08:22:48+00:00</lastmod>
 <priority>0.64</priority>
