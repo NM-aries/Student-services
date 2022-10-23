@@ -169,8 +169,8 @@
 
 {{-- SUBSCRIBE --}}
 <div class="announcements_section "></div>
-<div class="white-block pb-5">
-    <section class="container _section1 ">
+<div class="white-block pb-5" data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" class="scrollspy-example" tabindex="0">
+    <section class="container _section1 " id="subscribe">
         <div class="_header text-center mb-3 ">
             <h2 class="text-white fw-bolder">Subscribe </h2>
         </div>
@@ -178,28 +178,28 @@
            <div class="col-5 col-md-3 py-0">
                 <img src="{{ asset('images/icons/mail.png') }}" alt="">
            </div>
-           <div class="col-12 col-md-9 m-auto align-middle ">
-            <div class="card-body ">
-                <p class="lead text-white">
-                    Want us to email you occasionally with EVSU news?
+            <div class="col-12 col-md-9 m-auto align-middle ">
+                <div class="card-body ">
+                    <p class="lead text-white">
+                     Want us to email you occasionally with EVSU news?
                     <br>Subscribe our newsletter to recieve the latest News and Announcements. </p>
-                <form action="{{ url('subscribe') }}" method="post">
-                    @csrf
-                    <div class="row ">
-                       
-                        <div class="col-5">
-                            <input name="email" type="email" class="rounded-0 form-control mb-3" placeholder="Email Address" autocomplete="off" required>
-                        </div>  
-                        <div class="col-5">
-                            <input name="name" type="text" class="rounded-0 form-control mb-3"  autocomplete="off"  placeholder="Name" required>
+                    <form action="{{ url('subscribe') }}" method="post">
+                        @csrf
+                        <div class="row ">
+                        
+                            <div class="col-5">
+                                <input name="email" type="email" class="rounded-0 form-control mb-3" placeholder="Email Address" autocomplete="off" required>
+                            </div>  
+                            <div class="col-5">
+                                <input name="name" type="text" class="rounded-0 form-control mb-3"  autocomplete="off"  placeholder="Name" required>
+                            </div>
+                            <div class="col-auto right-0">
+                                <button class="rounded-0 btn bg-gray text-white">Subscribe</button>    
+                            </div>                        
                         </div>
-                        <div class="col-auto right-0">
-                            <button class="rounded-0 btn bg-gray text-white">Subscribe</button>    
-                        </div>                        
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
-       </div>
            
         </div>
     </section>

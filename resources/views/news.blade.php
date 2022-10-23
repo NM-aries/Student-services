@@ -36,7 +36,7 @@
                                         {!! Str::limit($listNews->description, 150, $end=" .....") !!}
                                     </p>
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <a class="btn mt-2 text-white bg-gray btn-sm" href="{{ url('university_news/'.$listNews->slug) }}"> 
+                                        <a class="btn mt-2 btn-danger btn-sm" href="{{ url('university_news/'.$listNews->slug) }}"> 
                                             Continue Reading  
                                         </a>
                                         <p class="card-text">
@@ -63,7 +63,7 @@
 
                 {{ $allNews->links() }}
             @else
-                <div class="bg-gray card-body text-white mb-5 rounded-md">
+                <div class="bg-danger card-body text-white mb-5 rounded-md">
                     <div class="row">
                         <div class="col-2">
                             <img class="w-100" src="https://cdn.shopify.com/s/files/1/1061/1924/products/Sad_Face_Emoji_large.png?v=1571606037" alt="">

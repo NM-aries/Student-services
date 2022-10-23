@@ -64,7 +64,7 @@
 
                 {{ $allAnnouncement->links() }}
             @else
-                <div class="bg-gray card-body text-white mb-5 rounded-md">
+                <div class="bg-danger card-body text-white mb-5 rounded-md">
                     <div class="row">
                         <div class="col-2">
                             <img class="w-100" src="https://cdn.shopify.com/s/files/1/1061/1924/products/Sad_Face_Emoji_large.png?v=1571606037" alt="">

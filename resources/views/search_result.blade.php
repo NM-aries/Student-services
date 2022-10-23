@@ -8,20 +8,20 @@
 <div class="container-fluid bg-gray shadow" id="title_container">
     <div class="container">
         <div class="header py-3">
-            <h2 class="text-white">Search Result of: <i class="text-white">{{ request()->input('search') }}</span></h2>
+            <h2 class="text-white">Search Result of: <i class="text-white">{{ request()->input('search') }}</i></h2>
         </div>
    </div>
 </div>
 
 <div class="container mb-5 mt-3" >
     <div class="row new_content ">
-        <div class="col-lg-10 col-md-12 col-12 order-1 text-danger">
+        <div class="col-lg-10 col-md-12 col-12 order-1">
             @if($news->count())
-                <div class="card mt-3">
+                <div class="card mt-3 text-black">
                     <div class="card-body">
-                        <h4>News</h4>
+                        <h3 class="text-black">News</h3>
                         @foreach ($news as $newsItem)
-                            <div class="card mb-3 news">
+                            <div class="card mb-3 news ">
                                 <div class="row ">
                                     <div class="col-md-4 ">
                                         <div class="thumb m-auto" 
@@ -35,7 +35,7 @@
                                     </div>
                                     <div class="col-md-8">
                                         <div class="card-body">
-                                            <h5 class="card-title">{{$newsItem->title}}</h5>
+                                            <h5 class="card-title text-black">{{$newsItem->title}}</h5>
                                             <p class="card-text">
                                                 {!! Str::limit($newsItem->description, 150, $end=" .....") !!}
                                             </p>
@@ -59,7 +59,7 @@
             @if($announcement->count())
                 <div class="card mt-3">
                     <div class="card-body">
-                        <h4>Announcement </h4>
+                        <h3>Announcement </h3>
                         @foreach ($announcement as $announcementItems)
                             <div class="card mb-3 news">
                                 <div class="row ">
@@ -99,7 +99,7 @@
             @if($events->count())
                 <div class="card mt-3">
                     <div class="card-body">
-                        <h4>Announcement </h4>
+                        <h3>Events </h3>
                         @foreach ($events as $eventsItems)
                             <div class="card mb-3 news">
                                 <div class="row ">

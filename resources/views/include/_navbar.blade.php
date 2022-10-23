@@ -4,7 +4,7 @@
             <div class="logo mt-1 ">
                 <a href="/">
                     <img src="{{ asset('images/logo/tan.png') }}" class=" d-none d-md-block" height="50">
-                    <img src="{{ asset('images/logo/tan.png') }}" class="d-block d-md-none" height="50">
+                    <img src="{{ asset('images/logo/logo.png') }}" class="d-block d-md-none" height="50">
                 </a>
             </div>
             <div class="d-flex navbar-dark mt-1 border-0">
@@ -19,7 +19,7 @@
                         
                     </div>
                 </form>
-                <button class="d-block mx-2 d-lg-none navbar-toggler btn-sm text-white" type="button" 
+                <button class="d-block mx-2 d-lg-none navbar-toggler text-danger" type="button" 
                     data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-text-right" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-4-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm4-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-4-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
@@ -50,6 +50,17 @@
                     <li class="nav-item me-1 {{ (request()->is('university_events*')) ? 'active' : '' }}">
                         <a href="{{ url('university_events') }}" class="nav-link">Events</a>
                     </li>
+                    
+                    @if (request()->is('/'))
+                        <li class="nav-item me-1">
+                            <a href="#subscribe" class="nav-link">Subscribe</a>
+                        </li>
+                    @else
+                        <li class="nav-item me-1">
+                            <a type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="nav-link">Subscribe</a>
+                        </li>
+                    @endif
+                    
                 </ul>
                 <div class="d-flex text-white navbar-dark text-right nav_clock d-none d-md-block">
                     <span class="fs-6 fw-bolder">Philippines Standard Time:</h6>
@@ -62,7 +73,47 @@
             </div>
         </nav>
     </div>
-    
 
 </header>
 
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-lg">
+        <div class="modal-content">
+            <div class="modal-body bg-danger">
+                <section class="container _section1 " id="subscribe">
+                    <div class="_header text-center">
+                        <h2 class="text-white fw-bolder">Subscribe </h2>
+                    </div>
+                    <div class="row justify-content-center">
+                       <div class="col-4 col-md-3 py-0">
+                            <img src="{{ asset('images/icons/mail.png') }}" alt="">
+                       </div>
+                        <div class="col-12 col-md-12 m-auto align-middle ">
+                            <div class="card-body text-center">
+                                <p class="lead text-white">
+                                 Want us to email you occasionally with EVSU news?
+                                <br>Subscribe our newsletter to recieve the latest News and Announcements. </p>
+                                <form action="{{ url('subscribe') }}" method="post">
+                                    @csrf
+                                    <div class="row ">
+                                    
+                                        <div class="col-6">
+                                            <input name="email" type="email" class="rounded-0 form-control mb-3" placeholder="Email Address" autocomplete="off" required>
+                                        </div>  
+                                        <div class="col-6">
+                                            <input name="name" type="text" class="rounded-0 form-control mb-3"  autocomplete="off"  placeholder="Name" required>
+                                        </div>
+                                        <div class="col-12">
+                                            <button class="w-100 rounded-0 btn bg-gray text-white">Subscribe</button>    
+                                        </div>                        
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                       
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+  </div>

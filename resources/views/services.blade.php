@@ -38,8 +38,8 @@
                                          </a>
                                     </div> 
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <a id="download_link" href="{{asset('upload/services/')}}/{{ $listServices->file }}" target="" class="btn bg-gray text-white"> Dowload Now</a>
-                                        <span class="badge bg-gray py-3  rounded-0 px-2">
+                                        <a id="download_link" href="{{asset('upload/services/')}}/{{ $listServices->file }}" target="" class="btn btn-danger"> Dowload Now</a>
+                                        <span class="badge bg-danger py-3  rounded-0 px-2">
                                             <span class="text-white mx-2">{{ $listServices->download_count }}</span> 
                                             Downloads
                                         </span>
@@ -61,7 +61,7 @@
             </div>
                 
             @else
-                <div class="card-body bg-gray text-white mb-5 rounded-md">
+                <div class="card-body bg-danger text-white mb-5 rounded-md">
                     <div class="row">
                         <div class="col-2">
                             <img class="w-100" src="https://cdn.shopify.com/s/files/1/1061/1924/products/Sad_Face_Emoji_large.png?v=1571606037" alt="">

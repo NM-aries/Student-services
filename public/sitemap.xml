@@ -2,12 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
  
 <url>
-  <loc><loc>https://evsu-tc-student-service.herokuapp.com/</loc>
+  <loc>https://evsu-tc-student-service.herokuapp.com/</loc>
   <changefreq>weekly</changefreq>
   <priority>1.00</priority>
 </url>
 <url>
-  <locttps://evsu-tc-student-service.herokuapp.com/login</loc>
+  <loc>https://evsu-tc-student-service.herokuapp.com/login</loc>
   <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
