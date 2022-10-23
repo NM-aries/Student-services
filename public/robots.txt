@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: 
+
+Sitemap:https://evsu-tc-student-service.herokuapp.com/sitemap.xml
