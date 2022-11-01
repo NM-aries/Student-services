@@ -1,4 +1,4 @@
-<header class="sticky-top shadow-sm bg-white">
+<header class="sticky-top shadow-sm bg-white shadow">
     <div class="navbar navbar-expand-lg">
         <div class="container">
             <div class="logo mt-1 ">
@@ -10,8 +10,8 @@
             <div class="d-flex navbar-dark mt-1 border-0">
                 <form action="{{ url('search') }}" action="GET">
                     <div class="input-group me-2   ">
-                        <input  type="text" name="search" class="bg-gray-200 rounded-0 form-control border-0 form-control-sm " placeholder="Search Here.." required autocomplete="off">
-                        <button type="submit" class="rounded-0 input-group-text text-white border-0 btn-secondary" id="basic-addon1">
+                        <input  type="text" name="search" class="bg-gray-200 form-control border-0 form-control-sm " placeholder="Search Here.." required autocomplete="off">
+                        <button type="submit" class=" input-group-text border-0 btn-green" id="basic-addon1">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
                             </svg>
@@ -26,28 +26,28 @@
                     </svg>
                 </button>
                 <div class="d-flex  navbar-dark text-right nav_clock d-md-block">
-                    <a href="{{ url('login') }}"class=" rounded-0 btn btn-sm mx-2 btn-secondary">Login</a>
+                    <a href="{{ url('login') }}"class=" btn btn-sm mx-2 btn-green">Login</a>
                 </div>
             </div>
         </div>
     </div>
     <div class="collapse d-lg-block" id="menu">
-        <nav class="navbar navbar-expand-sm bg-danger" >
+        <nav class="navbar navbar-expand-sm bg-green" >
             <div class="container">
                 <ul class="navbar-nav _landing-nav text-white col-12 col-lg-6">
-                    <li class="nav-item  me-1 {{ (request()->is('/')) ? 'active' : '' }}">
+                    <li class="nav-item  me-1 {{ (request()->is('/')) ? 'is_active' : '' }}">
                         <a href="{{ url('/') }}" class="nav-link">Home</a>
                     </li>
-                    <li class="nav-item me-1 {{ (request()->is('university_news*')) ? 'active' : '' }}">
+                    <li class="nav-item me-1 {{ (request()->is('university_news*')) ? 'is_active' : '' }}">
                         <a href="{{ url('university_news') }}" class="nav-link ">News</a>
                     </li>
-                    <li class="nav-item me-1 {{ (request()->is('university_announcements*')) ? 'active' : '' }}">
+                    <li class="nav-item me-1 {{ (request()->is('university_announcements*')) ? 'is_active' : '' }}">
                         <a href="{{ url('university_announcements') }}" class="nav-link">Annoucements</a>
                     </li>
-                    <li class="nav-item me-1 {{ (request()->is('university_services*')) ? 'active' : '' }}">
+                    <li class="nav-item me-1 {{ (request()->is('university_services*')) ? 'is_active' : '' }}">
                         <a href="{{ url('university_services') }}" class="nav-link">Services</a>
                     </li>
-                    <li class="nav-item me-1 {{ (request()->is('university_events*')) ? 'active' : '' }}">
+                    <li class="nav-item me-1 {{ (request()->is('university_events*')) ? 'is_active' : '' }}">
                         <a href="{{ url('university_events') }}" class="nav-link">Events</a>
                     </li>
                     
@@ -79,7 +79,7 @@
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog  modal-lg">
         <div class="modal-content">
-            <div class="modal-body bg-danger">
+            <div class="modal-body bg-light-green">
                 <section class="container _section1 ">
                     <div class="_header text-center">
                         <h2 class="text-white fw-bolder">Subscribe </h2>
@@ -104,7 +104,7 @@
                                             <input name="name" type="text" class="rounded-0 form-control mb-3"  autocomplete="off"  placeholder="Name" required>
                                         </div>
                                         <div class="col-12">
-                                            <button class="w-100 rounded-0 btn bg-gray text-white">Subscribe</button>    
+                                            <button class="w-100 rounded-0 btn btn-green">Subscribe</button>    
                                         </div>                        
                                     </div>
                                 </form>

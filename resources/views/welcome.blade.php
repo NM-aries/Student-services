@@ -13,26 +13,24 @@
 
 
 
-{{-- NEws --}}
-<div class="news_section"></div>
-<div class="colour-block py-4">
+<div class="bg-white pt-3 pb-5 shadow">
     <section class="container _section1 ">
         <div class="_header text-center mb-3 ">
-            <h2 class="news_header fw-bolder text-danger">Latest News</h2>
+            <h2 class="news_header fw-bolder c-text-green">Latest News</h2>
         </div>
         <div class="row justify-content-center">
             @if ($other_news->count())
                     <div class="col-md-12 mb-4">
                         <div class="owl-carousel owl-theme row">
                             @foreach ($other_news as $newsItems)
-                                <div class="item"  style="width:100%">
-                                    <div class="card p-0 border-0 bg-gray-100 " id="news">
+                                <div class="item bg-white"  style="width:100%;">
+                                    <div class="card shadow-md p-0 border-0 bg-gray-100 " id="news">
                                         <div class="card-header p-0 _thumbnail">
                                             <div class="_thumb_home" style="background:url(upload/news/{{ $newsItems->coverimage }})">
                                             </div>
                                         </div>
-                                        <div class="card-body p-0 shadow">
-                                            <div class="title bg-danger p-3 text-white">
+                                        <div class="card-body p-0">
+                                            <div class="title bg-green p-3 text-white">
                                                 <h2 class="fs-6 _news-title" >
                                                     {!! Str::limit($newsItems->title, 70) !!}
                                                 </h2>
@@ -55,7 +53,7 @@
                                                     <div class="_news-description">{!! $newsItems->description !!}
                                                     </div>
                                                 </p>
-                                                <a href="{{ url('university_news/'.$newsItems->slug) }}"class="mb-3 btn btn-danger">
+                                                <a href="{{ url('university_news/'.$newsItems->slug) }}"class="mb-3 btn btn-green">
                                                     Continue Reading
                                                 </a>
                                             </div>
@@ -70,32 +68,31 @@
         </div>
 
         <div class="button_readmore text-center">
-            <a href="{{ url('university_news') }}" class="fs-6 btn btn-danger">Read More News</a>
+            <a href="{{ url('university_news') }}" class="fs-6 btn btn-green">Read More News</a>
         </div>
     </section>
 
 </div>
 
 {{-- Announcements --}}
-<div class="announcements_section "></div>
-<div class="white-block pb-5">
+<div class="bg-gray py-5 shadow">
     <section class="container _section1 ">
         <div class="_header text-center mb-3 ">
-            <h2 class="text-white fw-bolder">Announcements</h2>
+            <h2 class="c-text-green fw-bolder">Announcements</h2>
         </div>
         <div class="row justify-content-center">
             @if ($other_announcements->count())
                     <div class="col-md-12 mb-4">
                         <div class="owl-carousel owl-theme row">
                             @foreach ($other_announcements as $announcemenetItems)
-                                <div class="item"  style="width:100%">
-                                    <div class="card p-0 border-0" id="news">
+                                <div class="item "  style="width:100%">
+                                    <div class="card shadow-md p-0 border-0" id="news">
                                         <div class="card-header p-0 _thumbnail">
                                             <div class="_thumb_home" style="background:url(upload/announcement/{{ $announcemenetItems->coverimage }})">
                                             </div>
                                         </div>
                                         <div class="card-body p-0">
-                                            <div class="title bg-gray p-3 text-white">
+                                            <div class="title bg-green p-3 text-white">
                                                 <h2 class="fs-6 _news-title" >
                                                     {!! Str::limit($announcemenetItems->title, 70) !!}
                                                 </h2>
@@ -121,7 +118,7 @@
                                                     <div class="_news-description text-primary">{!! $announcemenetItems->description !!}
                                                     </div>
                                                 </p>
-                                                <a href="{{ url('university_announcements/'.$announcemenetItems->slug) }}"class="mb-3 btn text-white bg-danger">
+                                                <a href="{{ url('university_announcements/'.$announcemenetItems->slug) }}"class="mb-3 btn btn-green">
                                                     Continue Reading
                                                 </a>
                                             </div>
@@ -135,44 +132,42 @@
             @endif
         </div>
         <div class="button_readmore text-center">
-            <a href="{{ url('university_announcements') }}" class="fs-6 btn btn-secondary">Read More Announcements</a>
+            <a href="{{ url('university_announcements') }}" class="fs-6 btn btn-green">Read More Announcements</a>
         </div>
     </section>
 </div>
 
 {{-- //About --}}
-<div class="skew-c"></div>
-<div class="colour-block py-4">
+<div class="bg-white py-5 shadow">
     <section class="container _section1 ">
         <div class="_header text-center mb-3 ">
-            <h2 class="news_header fw-bolder text-danger">About</h2>
+            <h2 class="news_header fw-bolder c-text-green">About</h2>
         </div>
-        <div class="text-danger text-center">
+        <div class="text-black text-center">
             <h2 class="fs-2">VISION</h6>
-            <p class="fs-6 lead">A Leading State University in Technological and Professional Education.</p> 
+            <p class="fs-6 fw-normal lead">A Leading State University in Technological and Professional Education.</p> 
         </div>
-        <div class="text-danger text-center py-3">
+        <div class="text-black text-center py-3">
             <h2 class="fs-2">MISSION</h6>
-            <p class="fs-6 lead">Develop a Strong Technologically and Professionally Competent Productive Human Resource Imbued with Positive Values Needed to Propel Sustainable Development.</p> 
+            <p class="fs-6 fw-normal lead">Develop a Strong Technologically and Professionally Competent Productive Human Resource Imbued with Positive Values Needed to Propel Sustainable Development.</p> 
         </div>
-        <div class="text-danger text-center ">
+        <div class="text-black text-center ">
             <h2 class="fs-2">CORE VALUES</h6>
-            <p class="fs-6  lead">
-                <b class="fs-4 text-danger">E</b>XCELLENCE <br>
-                <b class="fs-4 text-danger">V</b>ALUE-LADEN <br>
-                <b class="fs-4 text-danger">S</b>ERVICE-DRIVEN <br>
-                <b class="fs-4 text-danger">U</b>NITY IN DIVERSITY <br>
+            <p class="fs-6 lead">
+                <b class="fs-4 c-text-green">E</b>XCELLENCE <br>
+                <b class="fs-4 c-text-green">V</b>ALUE-LADEN <br>
+                <b class="fs-4 c-text-green">S</b>ERVICE-DRIVEN <br>
+                <b class="fs-4 c-text-green">U</b>NITY IN DIVERSITY <br>
             </p> 
         </div>
     </section>
 </div>
 
 {{-- SUBSCRIBE --}}
-<div class="announcements_section "></div>
-<div class="white-block pb-5" data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" class="scrollspy-example" tabindex="0">
+<div class="bg-gray py-5" data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" class="scrollspy-example" tabindex="0">
     <section class="container _section1 " id="subscribe1">
         <div class="_header text-center mb-3 ">
-            <h2 class="text-white fw-bolder">Subscribe </h2>
+            <h2 class="c-text-green fw-bolder">Subscribe </h2>
         </div>
         <div class="row justify-content-center">
            <div class="col-5 col-md-3 py-0">
@@ -180,7 +175,7 @@
            </div>
             <div class="col-12 col-md-9 m-auto align-middle ">
                 <div class="card-body ">
-                    <p class="lead text-white">
+                    <p class="lead text-black">
                      Want us to email you occasionally with EVSU news?
                     <br>Subscribe our newsletter to recieve the latest News and Announcements. </p>
                     <form action="{{ url('subscribe') }}" method="post">
@@ -188,13 +183,13 @@
                         <div class="row ">
                         
                             <div class="col-5">
-                                <input name="email" type="email" class="rounded-0 form-control mb-3" placeholder="Email Address" autocomplete="off" required>
+                                <input name="email" type="email" class=" form-control mb-3" placeholder="Email Address" autocomplete="off" required>
                             </div>  
                             <div class="col-5">
-                                <input name="name" type="text" class="rounded-0 form-control mb-3"  autocomplete="off"  placeholder="Name" required>
+                                <input name="name" type="text" class=" form-control mb-3"  autocomplete="off"  placeholder="Name" required>
                             </div>
                             <div class="col-auto right-0">
-                                <button class="rounded-0 btn bg-gray text-white">Subscribe</button>    
+                                <button class=" btn btn-green">Subscribe</button>    
                             </div>                        
                         </div>
                     </form>

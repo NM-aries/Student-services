@@ -130,7 +130,7 @@
       </button>
   {{-- </div> --}}
     
-  <div class="_footer bg-gray-100 text-danger fw-bold fixed-footer ">
+  <div class="_footer bg-green text-white  fw-bold fixed-footer ">
     @include('include/_footer')
   </div>
 

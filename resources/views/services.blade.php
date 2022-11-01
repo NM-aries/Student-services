@@ -3,27 +3,24 @@
 @section('title', 'Services')
 
 @section('content')
-<style>
-    .accordion-button.active{
-        background-color: red !important;
-    }
-</style>
-<div class="container-fluid bg-gray shadow" id="title_container">
+
+<div class="container-fluid bg-light-green shadow" id="title_container">
     <div class="container">
-        <div class="header py-3">
+        <div class="header pb-2 pt-3">
             <h2 class="text-white">SERVICES</h2>
         </div>
    </div>
 </div>
-<div class="container mb-5 mt-3" >
+
+<div class="container mb-5 mt-4" >
     <div class="row new_content ">
         <div class="col-lg-12 col-md-12 col-12 order-1 ">
-            <div class="accordion " id="accordionPricing">
+            <div class="accordion rounded-0 " id="accordionPricing">
             @if ($allServices->count())
                 @foreach ($allServices->where('status', 1) as $listServices )
-                    <div class="accordion-item">
+                    <div class="accordion-item rounded-0">
                         <h2 class="accordion-header " id="headingOne">
-                            <button class="accordion-button collapsed
+                            <button class="accordion-button collapsed bg-light-green text-white rounded-0
                                 @if(!$loop->first) collapsed @endif" 
                                 type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne-{{ $listServices->id }}" aria-expanded="true" aria-controls="collapseOne">
                                 {{ $listServices->title }}
@@ -38,8 +35,8 @@
                                          </a>
                                     </div> 
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <a id="download_link" href="{{asset('upload/services/')}}/{{ $listServices->file }}" target="" class="btn btn-danger"> Dowload Now</a>
-                                        <span class="badge bg-danger py-3  rounded-0 px-2">
+                                        <a id="download_link" href="{{asset('upload/services/')}}/{{ $listServices->file }}" target="_blank" class="btn btn-green"> Dowload Now</a>
+                                        <span class="badge bg-green py-3  rounded-0 px-2">
                                             <span class="text-white mx-2">{{ $listServices->download_count }}</span> 
                                             Downloads
                                         </span>
@@ -52,7 +49,7 @@
                     </div>
 
                     
-                    <form class="hidden" action="{{ url('servicesDownload/'.$listServices->id) }}" method="POST" id="form">
+                    <form class="hidden" action="{{ url('servicesDownload/'.$listServices->id) }}" method="POST" id="form" enctype="multipart/form-data">
                         @csrf 
                         @method('PUT')
                         <input type="hidden" value="{{ $listServices->download_count }}" name="download_count" id="DownloadCount">
@@ -61,7 +58,7 @@
             </div>
                 
             @else
-                <div class="card-body bg-danger text-white mb-5 rounded-md">
+                <div class="card-body bg-light-green text-white mb-5 rounded-md">
                     <div class="row">
                         <div class="col-2">
                             <img class="w-100" src="https://cdn.shopify.com/s/files/1/1061/1924/products/Sad_Face_Emoji_large.png?v=1571606037" alt="">

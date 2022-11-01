@@ -4,10 +4,10 @@
 
 @section('content')
 
-<div class="container-fluid bg-gray shadow" id="title_container">
+<div class="container-fluid bg-light-green shadow" id="title_container">
     <div class="container">
-        <div class="header py-3">
-            <h2 class="text-white">NEWS</h2>
+        <div class="header pb-2 pt-3">
+            <h2 class="text-white">News</h2>
         </div>
    </div>
 </div>
@@ -31,12 +31,12 @@
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
-                                    <h5 class="card-title">{{$listNews->title}}</h5>
+                                    <h5 class="card-title c-text-green fw-bold">{{$listNews->title}}</h5>
                                     <p class="card-text lead">
                                         {!! Str::limit($listNews->description, 150, $end=" .....") !!}
                                     </p>
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <a class="btn mt-2 btn-danger btn-sm" href="{{ url('university_news/'.$listNews->slug) }}"> 
+                                        <a class="btn mt-2 btn-green btn-sm" href="{{ url('university_news/'.$listNews->slug) }}"> 
                                             Continue Reading  
                                         </a>
                                         <p class="card-text">
@@ -63,7 +63,7 @@
 
                 {{ $allNews->links() }}
             @else
-                <div class="bg-danger card-body text-white mb-5 rounded-md">
+                <div class="bg-light-green card-body text-white mb-5 rounded-md">
                     <div class="row">
                         <div class="col-2">
                             <img class="w-100" src="https://cdn.shopify.com/s/files/1/1061/1924/products/Sad_Face_Emoji_large.png?v=1571606037" alt="">
