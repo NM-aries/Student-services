@@ -7,7 +7,7 @@
 <div class="container-fluid bg-light-green shadow" id="title_container">
     <div class="container">
         <div class="header pb-2 pt-3">
-            <h2 class="text-white">SERVICES</h2>
+            <h2 class="text-white">Services</h2>
         </div>
    </div>
 </div>
