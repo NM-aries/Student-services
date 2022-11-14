@@ -63,12 +63,7 @@
                 </a>
             </li>
 
-            <li class="nav-item {{ (request()->is('admin/feedback*')) ? 'active' : '' }}">
-                <a href="{{ url('admin/feedback') }}" class="nav-link">
-                    <img src="{{ asset('images/icons/Feedback-264x264.png') }}" alt="" class="sidebar_icon">
-                    <span class="sidebar-text">Feedback</span>
-                </a>
-            </li>
+            
 
             <li class="nav-item {{ (request()->is('admin/subscribers*')) ? 'active' : '' }}">
                 <a href="{{ url('admin/subscribers') }}" class="nav-link">
@@ -79,7 +74,14 @@
             
             
             
-            @if (Auth::user()->is_admin == 1)
+            @if (Auth::user()->is_admin == 1 )
+                <li class="nav-item {{ (request()->is('admin/feedback*')) ? 'active' : '' }}">
+                    <a href="{{ url('admin/feedback') }}" class="nav-link">
+                        <img src="{{ asset('images/icons/Feedback-264x264.png') }}" alt="" class="sidebar_icon">
+                        <span class="sidebar-text">Feedback</span>
+                    </a>
+                </li>
+                
                 <li class="nav-item {{ (request()->is('admin/user*')) ? 'active' : '' }}">
                     <a href="{{ url('admin/users') }}" class="nav-link">
                         <img src="{{ asset('images/icons/profile.png') }}" alt="" class="sidebar_icon"> 
