@@ -14,6 +14,65 @@
 <div class="container mb-3">
     <div class="row pt-3">
         <div class="col-12 col-md-8 col-lg-8 container mb-3">
+            <div class="bg-white pb-5 mt-4 ">
+                <section class="container _section1 p-0 ">
+                    <div class="_header text-start mb-3 bg-green px-4">
+                        <h3 class="text-white fw-bolder">Latest Announcements</h3>
+                    </div>
+                    <div class="row justify-content-center px-4">
+                        @if ($other_announcements->count())
+                                <div class="col-md-12 mb-4">
+                                    <div class="owl-carousel owl-theme row">
+                                        @foreach ($other_announcements as $announcemenetItems)
+                                            <div class="item "  style="width:100%">
+                                                <div class="card shadow-md p-0 border-0 bg-gray-100" id="news">
+                                                    <div class="card-header p-0 _thumbnail">
+                                                        <div class="_thumb_home" style="background:url(upload/announcement/{{ $announcemenetItems->coverimage }})">
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body p-0">
+                                                        <div class="title bg-green p-3 text-white">
+                                                            <h2 class="fs-6 _news-title" >
+                                                                {!! Str::limit($announcemenetItems->title, 70) !!}
+                                                            </h2>
+                                                        </div>
+                                                        <div class="px-3 py-2">
+                                                            <div class="d-flex justify-content-between align-items-center">
+                                                                <div class="text-left">
+                                                                    <svg class="icon icon-xs text-gray-400 me-1" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                                                                        <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
+                                                                        <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
+                                                                    </svg>
+                                                                    <span class="small ">{{$announcemenetItems->visit_count}}</span>
+                                                                </div>
+                                                                <div class="text-right">
+                                                                    <svg class="icon icon-xs text-gray-400 me-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path></svg>
+                                                                    <span class="small ">{{$announcemenetItems->created_at->diffForHumans()}}</span>        
+                                                                </div>
+                                                            </div>
+                                                            
+                                                            <p class="lead fs-6 ">
+                                                                <div class="_news-description text-primary">{!! $announcemenetItems->description !!}
+                                                                </div>
+                                                            </p>
+                                                            <a href="{{ url('university_announcements/'.$announcemenetItems->slug) }}"class="mb-3 btn btn-green">
+                                                                Continue Reading
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            
+                        @endif
+                    </div>
+                    <div class="button_readmore text-end px-4">
+                        <a href="{{ url('university_announcements') }}" class="fs-6 btn btn-green">View Announcement Archive</a>
+                    </div>
+                </section>
+            </div>
             <div class="bg-white  pb-5">
                 <section class="container _section1 p-0 ">
                     <div class="_header text-start mb-3 bg-green px-4">
@@ -76,65 +135,7 @@
             </div>
             
             {{-- Announcements --}}
-            <div class="bg-white pb-5 mt-4 ">
-                <section class="container _section1 p-0 ">
-                    <div class="_header text-start mb-3 bg-green px-4">
-                        <h3 class="text-white fw-bolder">Latest Announcements</h3>
-                    </div>
-                    <div class="row justify-content-center px-4">
-                        @if ($other_announcements->count())
-                                <div class="col-md-12 mb-4">
-                                    <div class="owl-carousel owl-theme row">
-                                        @foreach ($other_announcements as $announcemenetItems)
-                                            <div class="item "  style="width:100%">
-                                                <div class="card shadow-md p-0 border-0 bg-gray-100" id="news">
-                                                    <div class="card-header p-0 _thumbnail">
-                                                        <div class="_thumb_home" style="background:url(upload/announcement/{{ $announcemenetItems->coverimage }})">
-                                                        </div>
-                                                    </div>
-                                                    <div class="card-body p-0">
-                                                        <div class="title bg-green p-3 text-white">
-                                                            <h2 class="fs-6 _news-title" >
-                                                                {!! Str::limit($announcemenetItems->title, 70) !!}
-                                                            </h2>
-                                                        </div>
-                                                        <div class="px-3 py-2">
-                                                            <div class="d-flex justify-content-between align-items-center">
-                                                                <div class="text-left">
-                                                                    <svg class="icon icon-xs text-gray-400 me-1" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
-                                                                        <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
-                                                                        <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
-                                                                    </svg>
-                                                                    <span class="small ">{{$announcemenetItems->visit_count}}</span>
-                                                                </div>
-                                                                <div class="text-right">
-                                                                    <svg class="icon icon-xs text-gray-400 me-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path></svg>
-                                                                    <span class="small ">{{$announcemenetItems->created_at->diffForHumans()}}</span>        
-                                                                </div>
-                                                            </div>
-                                                            
-                                                            <p class="lead fs-6 ">
-                                                                <div class="_news-description text-primary">{!! $announcemenetItems->description !!}
-                                                                </div>
-                                                            </p>
-                                                            <a href="{{ url('university_announcements/'.$announcemenetItems->slug) }}"class="mb-3 btn btn-green">
-                                                                Continue Reading
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        @endforeach
-                                    </div>
-                                </div>
-                            
-                        @endif
-                    </div>
-                    <div class="button_readmore text-end px-4">
-                        <a href="{{ url('university_announcements') }}" class="fs-6 btn btn-green">View Announcement Archive</a>
-                    </div>
-                </section>
-            </div>
+            
         </div>
 
         <div class="col-lg-4 col-md-4 col-12 ">
