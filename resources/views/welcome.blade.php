@@ -14,7 +14,7 @@
 <div class="container mb-3">
     <div class="row pt-3">
         <div class="col-12 col-md-8 col-lg-8 container mb-3">
-            <div class="bg-white pb-5">
+            <div class="bg-white  pb-5">
                 <section class="container _section1 p-0 ">
                     <div class="_header text-start mb-3 bg-green px-4">
                         <h3 class="news_header fw-bolder text-white">Latest News</h3>

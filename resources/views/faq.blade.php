@@ -72,7 +72,7 @@
 
             <div class="text-center mt-5">
                 <strong class="fs-2">Can't Find Answers ?</strong>
-                <p class="fs-3">You can contact us directly here in our website</p>
+                <p class="fs-3">You can contact us/Chat directly here in our website</p>
             </div>
        </div>
     </div>
