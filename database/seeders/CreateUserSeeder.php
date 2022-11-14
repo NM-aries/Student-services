@@ -41,6 +41,7 @@ class CreateUserSeeder extends Seeder
                 'contact' => '09123456789',
                 'profile_img' => '1.jpg',
                 'is_admin' => '1',
+                'office' => 'Student Services Department',
                 'status' => '1',
                 'email' => 'admin@gmail.com',
                 'password' => bcrypt('admin123'),

@@ -12,6 +12,12 @@ Breadcrumbs::for('announcement', function ($trail) {
     $trail->push('Announcements', url('admin/announcement'));
 });
 
+Breadcrumbs::for('feedback', function ($trail) {
+    $trail->parent('dashboard');
+    $trail->push('Feedback', url('admin/feedback'));
+});
+
+
 Breadcrumbs::for('announcement_show', function ($trail, $announcement) {
     $trail->parent('announcement');
     $trail->push( Str::limit($announcement->title, 40) );

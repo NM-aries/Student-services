@@ -273,13 +273,13 @@ img._icon{
     padding-top:6rem !important;
 }
 
-._header h2
+._header h3
 {   
-    text-align:center;
-    font-size:80px;
+    font-size:50px;
     font-family:'wire one', serif;
-    font-weight:normal;
+    font-weight:bolder;
     color:#fff;
+    padding:10px 0px;
 }
 
 
@@ -369,3 +369,8 @@ img._icon{
     box-shadow: inset 0 -0.0625rem 0 #555    !important;
 }
 
+
+/* clock css */
+#time{
+    font-size: 20px;
+}

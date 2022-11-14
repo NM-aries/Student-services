@@ -8,7 +8,7 @@
 
 @section('content')
 
-<div class="container-fluid text-center bg-gray shadow-lg" id="title_container">
+<div class="container-fluid text-center bg-light-green shadow-lg" id="title_container">
     <div class="container" >
         <div class="header py-3">
             <h3 class="text-white text-uppercase">{{$announcement_details->title}}</h3>
@@ -23,8 +23,8 @@
             @endif
             <div class="card-body bg-white">
                 <div class="d-flex justify-content-between align-items-center">
-                    <small class="bg-gray-10 badge py-2 px-3 btn-sm">
-                        <svg class="icon icon-xs text-white me-1" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                    <small class="bg-light-green badge text-white py-2 px-3 btn-sm">
+                        <svg class="icon icon-xs  me-1" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
                             <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
                             <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
                         </svg>
@@ -46,7 +46,7 @@
                     <div class="d-flex justify-content-between align-items-center">
                         @if ($prev)
                             <div class="_prev">
-                                <a href="{{url('university_announcements/'.$prev->slug)}}" class=" btn bg-gray text-white icon-left ">
+                                <a href="{{url('university_announcements/'.$prev->slug)}}" class=" btn bg-green text-white icon-left ">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
                                         <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
                                     </svg>
@@ -57,7 +57,7 @@
 
                         @if ($next)
                             <div class="_next ">
-                                <a href="{{url('university_announcements/'.$next->slug)}}" class=" btn bg-gray text-white  icon-right ">
+                                <a href="{{url('university_announcements/'.$next->slug)}}" class=" btn bg-green text-white  icon-right ">
                                     Older Post
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
                                         <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>

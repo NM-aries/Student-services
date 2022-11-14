@@ -5,7 +5,7 @@
 @section('content')
 
 
-<div class="container-fluid bg-gray shadow" id="title_container">
+<div class="container-fluid bg-light-green shadow" id="title_container">
     <div class="container">
         <div class="header py-3">
             <h2 class="text-white">Search Result of: <i class="text-white">{{ request()->input('search') }}</i></h2>
@@ -40,7 +40,7 @@
                                                 {!! Str::limit($newsItem->description, 150, $end=" .....") !!}
                                             </p>
                                             <div class="d-flex justify-content-between align-items-center">
-                                                <a class="btn mt-2 btn-outline-danger btn-sm" href="{{ url('university_news/'.$newsItem->slug) }}"> 
+                                                <a class="btn mt-2 bg-green text-white btn-sm" href="{{ url('university_news/'.$newsItem->slug) }}"> 
                                                     Continue Reading  
                                                 </a>
                                                 <p class="card-text"><small class="text-muted">Posted on {{$newsItem->created_at->format('M d, Y')}}</small></p>

@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Announcement;
+use App\Models\News;
 use App\Models\Banner;
 use App\Models\Events;
-use App\Models\News;
+use App\Models\Feedback;
 use App\Models\Services;
+use App\Models\Announcement;
 use Illuminate\Http\Request;
 
 class LandingPageController extends Controller
@@ -31,7 +32,7 @@ class LandingPageController extends Controller
 
     public function news()
     {
-        $allNews = News::where('status', 1)->orderBy('created_at','desc')->Paginate(5);
+        $allNews = News::where('status', 1)->orderBy('created_at','desc')->Paginate(10);
         return view('news', compact('allNews'));
     }
 
@@ -108,5 +109,27 @@ class LandingPageController extends Controller
     {
         $event = Events::where('title', $title)->firstOrFail();
         return view('pages._events-show', compact('event'));
+    }
+
+    // FAQ
+
+    public function faq()
+    {
+        return view ('faq');
+    }
+
+    public function feedback(Request $request)
+    {
+        $feedback = new Feedback();
+        $feedback->name = $request->input('txtName');
+        $feedback->email = $request->input('txtEmail');
+        $feedback->contact = $request->input('txtPhone');
+        $feedback->description = $request->input('txtMsg');
+
+        // dd($feedback);
+        $feedback->save();
+
+        return redirect()->back()->with('message','Thank you sending us your feedback');
+
     }
 }

@@ -1,6 +1,6 @@
 <header class="sticky-top shadow-sm bg-white shadow">
     <div class="navbar navbar-expand-lg">
-        <div class="container">
+        <div class="container-fluid">
             <div class="logo mt-1 ">
                 <a href="/">
                     <img src="{{ asset('images/logo/tan.png') }}" class=" d-none d-md-block" height="50">
@@ -38,15 +38,19 @@
                     <li class="nav-item  me-1 {{ (request()->is('/')) ? 'is_active' : '' }}">
                         <a href="{{ url('/') }}" class="nav-link">Home</a>
                     </li>
-                    <li class="nav-item me-1 {{ (request()->is('university_news*')) ? 'is_active' : '' }}">
-                        <a href="{{ url('university_news') }}" class="nav-link ">News</a>
-                    </li>
+
                     <li class="nav-item me-1 {{ (request()->is('university_announcements*')) ? 'is_active' : '' }}">
                         <a href="{{ url('university_announcements') }}" class="nav-link">Annoucements</a>
                     </li>
-                    <li class="nav-item me-1 {{ (request()->is('university_services*')) ? 'is_active' : '' }}">
-                        <a href="{{ url('university_services') }}" class="nav-link">Services</a>
+
+                    <li class="nav-item me-1 {{ (request()->is('university_news*')) ? 'is_active' : '' }}">
+                        <a href="{{ url('university_news') }}" class="nav-link ">News</a>
                     </li>
+                    
+                    <li class="nav-item me-1 {{ (request()->is('university_services*')) ? 'is_active' : '' }}">
+                        <a href="{{ url('university_services') }}" class="nav-link">Downloads</a>
+                    </li>
+
                     <li class="nav-item me-1 {{ (request()->is('university_events*')) ? 'is_active' : '' }}">
                         <a href="{{ url('university_events') }}" class="nav-link">Events</a>
                     </li>
@@ -60,15 +64,16 @@
                             <a type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="nav-link">Subscribe</a>
                         </li>
                     @endif
+
+                    <li class="nav-item me-1">
+                        <a type="button" data-bs-toggle="modal" data-bs-target="#feedback" class="nav-link">Feedback</a>
+                    </li>
+                    <li class="nav-item me-1 {{ (request()->is('faq*')) ? 'is_active' : '' }}">
+                        <a href="{{ url('faq') }}" class="nav-link">FAQ</a>
+                    </li>
                     
                 </ul>
-                <div class="d-flex text-white navbar-dark text-right nav_clock d-none d-md-block">
-                    <span class="fs-6 fw-bolder">Philippines Standard Time:</h6>
-                    <div class="fw-normal">
-                        <span id="date"></span>,
-                        <span id="time"></span>
-                    </div>   
-                </div>
+                
                 
             </div>
         </nav>
@@ -116,4 +121,50 @@
             </div>
         </div>
     </div>
-  </div>
+</div>
+
+<div class="modal fade" id="feedback" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-lg">
+        <div class="modal-content">
+            <div class="modal-body bg-light-green">
+                <section class="container _section1 ">
+                    <div class="_header text-center">
+                        <h2 class="text-white fw-bolder">Drop us a Message </h2>
+                    </div>
+                    <div class="row justify-content-center">
+                       <div class="col-4 col-md-3 py-0">
+                            <img src="{{ asset('images/icons/mail.png') }}" alt="">
+                       </div>
+                        <div class="col-12 col-md-12 m-auto align-middle ">
+                            <div class=" card-body text-center">
+                                <form action="{{ url('sent_feedback') }}" method="POST" class="row">
+                                    @csrf
+                                    <div class="col-md-6">
+                                        <div class="form-group mb-3">
+                                            <input type="text" name="txtName" class="form-control" placeholder="Your Name *" value="" />
+                                        </div>
+                                        <div class="form-group mb-3">
+                                            <input type="text" name="txtEmail" class="form-control" placeholder="Your Email *" value="" />
+                                        </div>
+                                        <div class="form-group mb-3">
+                                            <input type="text" name="txtPhone" class="form-control" placeholder="Your Phone Number *" value="" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <textarea name="txtMsg" class="form-control" placeholder="Your Message *" style="width: 100%; height: 150px;"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" class="btn bg-green text-white"/>Send Message</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                       
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>

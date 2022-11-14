@@ -9,6 +9,7 @@ use App\Models\Services;
 use App\Models\Announcement;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Feedback;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class DashboardController extends Controller
@@ -34,6 +35,13 @@ class DashboardController extends Controller
             'pop_news',
             'pop_announcement'
         ));
+    }
+
+
+    public function feedback()
+    {
+        $feedback = Feedback::all();
+        return view('admin.feedback', compact('feedback'));
     }
 
 }

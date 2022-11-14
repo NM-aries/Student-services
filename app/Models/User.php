@@ -24,7 +24,8 @@ class User extends Authenticatable
         'contact',
         'profile_img',
         'user_id',
-        // 'is_admin',
+        'office',
+        'is_admin',
         'status',
     ];
 

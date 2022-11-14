@@ -15,7 +15,7 @@
 <div class="container mb-5 mt-4" >
     <div class="row new_content  ">
         <div class="col-12 order-1  ">
-            @if ($allNews->count())
+            @if ($allNews->count()) 
                 @foreach ($allNews as $listNews )
                     <div class="card mb-3 news bg-white">
                         <div class="row">
@@ -32,10 +32,10 @@
                             <div class="col-md-8">
                                 <div class="card-body">
                                     <h5 class="card-title c-text-green fw-bold">{{$listNews->title}}</h5>
-                                    <p class="card-text lead">
+                                    <p class="w-100 card-text">
                                         {!! Str::limit($listNews->description, 150, $end=" .....") !!}
                                     </p>
-                                    <div class="d-flex justify-content-between align-items-center">
+                                    <div class="w-100  d-flex justify-content-between align-items-center">
                                         <a class="btn mt-2 btn-green btn-sm" href="{{ url('university_news/'.$listNews->slug) }}"> 
                                             Continue Reading  
                                         </a>

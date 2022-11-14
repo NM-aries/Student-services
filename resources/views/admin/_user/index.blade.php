@@ -17,6 +17,9 @@
 @endsection
 
 @section('content')
+
+@include('include/_alert')
+
 <div class="card border-0 shadow mb-4">
     <div class="card-body p-3">
         <div class="table-responsive pt-1">
@@ -48,7 +51,7 @@
                             @else
                                 <span class="badge p-2 bg-secondary"> Staff</span> 
                             @endif
-
+                                <span class="badge p-2 bg-info"> {{ $items->office }}</span> 
                         </td>
 
                         <td style="width: 100px">
@@ -98,7 +101,6 @@
     </div>
 </div>
 
-@include('include/_alert')
 @endsection
 
 

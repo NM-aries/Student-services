@@ -8,7 +8,7 @@
 
 @section('content')
 
-<div class="container-fluid text-center bg-secondary shadow-lg" id="title_container">
+<div class="container-fluid text-center bg-light-green shadow-lg" id="title_container">
     <div class="container" >
         <div class="header py-3">
             <h3 class="text-white text-uppercase">{{$event->title}}</h3>

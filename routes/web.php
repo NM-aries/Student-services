@@ -38,6 +38,9 @@ Route::get('/university_events/{title}' ,[App\Http\Controllers\LandingPageContro
 Route::get('search', [\App\Http\Controllers\SearchController::class , 'search']);
 Route::post('subscribe', [\App\Http\Controllers\SubscribeController::class, 'subscribe']);
 
+Route::get('faq', [\App\Http\Controllers\LandingPageController::class, 'faq']);
+Route::post('/sent_feedback', [\App\Http\Controllers\LandingPageController::class, 'feedback']);
+
 // Route::get('send-sms', [App\Http\Controllers\SendSMSController::class, 'index']);
 
 
@@ -46,6 +49,8 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin', 'cors'])->group(function 
     Route::get('/dashboard',    [App\Http\Controllers\Admin\DashboardController::class, 'index']);
     Route::get('/previous',    [App\Http\Controllers\Admin\DashboardController::class, 'previous']);
     Route::get('/logs', [App\Http\Controllers\Admin\LogsController::class, 'index']);
+
+    Route::get('/feedback',[App\Http\Controllers\Admin\DashboardController::class, 'feedback']);
 
     // Announcement Route
     Route::prefix('announcement')->group(function () {
@@ -59,7 +64,6 @@ Route::prefix('admin')->middleware(['auth', 'isAdmin', 'cors'])->group(function 
         Route::get('checkslug', [App\Http\Controllers\Admin\AnnouncementController::class, 'checkslug']);
     });
 
-    
     // NEWS AND UPDATES
     Route::prefix('news')->group(function () {
         Route::get('/',     [App\Http\Controllers\Admin\NewsController::class, 'index']);

@@ -68,6 +68,7 @@ class UserController extends Controller
         $user->status = $data['status'];
         $user->user_id = $data['user_id'];
         $user->is_admin = $request->input('is_admin');
+        $user->office = $request->input('office');
         $user->contact = $request->input('contact');
 
         if($request->password !== null)
@@ -143,6 +144,8 @@ class UserController extends Controller
             'contact' => $request->input('contact'),
             'status' => $request->input('status'),
             'is_admin' => $request->input('is_admin'),
+            'office' => $request->input('office'),
+
         ]);
 
         if($request->hasfile('profilePic')){
