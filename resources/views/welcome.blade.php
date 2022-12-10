@@ -14,7 +14,7 @@
 <div class="container mb-3">
     <div class="row pt-3">
         <div class="col-12 col-md-8 col-lg-8 container mb-3">
-            <div class="bg-white pb-5 mt-4 ">
+            <div class="bg-white pb-5 ">
                 <section class="container _section1 p-0 ">
                     <div class="_header text-start mb-3 bg-green px-4">
                         <h3 class="text-white fw-bolder">Latest Announcements</h3>
@@ -73,7 +73,7 @@
                     </div>
                 </section>
             </div>
-            <div class="bg-white  pb-5">
+            <div class="bg-white  pb-5 mt-4">
                 <section class="container _section1 p-0 ">
                     <div class="_header text-start mb-3 bg-green px-4">
                         <h3 class="news_header fw-bolder text-white">Latest News</h3>
@@ -138,7 +138,7 @@
             
         </div>
 
-        <div class="col-lg-4 col-md-4 col-12 ">
+        <div class="col-lg-4 col-md-4 col-12  ">
             <div class=" h-auto">                
                 <div class="col-12 bg-white p-0 pb-5">
                     <section class="container _section1 p-0 ">
@@ -259,13 +259,13 @@
                         @csrf
                         <div class="row ">
                         
-                            <div class="col-5">
+                            <div class="col-6 col-md-5">
                                 <input name="email" type="email" class=" form-control mb-3" placeholder="Email Address" autocomplete="off" required>
                             </div>  
-                            <div class="col-5">
+                            <div class="col-6 col-md-5">
                                 <input name="name" type="text" class=" form-control mb-3"  autocomplete="off"  placeholder="Name" required>
                             </div>
-                            <div class="col-auto right-0">
+                            <div class="col-auto  right-0">
                                 <button class=" btn btn-green">Subscribe</button>    
                             </div>                        
                         </div>

@@ -37,7 +37,7 @@
                                 <div class="form-group has-icon-left">
                                     <label for="first-name-icon">FirstName</label>
                                     <div class="position-relative">
-                                        <input type="text" name="name" class="form-control"  id="first-name-icon" autocomplete="off">
+                                        <input type="text" name="fname" class="form-control"  id="first-name-icon" autocomplete="off">
                                         <div class="form-control-icon">
                                             <i class="bi bi-card-text"></i>
                                         </div>

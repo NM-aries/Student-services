@@ -43,7 +43,7 @@
                             <img class="avatar avatar-md rounded" src="{{ asset('images/user/'.$items->profile_img) }}" style="height: 40px; width:40px;">
                         </td>
                         <td>{{ $items->user_id }}</td>
-                        <td>{{ $items->name }}</td>                        
+                        <td>{{ $items->fname }} {{ $items->lname }}</td>                        
                         <td>{{ $items->email }}</td>
                         <td style="width: 100px">
                             @if ($items->is_admin == 1)
@@ -51,7 +51,8 @@
                             @else
                                 <span class="badge p-2 bg-secondary"> Staff</span> 
                             @endif
-                                <span class="badge p-2 bg-info"> {{ $items->office }}</span> 
+                            
+                                <span class="badge p-2 bg-info"> {{ $items->office ?? 'None'}}</span> 
                         </td>
 
                         <td style="width: 100px">

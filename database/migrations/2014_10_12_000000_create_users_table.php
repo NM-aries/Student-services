@@ -17,13 +17,14 @@ class CreateUsersTable extends Migration
             $table->bigIncrements('id');
             $table->string('profile_img')->default('default.jpg');
             $table->string('user_id');
-            $table->string('name');
+            $table->string('fname');
+            $table->string('lname')->nullable();
             $table->string('email');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('contact')->nullable();
             $table->boolean('is_admin');
-            $table->string('office')->default(0);
+            $table->string('office')->default('None');
             $table->boolean('status')->default(0);
             $table->rememberToken();
             $table->timestamps();

@@ -47,7 +47,7 @@ class BannerController extends Controller
         $banner->save();
 
         $logs = new Logs();
-        $logs->user = Auth::user()->name;
+        $logs->user = Auth::user()->fname;
         $logs->status = '<span class="badge p-2 bg-success"> Created </span> ';
         $logs->action = '<a class="text-success">Banner</a> : '. $banner->title;
         $logs->save();
@@ -71,7 +71,7 @@ class BannerController extends Controller
         $banner->description = $data['description'];
         $banner->link = $request->input('link');
         $banner->created_by = $request->created_by;
-        $banner->updated_by = Auth::user()->name;
+        $banner->updated_by = Auth::user()->fname;
     
         if($request->hasfile('bannerimage')){
             $file = $request->file('bannerimage');
@@ -84,7 +84,7 @@ class BannerController extends Controller
         $banner->update();
 
         $logs = new Logs();
-        $logs->user = Auth::user()->name;
+        $logs->user = Auth::user()->fname;
         $logs->status = '<span class="badge p-2 bg-info"> Updated </span> ';
         $logs->action = '<a class="text-info">Banner</a> : '. $banner->title;
         $logs->save();
@@ -106,7 +106,7 @@ class BannerController extends Controller
         }
 
         $logs = new Logs();
-        $logs->user = Auth::user()->name;
+        $logs->user = Auth::user()->fname;
         $logs->status = '<span class="badge p-2 bg-danger"> Removed </span>';
         $logs->action = '<a class="text-danger">Banner</a> : '. $banner->title;
         $logs->save();

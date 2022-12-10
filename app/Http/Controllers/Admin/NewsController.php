@@ -50,7 +50,7 @@ class NewsController extends Controller
         $news->save();
 
         $logs = new Logs();
-        $logs->user = Auth::user()->name;
+        $logs->user = Auth::user()->fname;
         $logs->status = '<span class="badge p-2 bg-success"> Created </span> ';
         $logs->action = '<a class="text-success"> News </a> :'. $news->title;
         $logs->save();
@@ -76,7 +76,7 @@ class NewsController extends Controller
         $news->slug = Str::slug($data['slug']);
         $news->description = $data['description'];
         $news->created_by = $request->input('created_by');
-        $news->updated_by = Auth::user()->name;
+        $news->updated_by = Auth::user()->fname;
 
         if($request->hasfile('coverimage')){
             $file = $request->file('coverimage');
@@ -88,7 +88,7 @@ class NewsController extends Controller
         $news->update();
 
         $logs = new Logs();
-        $logs->user = Auth::user()->name;
+        $logs->user = Auth::user()->fname;
         $logs->status = '<span class="badge p-2 bg-info"> Updated </span> ';
         $logs->action = '<a class="text-info"> News </a> : '. $news->title;
         $logs->save();
@@ -116,7 +116,7 @@ class NewsController extends Controller
             $news->delete();
         }        
         $logs = new Logs();
-        $logs->user = Auth::user()->name;
+        $logs->user = Auth::user()->fname;
         $logs->status = '<span class="badge p-2 bg-danger"> Removed </span> ';
         $logs->action = '<a class="text-danger"> News </a> : '. $news->title;
         $logs->save();

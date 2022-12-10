@@ -4,7 +4,7 @@
         <div class="card-body pb-4">
             <img src="{{ asset('images/user/'.$user->profile_img) }}" class="avatar-xl rounded-circle mx-auto mt-n7 mb-4" alt="User Portrait">
             <h4 class="h3">
-                {{ $user->name }}
+                {{ $user->fname }}
             </h4>
             <p class="text-gray mb-4">
                 @if ($user->status)

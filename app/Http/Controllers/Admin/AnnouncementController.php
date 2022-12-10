@@ -52,7 +52,7 @@ class AnnouncementController extends Controller
         $announcement->save();
 
         $logs = new Logs();
-        $logs->user = Auth::user()->name;
+        $logs->user = Auth::user()->fname;
         $logs->status = '<span class="badge p-2 bg-success"> Created </span> ';
         $logs->action = '<a class="text-success">Announcement</a> : '. $announcement->title;
         $logs->save();
@@ -88,11 +88,11 @@ class AnnouncementController extends Controller
 
         
         $announcement->created_by = $request->input('created_by');
-        $announcement->updated_by = Auth::user()->name;
+        $announcement->updated_by = Auth::user()->fname;
         $announcement->update();
 
         $logs = new Logs();
-        $logs->user = Auth::user()->name;
+        $logs->user = Auth::user()->fname;
         $logs->status = '<span class="badge p-2 bg-info"> Updated </span>';
         $logs->action = '<a class="text-info">Announcement</a> : '. $announcement->title;
         $logs->save();
@@ -114,7 +114,7 @@ class AnnouncementController extends Controller
         }
 
         $logs = new Logs();
-        $logs->user = Auth::user()->name;
+        $logs->user = Auth::user()->fname;
         $logs->status = '<span class="badge p-2 bg-danger"> Removed </span> ';
         $logs->action = '<a class="text-danger">Announcement</a> : '. $announcement->title;
         $logs->save();

@@ -38,7 +38,7 @@ class EventsController extends Controller
         $event->save();
 
         $logs = new Logs();
-        $logs->user = Auth::user()->name;
+        $logs->user = Auth::user()->fname;
         $logs->status = '<span class="badge p-2 bg-success"> Created </span> ';
         $logs->action = '<a class="text-success">Event</a> : '. $event->title;
         $logs->save();
@@ -77,7 +77,7 @@ class EventsController extends Controller
         $event->delete();
 
         $logs = new Logs();
-        $logs->user = Auth::user()->name;
+        $logs->user = Auth::user()->fname;
         $logs->status = '<span class="badge p-2 bg-danger"> Removed </span>';
         $logs->action = '<a class="text-danger">Event</a> : '. $event->title;
         $logs->save();

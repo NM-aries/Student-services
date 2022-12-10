@@ -36,7 +36,8 @@ class CreateUserSeeder extends Seeder
 
         $users =  [
             [
-                'name' => 'Student Services Department',
+                'fname' => 'Student Services Department',
+                'lname' => 'SSD',
                 'user_id' => '2019-35744',
                 'contact' => '09123456789',
                 'profile_img' => '1.jpg',

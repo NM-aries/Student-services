@@ -27,7 +27,7 @@
                             <img class="avatar rounded-circle" alt="Image placeholder" src="{{ asset('images/user/'. Auth::user()->profile_img) }}">
                             <div class="media-body ms-2 text-dark align-items-center d-none d-lg-block">
                                 <span class="mb-0 font-small fw-bold text-gray-900">
-                                    {{ Auth::user()->name }}
+                                    {{ Auth::user()->fname }}
                                 </span>
                             </div>
                         </div>

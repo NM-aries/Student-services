@@ -6,7 +6,7 @@
                 <p class="">Full Name</p>
             </div>
             <div class="col-9">
-                <p class="text-muted">{{$user->name}}</p>
+                <p class="text-muted">{{$user->fname}} {{ $user->lname }}</p>
             </div>
         </div>
         <div class="row">

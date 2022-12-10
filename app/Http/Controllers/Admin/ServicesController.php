@@ -44,7 +44,7 @@ class ServicesController extends Controller
         $services->save();
 
         $logs = new Logs();
-        $logs->user = Auth::user()->name;
+        $logs->user = Auth::user()->fname;
         $logs->status = '<span class="badge bg-success"> Created </span>: ';
         $logs->action = '<a class="text-success">Services </a>: '. $services->title;
         $logs->save();
@@ -72,11 +72,11 @@ class ServicesController extends Controller
 
         
         $services->created_by = $request->input('created_by');
-        $services->updated_by = Auth::user()->name;
+        $services->updated_by = Auth::user()->fname;
         $services->update();
 
         $logs = new Logs();
-        $logs->user = Auth::user()->name;
+        $logs->user = Auth::user()->fname;
         $logs->status = '<span class="badge p-2 bg-info"> Updated </span>';
         $logs->action = '<a class="text-info">Services </a>: '. $services->title;
         $logs->save();
@@ -108,7 +108,7 @@ class ServicesController extends Controller
         }
 
         $logs = new Logs();
-        $logs->user = Auth::user()->name;
+        $logs->user = Auth::user()->fname;
         $logs->status = '<span class="badge bg-danger"> Removed </span>: ';
         $logs->action = '<a class="text-danger">Services </a>:'. $services->title;
         $logs->save();

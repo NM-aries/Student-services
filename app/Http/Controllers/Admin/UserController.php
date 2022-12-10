@@ -63,7 +63,8 @@ class UserController extends Controller
         $data = $request->validated();
         $user = User::find($user_id);
 
-        $user->name = $data['name'];
+        $user->lname = $data['lname'];
+        $user->fname = $data['fname'];
         $user->email = $data['email'];
         $user->status = $data['status'];
         $user->user_id = $data['user_id'];
@@ -86,7 +87,7 @@ class UserController extends Controller
         $user->update();
 
         $logs = new Logs();
-        $logs->user = Auth::user()->name;
+        $logs->user = Auth::user()->fname;
         $logs->status = '<span class="badge p-2 bg-info"> Updated </span>';
         $logs->action = '<a class="text-info">User </a>:'. $user->name;
         $logs->save();
@@ -137,7 +138,8 @@ class UserController extends Controller
         ]);
 
         $user = User::create([
-            'name' => trim($request->input('name')),
+            'fname' => trim($request->input('fname')),
+            'lname' => $request->input('lname'),
             'email' => strtolower($request->input('email')),
             'password' => bcrypt($request->input('password')),
             'user_id' => $request->input('user_id'),
@@ -157,9 +159,9 @@ class UserController extends Controller
         $user->save();
         
         $logs = new Logs();
-        $logs->user = Auth::user()->name;
+        $logs->user = Auth::user()->fname;
         $logs->status = '<span class="badge p-2 bg-success"> Created </span>';
-        $logs->action = '<a class="text-success">User </a>:'. $user->name;
+        $logs->action = '<a class="text-success">User </a>:'. $user->fname.' '.$user->lname;
         $logs->save();
         
         session()->flash('message', 'User Successfully Registered');
@@ -178,7 +180,7 @@ class UserController extends Controller
         }
 
         $logs = new Logs();
-        $logs->user = Auth::user()->name;
+        $logs->user = Auth::user()->fname;
         $logs->status = '<span class="badge p-2 bg-danger"> Removed </span>';
         $logs->action = '<a class="text-danger">User </a>:'. $user->name;
         $logs->save();
